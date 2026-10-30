@@ -1,5 +1,12 @@
 # 更新日志
 
+## 1.2.1 (2026-10-30)
+
+### 变更
+- 图表改用原生控件：删除继承 Chart 的 PlotBox / GaugeBox，三个页面的 Designer 里直接放 `System.Windows.Forms.DataVisualization.Charting.Chart`，ChartArea、Series、Legend、Annotation 都在设计器里声明，工具箱可直接编辑。
+- 新增 ChartKit 静态帮助类（不继承控件、不参与绘制），只负责往现有 Series 里填数据点、摆仪表盘指针/轴帽/刻度注释。
+- 折线图 X 轴取消两端留白，曲线从第一点到最后一点铺满绘图区，和 UI 文档一致。
+
 ## 1.2.0 (2026-10-30)
 
 ### 新增

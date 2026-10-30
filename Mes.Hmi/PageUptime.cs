@@ -8,6 +8,7 @@ using System.Globalization;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Mes.Hmi
 {
@@ -34,6 +35,8 @@ namespace Mes.Hmi
         public PageUptime(StationContext station) : this()
         {
             this.station = station;
+            ChartKit.StylePlot(plotPie);
+            ChartKit.Empty(plotPie, "所选范围内没有已结束的故障");
             fromPicker.Value = DateTime.Today.AddDays(-7);
             toPicker.Value = DateTime.Now;
             refresh.Enabled = true;
@@ -252,7 +255,7 @@ namespace Mes.Hmi
             }
             if (values.Count == 0)
             {
-                plotPie.SetEmpty("所选范围内没有已结束的故障");
+                ChartKit.Empty(plotPie, "所选范围内没有已结束的故障");
                 return;
             }
             var labels = new string[names.Count];
@@ -261,10 +264,7 @@ namespace Mes.Hmi
                 labels[i] = string.Format("{0} {1:00}:{2:00}", names[i],
                     (int)(values[i] / 60), (int)values[i] % 60);
             }
-            plotPie.SetSeries(new[]
-            {
-                new PlotSeries { Name = "停机分钟", Values = values.ToArray() },
-            }, labels);
+            ChartKit.Fill(plotPie, labels, new[] { values.ToArray() });
         }
 
         private static void SetText(TextBox box, string text)

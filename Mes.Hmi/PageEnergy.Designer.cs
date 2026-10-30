@@ -15,6 +15,70 @@ namespace Mes.Hmi
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea gAreaVolt = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series gSeriesVolt = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.LineAnnotation gNeedleVolt = new System.Windows.Forms.DataVisualization.Charting.LineAnnotation();
+            System.Windows.Forms.DataVisualization.Charting.EllipseAnnotation gHubVolt = new System.Windows.Forms.DataVisualization.Charting.EllipseAnnotation();
+            System.Windows.Forms.DataVisualization.Charting.TextAnnotation gValueVolt = new System.Windows.Forms.DataVisualization.Charting.TextAnnotation();
+            System.Windows.Forms.DataVisualization.Charting.TextAnnotation gUnitVolt = new System.Windows.Forms.DataVisualization.Charting.TextAnnotation();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea gAreaCur = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series gSeriesCur = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.LineAnnotation gNeedleCur = new System.Windows.Forms.DataVisualization.Charting.LineAnnotation();
+            System.Windows.Forms.DataVisualization.Charting.EllipseAnnotation gHubCur = new System.Windows.Forms.DataVisualization.Charting.EllipseAnnotation();
+            System.Windows.Forms.DataVisualization.Charting.TextAnnotation gValueCur = new System.Windows.Forms.DataVisualization.Charting.TextAnnotation();
+            System.Windows.Forms.DataVisualization.Charting.TextAnnotation gUnitCur = new System.Windows.Forms.DataVisualization.Charting.TextAnnotation();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea gAreaAirP = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series gSeriesAirP = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.LineAnnotation gNeedleAirP = new System.Windows.Forms.DataVisualization.Charting.LineAnnotation();
+            System.Windows.Forms.DataVisualization.Charting.EllipseAnnotation gHubAirP = new System.Windows.Forms.DataVisualization.Charting.EllipseAnnotation();
+            System.Windows.Forms.DataVisualization.Charting.TextAnnotation gValueAirP = new System.Windows.Forms.DataVisualization.Charting.TextAnnotation();
+            System.Windows.Forms.DataVisualization.Charting.TextAnnotation gUnitAirP = new System.Windows.Forms.DataVisualization.Charting.TextAnnotation();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea gAreaAirF = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series gSeriesAirF = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.LineAnnotation gNeedleAirF = new System.Windows.Forms.DataVisualization.Charting.LineAnnotation();
+            System.Windows.Forms.DataVisualization.Charting.EllipseAnnotation gHubAirF = new System.Windows.Forms.DataVisualization.Charting.EllipseAnnotation();
+            System.Windows.Forms.DataVisualization.Charting.TextAnnotation gValueAirF = new System.Windows.Forms.DataVisualization.Charting.TextAnnotation();
+            System.Windows.Forms.DataVisualization.Charting.TextAnnotation gUnitAirF = new System.Windows.Forms.DataVisualization.Charting.TextAnnotation();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea gAreaWatP = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series gSeriesWatP = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.LineAnnotation gNeedleWatP = new System.Windows.Forms.DataVisualization.Charting.LineAnnotation();
+            System.Windows.Forms.DataVisualization.Charting.EllipseAnnotation gHubWatP = new System.Windows.Forms.DataVisualization.Charting.EllipseAnnotation();
+            System.Windows.Forms.DataVisualization.Charting.TextAnnotation gValueWatP = new System.Windows.Forms.DataVisualization.Charting.TextAnnotation();
+            System.Windows.Forms.DataVisualization.Charting.TextAnnotation gUnitWatP = new System.Windows.Forms.DataVisualization.Charting.TextAnnotation();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea gAreaWatF = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series gSeriesWatF = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.LineAnnotation gNeedleWatF = new System.Windows.Forms.DataVisualization.Charting.LineAnnotation();
+            System.Windows.Forms.DataVisualization.Charting.EllipseAnnotation gHubWatF = new System.Windows.Forms.DataVisualization.Charting.EllipseAnnotation();
+            System.Windows.Forms.DataVisualization.Charting.TextAnnotation gValueWatF = new System.Windows.Forms.DataVisualization.Charting.TextAnnotation();
+            System.Windows.Forms.DataVisualization.Charting.TextAnnotation gUnitWatF = new System.Windows.Forms.DataVisualization.Charting.TextAnnotation();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea pAreaVolt = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series pSeriesVolt = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title pTitleVolt = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea pAreaCur = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series pSeriesCur = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title pTitleCur = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea pAreaPow = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series pSeriesPow = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title pTitlePow = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea pAreaHistPow = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series pSeriesHistPow = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title pTitleHistPow = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea pAreaAirP = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Title pTitleAirP = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea pAreaAirF = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series pSeriesAirF = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title pTitleAirF = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea pAreaHistAir = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series pSeriesHistAir = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title pTitleHistAir = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea pAreaWatP = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Title pTitleWatP = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea pAreaWatF = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series pSeriesWatF = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title pTitleWatF = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea pAreaHistWat = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series pSeriesHistWat = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title pTitleHistWat = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.root = new System.Windows.Forms.TableLayoutPanel();
             this.tabs = new System.Windows.Forms.TabControl();
             this.tabPower = new System.Windows.Forms.TabPage();
@@ -24,10 +88,10 @@ namespace Mes.Hmi
             this.btnPowerLive = new System.Windows.Forms.Button();
             this.btnPowerHistory = new System.Windows.Forms.Button();
             this.voltageCaption = new System.Windows.Forms.Label();
-            this.gaugeVoltage = new Mes.Hmi.GaugeBox();
+            this.gaugeVoltage = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.voltageValue = new System.Windows.Forms.Label();
             this.currentCaption = new System.Windows.Forms.Label();
-            this.gaugeCurrent = new Mes.Hmi.GaugeBox();
+            this.gaugeCurrent = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.currentValue = new System.Windows.Forms.Label();
             this.energyCaption = new System.Windows.Forms.Label();
             this.energyBox = new System.Windows.Forms.Label();
@@ -35,10 +99,10 @@ namespace Mes.Hmi
             this.todayValue = new System.Windows.Forms.Label();
             this.powerContent = new System.Windows.Forms.Panel();
             this.realPower = new System.Windows.Forms.TableLayoutPanel();
-            this.plotVoltage = new Mes.Hmi.PlotBox();
-            this.plotCurrent = new Mes.Hmi.PlotBox();
-            this.plotPower = new Mes.Hmi.PlotBox();
-            this.plotHistoryPower = new Mes.Hmi.PlotBox();
+            this.plotVoltage = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.plotCurrent = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.plotPower = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.plotHistoryPower = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabAir = new System.Windows.Forms.TabPage();
             this.airBody = new System.Windows.Forms.TableLayoutPanel();
             this.airSide = new System.Windows.Forms.TableLayoutPanel();
@@ -46,18 +110,18 @@ namespace Mes.Hmi
             this.btnAirLive = new System.Windows.Forms.Button();
             this.btnAirHistory = new System.Windows.Forms.Button();
             this.airPressureCaption = new System.Windows.Forms.Label();
-            this.airGaugePressure = new Mes.Hmi.GaugeBox();
+            this.airGaugePressure = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.airPressureValue = new System.Windows.Forms.Label();
             this.airFlowCaption = new System.Windows.Forms.Label();
-            this.airGaugeFlow = new Mes.Hmi.GaugeBox();
+            this.airGaugeFlow = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.airFlowValue = new System.Windows.Forms.Label();
             this.airEnergyCaption = new System.Windows.Forms.Label();
             this.airEnergyBox = new System.Windows.Forms.Label();
             this.airContent = new System.Windows.Forms.Panel();
             this.realAir = new System.Windows.Forms.TableLayoutPanel();
-            this.plotAirPressure = new Mes.Hmi.PlotBox();
-            this.plotAirFlow = new Mes.Hmi.PlotBox();
-            this.plotHistoryAir = new Mes.Hmi.PlotBox();
+            this.plotAirPressure = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.plotAirFlow = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.plotHistoryAir = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabWater = new System.Windows.Forms.TabPage();
             this.waterBody = new System.Windows.Forms.TableLayoutPanel();
             this.waterSide = new System.Windows.Forms.TableLayoutPanel();
@@ -65,18 +129,18 @@ namespace Mes.Hmi
             this.btnWaterLive = new System.Windows.Forms.Button();
             this.btnWaterHistory = new System.Windows.Forms.Button();
             this.waterPressureCaption = new System.Windows.Forms.Label();
-            this.waterGaugePressure = new Mes.Hmi.GaugeBox();
+            this.waterGaugePressure = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.waterPressureValue = new System.Windows.Forms.Label();
             this.waterFlowCaption = new System.Windows.Forms.Label();
-            this.waterGaugeFlow = new Mes.Hmi.GaugeBox();
+            this.waterGaugeFlow = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.waterFlowValue = new System.Windows.Forms.Label();
             this.waterEnergyCaption = new System.Windows.Forms.Label();
             this.waterEnergyBox = new System.Windows.Forms.Label();
             this.waterContent = new System.Windows.Forms.Panel();
             this.realWater = new System.Windows.Forms.TableLayoutPanel();
-            this.plotWaterPressure = new Mes.Hmi.PlotBox();
-            this.plotWaterFlow = new Mes.Hmi.PlotBox();
-            this.plotHistoryWater = new Mes.Hmi.PlotBox();
+            this.plotWaterPressure = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.plotWaterFlow = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.plotHistoryWater = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.refresh = new System.Windows.Forms.Timer(this.components);
             this.root.SuspendLayout();
             this.tabs.SuspendLayout();
@@ -98,6 +162,22 @@ namespace Mes.Hmi
             this.waterMode.SuspendLayout();
             this.waterContent.SuspendLayout();
             this.realWater.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gaugeVoltage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gaugeCurrent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.airGaugePressure)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.airGaugeFlow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.waterGaugePressure)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.waterGaugeFlow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plotVoltage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plotCurrent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plotPower)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plotHistoryPower)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plotAirPressure)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plotAirFlow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plotHistoryAir)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plotWaterPressure)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plotWaterFlow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plotHistoryWater)).BeginInit();
             this.SuspendLayout();
             // 
             // root
@@ -249,17 +329,62 @@ namespace Mes.Hmi
             // 
             // gaugeVoltage
             // 
+            gAreaVolt.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            gAreaVolt.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            gAreaVolt.AxisY.LabelStyle.Format = "0";
+            gAreaVolt.AxisY.Maximum = 400D;
+            gAreaVolt.AxisY.Minimum = 0D;
+            gAreaVolt.BackColor = System.Drawing.Color.White;
+            gAreaVolt.Name = "gauge";
+            this.gaugeVoltage.ChartAreas.Add(gAreaVolt);
             this.gaugeVoltage.BackColor = System.Drawing.Color.White;
             this.gaugeVoltage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gaugeVoltage.Format = "0";
             this.gaugeVoltage.Location = new System.Drawing.Point(0, 66);
             this.gaugeVoltage.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.gaugeVoltage.Max = 400D;
-            this.gaugeVoltage.Min = 0D;
             this.gaugeVoltage.Name = "gaugeVoltage";
+            gSeriesVolt.ChartArea = "gauge";
+            gSeriesVolt.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            gSeriesVolt["DoughnutRadius"] = "58";
+            gSeriesVolt["PieLabelStyle"] = "Disabled";
+            gSeriesVolt["PieStartAngle"] = "150";
+            gSeriesVolt.IsVisibleInLegend = false;
+            gSeriesVolt.Name = "zones";
+            gSeriesVolt.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 114D) { Color = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(55)))), ((int)(((byte)(55))))) });
+            gSeriesVolt.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 9D) { Color = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(175)))), ((int)(((byte)(20))))) });
+            gSeriesVolt.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 21D) { Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(70))))) });
+            gSeriesVolt.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 12D) { Color = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(175)))), ((int)(((byte)(20))))) });
+            gSeriesVolt.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 84D) { Color = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(55)))), ((int)(((byte)(55))))) });
+            gSeriesVolt.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 120D) { Color = System.Drawing.Color.Transparent });
+            this.gaugeVoltage.Series.Add(gSeriesVolt);
+            gNeedleVolt.EndCap = System.Windows.Forms.DataVisualization.Charting.LineAnchorCapStyle.Arrow;
+            gNeedleVolt.IsSizeAlwaysRelative = true;
+            gNeedleVolt.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            gNeedleVolt.Name = "needle";
+            gNeedleVolt.StartCap = System.Windows.Forms.DataVisualization.Charting.LineAnchorCapStyle.None;
+            gNeedleVolt.Visible = false;
+            this.gaugeVoltage.Annotations.Add(gNeedleVolt);
+            gHubVolt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            gHubVolt.IsSizeAlwaysRelative = true;
+            gHubVolt.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            gHubVolt.Name = "hub";
+            this.gaugeVoltage.Annotations.Add(gHubVolt);
+            gValueVolt.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gValueVolt.IsSizeAlwaysRelative = true;
+            gValueVolt.Name = "value";
+            gValueVolt.Text = "--";
+            gValueVolt.X = 50D;
+            gValueVolt.Y = 80D;
+            this.gaugeVoltage.Annotations.Add(gValueVolt);
+            gUnitVolt.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gUnitVolt.IsSizeAlwaysRelative = true;
+            gUnitVolt.Name = "unit";
+            gUnitVolt.Text = "V";
+            gUnitVolt.X = 50D;
+            gUnitVolt.Y = 62D;
+            this.gaugeVoltage.Annotations.Add(gUnitVolt);
             this.gaugeVoltage.Size = new System.Drawing.Size(289, 115);
             this.gaugeVoltage.TabIndex = 2;
-            this.gaugeVoltage.Unit = "V";
+            this.gaugeVoltage.Resize += new System.EventHandler(this.gauge_Resize);
             // 
             // voltageValue
             // 
@@ -292,17 +417,60 @@ namespace Mes.Hmi
             // 
             // gaugeCurrent
             // 
+            gAreaCur.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            gAreaCur.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            gAreaCur.AxisY.LabelStyle.Format = "0.0";
+            gAreaCur.AxisY.Maximum = 100D;
+            gAreaCur.AxisY.Minimum = 0D;
+            gAreaCur.BackColor = System.Drawing.Color.White;
+            gAreaCur.Name = "gauge";
+            this.gaugeCurrent.ChartAreas.Add(gAreaCur);
             this.gaugeCurrent.BackColor = System.Drawing.Color.White;
             this.gaugeCurrent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gaugeCurrent.Format = "0.0";
             this.gaugeCurrent.Location = new System.Drawing.Point(0, 239);
             this.gaugeCurrent.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.gaugeCurrent.Max = 100D;
-            this.gaugeCurrent.Min = 0D;
             this.gaugeCurrent.Name = "gaugeCurrent";
+            gSeriesCur.ChartArea = "gauge";
+            gSeriesCur.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            gSeriesCur["DoughnutRadius"] = "58";
+            gSeriesCur["PieLabelStyle"] = "Disabled";
+            gSeriesCur["PieStartAngle"] = "150";
+            gSeriesCur.IsVisibleInLegend = false;
+            gSeriesCur.Name = "zones";
+            gSeriesCur.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 96D) { Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(70))))) });
+            gSeriesCur.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 48D) { Color = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(175)))), ((int)(((byte)(20))))) });
+            gSeriesCur.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 96D) { Color = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(55)))), ((int)(((byte)(55))))) });
+            gSeriesCur.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 120D) { Color = System.Drawing.Color.Transparent });
+            this.gaugeCurrent.Series.Add(gSeriesCur);
+            gNeedleCur.EndCap = System.Windows.Forms.DataVisualization.Charting.LineAnchorCapStyle.Arrow;
+            gNeedleCur.IsSizeAlwaysRelative = true;
+            gNeedleCur.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            gNeedleCur.Name = "needle";
+            gNeedleCur.StartCap = System.Windows.Forms.DataVisualization.Charting.LineAnchorCapStyle.None;
+            gNeedleCur.Visible = false;
+            this.gaugeCurrent.Annotations.Add(gNeedleCur);
+            gHubCur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            gHubCur.IsSizeAlwaysRelative = true;
+            gHubCur.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            gHubCur.Name = "hub";
+            this.gaugeCurrent.Annotations.Add(gHubCur);
+            gValueCur.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gValueCur.IsSizeAlwaysRelative = true;
+            gValueCur.Name = "value";
+            gValueCur.Text = "--";
+            gValueCur.X = 50D;
+            gValueCur.Y = 80D;
+            this.gaugeCurrent.Annotations.Add(gValueCur);
+            gUnitCur.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gUnitCur.IsSizeAlwaysRelative = true;
+            gUnitCur.Name = "unit";
+            gUnitCur.Text = "A";
+            gUnitCur.X = 50D;
+            gUnitCur.Y = 62D;
+            this.gaugeCurrent.Annotations.Add(gUnitCur);
             this.gaugeCurrent.Size = new System.Drawing.Size(289, 115);
             this.gaugeCurrent.TabIndex = 5;
-            this.gaugeCurrent.Unit = "A";
+            this.gaugeCurrent.Resize += new System.EventHandler(this.gauge_Resize);
             // 
             // currentValue
             // 
@@ -405,50 +573,102 @@ namespace Mes.Hmi
             // 
             // plotVoltage
             // 
+            pAreaVolt.BackColor = System.Drawing.Color.White;
+            pAreaVolt.Name = "main";
+            this.plotVoltage.ChartAreas.Add(pAreaVolt);
             this.plotVoltage.BackColor = System.Drawing.Color.White;
             this.plotVoltage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plotVoltage.Location = new System.Drawing.Point(0, 0);
             this.plotVoltage.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
             this.plotVoltage.Name = "plotVoltage";
-            this.plotVoltage.ShowLegend = false;
+            pSeriesVolt.ChartArea = "main";
+            pSeriesVolt.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            pSeriesVolt.Color = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(120)))), ((int)(((byte)(200)))));
+            pSeriesVolt.IsVisibleInLegend = false;
+            pSeriesVolt.LegendText = "电压";
+            pSeriesVolt.Name = "电压";
+            this.plotVoltage.Series.Add(pSeriesVolt);
             this.plotVoltage.Size = new System.Drawing.Size(855, 195);
             this.plotVoltage.TabIndex = 0;
-            this.plotVoltage.Title = "动态电压数据 (V)";
+            pTitleVolt.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+            pTitleVolt.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            pTitleVolt.Name = "title";
+            pTitleVolt.Text = "动态电压数据 (V)";
+            this.plotVoltage.Titles.Add(pTitleVolt);
             // 
             // plotCurrent
             // 
+            pAreaCur.BackColor = System.Drawing.Color.White;
+            pAreaCur.Name = "main";
+            this.plotCurrent.ChartAreas.Add(pAreaCur);
             this.plotCurrent.BackColor = System.Drawing.Color.White;
             this.plotCurrent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plotCurrent.Location = new System.Drawing.Point(0, 203);
             this.plotCurrent.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
             this.plotCurrent.Name = "plotCurrent";
-            this.plotCurrent.ShowLegend = false;
+            pSeriesCur.ChartArea = "main";
+            pSeriesCur.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            pSeriesCur.Color = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(150)))), ((int)(((byte)(30)))));
+            pSeriesCur.IsVisibleInLegend = false;
+            pSeriesCur.LegendText = "电流";
+            pSeriesCur.Name = "电流";
+            this.plotCurrent.Series.Add(pSeriesCur);
             this.plotCurrent.Size = new System.Drawing.Size(855, 191);
             this.plotCurrent.TabIndex = 1;
-            this.plotCurrent.Title = "动态电流数据 (A)";
+            pTitleCur.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+            pTitleCur.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            pTitleCur.Name = "title";
+            pTitleCur.Text = "动态电流数据 (A)";
+            this.plotCurrent.Titles.Add(pTitleCur);
             // 
             // plotPower
             // 
+            pAreaPow.BackColor = System.Drawing.Color.White;
+            pAreaPow.Name = "main";
+            this.plotPower.ChartAreas.Add(pAreaPow);
             this.plotPower.BackColor = System.Drawing.Color.White;
             this.plotPower.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plotPower.Location = new System.Drawing.Point(0, 402);
             this.plotPower.Margin = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.plotPower.Name = "plotPower";
-            this.plotPower.ShowLegend = false;
+            pSeriesPow.ChartArea = "main";
+            pSeriesPow.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            pSeriesPow.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(70)))));
+            pSeriesPow.IsVisibleInLegend = false;
+            pSeriesPow.LegendText = "功率";
+            pSeriesPow.Name = "功率";
+            this.plotPower.Series.Add(pSeriesPow);
             this.plotPower.Size = new System.Drawing.Size(855, 196);
             this.plotPower.TabIndex = 2;
-            this.plotPower.Title = "动态能耗数据 (kW)";
+            pTitlePow.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+            pTitlePow.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            pTitlePow.Name = "title";
+            pTitlePow.Text = "动态能耗数据 (kW)";
+            this.plotPower.Titles.Add(pTitlePow);
             // 
             // plotHistoryPower
             // 
+            pAreaHistPow.BackColor = System.Drawing.Color.White;
+            pAreaHistPow.Name = "main";
+            this.plotHistoryPower.ChartAreas.Add(pAreaHistPow);
             this.plotHistoryPower.BackColor = System.Drawing.Color.White;
             this.plotHistoryPower.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plotHistoryPower.Location = new System.Drawing.Point(0, 0);
             this.plotHistoryPower.Name = "plotHistoryPower";
-            this.plotHistoryPower.ShowLegend = false;
+            pSeriesHistPow.ChartArea = "main";
+            pSeriesHistPow.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+            pSeriesHistPow.Color = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(120)))), ((int)(((byte)(200)))));
+            pSeriesHistPow.IsVisibleInLegend = false;
+            pSeriesHistPow.LegendText = "每日";
+            pSeriesHistPow.Name = "每日";
+            this.plotHistoryPower.Series.Add(pSeriesHistPow);
             this.plotHistoryPower.Size = new System.Drawing.Size(855, 598);
             this.plotHistoryPower.TabIndex = 1;
-            this.plotHistoryPower.Title = "每日耗电量 (kWh)";
+            pTitleHistPow.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+            pTitleHistPow.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            pTitleHistPow.Name = "title";
+            pTitleHistPow.Text = "每日耗电量 (kWh)";
+            this.plotHistoryPower.Titles.Add(pTitleHistPow);
             this.plotHistoryPower.Visible = false;
             // 
             // tabAir
@@ -565,17 +785,60 @@ namespace Mes.Hmi
             // 
             // airGaugePressure
             // 
+            gAreaAirP.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            gAreaAirP.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            gAreaAirP.AxisY.LabelStyle.Format = "0.0";
+            gAreaAirP.AxisY.Maximum = 800D;
+            gAreaAirP.AxisY.Minimum = 0D;
+            gAreaAirP.BackColor = System.Drawing.Color.White;
+            gAreaAirP.Name = "gauge";
+            this.airGaugePressure.ChartAreas.Add(gAreaAirP);
             this.airGaugePressure.BackColor = System.Drawing.Color.White;
             this.airGaugePressure.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.airGaugePressure.Format = "0.0";
             this.airGaugePressure.Location = new System.Drawing.Point(0, 66);
             this.airGaugePressure.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.airGaugePressure.Max = 800D;
-            this.airGaugePressure.Min = 0D;
             this.airGaugePressure.Name = "airGaugePressure";
+            gSeriesAirP.ChartArea = "gauge";
+            gSeriesAirP.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            gSeriesAirP["DoughnutRadius"] = "58";
+            gSeriesAirP["PieLabelStyle"] = "Disabled";
+            gSeriesAirP["PieStartAngle"] = "150";
+            gSeriesAirP.IsVisibleInLegend = false;
+            gSeriesAirP.Name = "zones";
+            gSeriesAirP.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 180D) { Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(70))))) });
+            gSeriesAirP.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 30D) { Color = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(175)))), ((int)(((byte)(20))))) });
+            gSeriesAirP.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 30D) { Color = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(55)))), ((int)(((byte)(55))))) });
+            gSeriesAirP.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 120D) { Color = System.Drawing.Color.Transparent });
+            this.airGaugePressure.Series.Add(gSeriesAirP);
+            gNeedleAirP.EndCap = System.Windows.Forms.DataVisualization.Charting.LineAnchorCapStyle.Arrow;
+            gNeedleAirP.IsSizeAlwaysRelative = true;
+            gNeedleAirP.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            gNeedleAirP.Name = "needle";
+            gNeedleAirP.StartCap = System.Windows.Forms.DataVisualization.Charting.LineAnchorCapStyle.None;
+            gNeedleAirP.Visible = false;
+            this.airGaugePressure.Annotations.Add(gNeedleAirP);
+            gHubAirP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            gHubAirP.IsSizeAlwaysRelative = true;
+            gHubAirP.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            gHubAirP.Name = "hub";
+            this.airGaugePressure.Annotations.Add(gHubAirP);
+            gValueAirP.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gValueAirP.IsSizeAlwaysRelative = true;
+            gValueAirP.Name = "value";
+            gValueAirP.Text = "--";
+            gValueAirP.X = 50D;
+            gValueAirP.Y = 80D;
+            this.airGaugePressure.Annotations.Add(gValueAirP);
+            gUnitAirP.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gUnitAirP.IsSizeAlwaysRelative = true;
+            gUnitAirP.Name = "unit";
+            gUnitAirP.Text = "kPa";
+            gUnitAirP.X = 50D;
+            gUnitAirP.Y = 62D;
+            this.airGaugePressure.Annotations.Add(gUnitAirP);
             this.airGaugePressure.Size = new System.Drawing.Size(289, 173);
             this.airGaugePressure.TabIndex = 2;
-            this.airGaugePressure.Unit = "kPa";
+            this.airGaugePressure.Resize += new System.EventHandler(this.gauge_Resize);
             // 
             // airPressureValue
             // 
@@ -608,17 +871,60 @@ namespace Mes.Hmi
             // 
             // airGaugeFlow
             // 
+            gAreaAirF.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            gAreaAirF.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            gAreaAirF.AxisY.LabelStyle.Format = "0.00";
+            gAreaAirF.AxisY.Maximum = 100D;
+            gAreaAirF.AxisY.Minimum = 0D;
+            gAreaAirF.BackColor = System.Drawing.Color.White;
+            gAreaAirF.Name = "gauge";
+            this.airGaugeFlow.ChartAreas.Add(gAreaAirF);
             this.airGaugeFlow.BackColor = System.Drawing.Color.White;
             this.airGaugeFlow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.airGaugeFlow.Format = "0.00";
             this.airGaugeFlow.Location = new System.Drawing.Point(0, 297);
             this.airGaugeFlow.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.airGaugeFlow.Max = 100D;
-            this.airGaugeFlow.Min = 0D;
             this.airGaugeFlow.Name = "airGaugeFlow";
+            gSeriesAirF.ChartArea = "gauge";
+            gSeriesAirF.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            gSeriesAirF["DoughnutRadius"] = "58";
+            gSeriesAirF["PieLabelStyle"] = "Disabled";
+            gSeriesAirF["PieStartAngle"] = "150";
+            gSeriesAirF.IsVisibleInLegend = false;
+            gSeriesAirF.Name = "zones";
+            gSeriesAirF.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 144D) { Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(70))))) });
+            gSeriesAirF.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 48D) { Color = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(175)))), ((int)(((byte)(20))))) });
+            gSeriesAirF.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 48D) { Color = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(55)))), ((int)(((byte)(55))))) });
+            gSeriesAirF.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 120D) { Color = System.Drawing.Color.Transparent });
+            this.airGaugeFlow.Series.Add(gSeriesAirF);
+            gNeedleAirF.EndCap = System.Windows.Forms.DataVisualization.Charting.LineAnchorCapStyle.Arrow;
+            gNeedleAirF.IsSizeAlwaysRelative = true;
+            gNeedleAirF.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            gNeedleAirF.Name = "needle";
+            gNeedleAirF.StartCap = System.Windows.Forms.DataVisualization.Charting.LineAnchorCapStyle.None;
+            gNeedleAirF.Visible = false;
+            this.airGaugeFlow.Annotations.Add(gNeedleAirF);
+            gHubAirF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            gHubAirF.IsSizeAlwaysRelative = true;
+            gHubAirF.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            gHubAirF.Name = "hub";
+            this.airGaugeFlow.Annotations.Add(gHubAirF);
+            gValueAirF.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gValueAirF.IsSizeAlwaysRelative = true;
+            gValueAirF.Name = "value";
+            gValueAirF.Text = "--";
+            gValueAirF.X = 50D;
+            gValueAirF.Y = 80D;
+            this.airGaugeFlow.Annotations.Add(gValueAirF);
+            gUnitAirF.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gUnitAirF.IsSizeAlwaysRelative = true;
+            gUnitAirF.Name = "unit";
+            gUnitAirF.Text = "L/min";
+            gUnitAirF.X = 50D;
+            gUnitAirF.Y = 62D;
+            this.airGaugeFlow.Annotations.Add(gUnitAirF);
             this.airGaugeFlow.Size = new System.Drawing.Size(289, 173);
             this.airGaugeFlow.TabIndex = 5;
-            this.airGaugeFlow.Unit = "L/min";
+            this.airGaugeFlow.Resize += new System.EventHandler(this.gauge_Resize);
             // 
             // airFlowValue
             // 
@@ -691,38 +997,70 @@ namespace Mes.Hmi
             // 
             // plotAirPressure
             // 
+            pAreaAirP.BackColor = System.Drawing.Color.White;
+            pAreaAirP.Name = "main";
+            this.plotAirPressure.ChartAreas.Add(pAreaAirP);
             this.plotAirPressure.BackColor = System.Drawing.Color.White;
             this.plotAirPressure.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plotAirPressure.Location = new System.Drawing.Point(0, 0);
             this.plotAirPressure.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
             this.plotAirPressure.Name = "plotAirPressure";
-            this.plotAirPressure.ShowLegend = false;
             this.plotAirPressure.Size = new System.Drawing.Size(855, 295);
             this.plotAirPressure.TabIndex = 0;
-            this.plotAirPressure.Title = "总气压 (kPa)";
+            pTitleAirP.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+            pTitleAirP.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            pTitleAirP.Name = "title";
+            pTitleAirP.Text = "总气压 (kPa)";
+            this.plotAirPressure.Titles.Add(pTitleAirP);
             // 
             // plotAirFlow
             // 
+            pAreaAirF.BackColor = System.Drawing.Color.White;
+            pAreaAirF.Name = "main";
+            this.plotAirFlow.ChartAreas.Add(pAreaAirF);
             this.plotAirFlow.BackColor = System.Drawing.Color.White;
             this.plotAirFlow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plotAirFlow.Location = new System.Drawing.Point(0, 303);
             this.plotAirFlow.Margin = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.plotAirFlow.Name = "plotAirFlow";
-            this.plotAirFlow.ShowLegend = false;
+            pSeriesAirF.ChartArea = "main";
+            pSeriesAirF.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            pSeriesAirF.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(170)))));
+            pSeriesAirF.IsVisibleInLegend = false;
+            pSeriesAirF.LegendText = "流量";
+            pSeriesAirF.Name = "流量";
+            this.plotAirFlow.Series.Add(pSeriesAirF);
             this.plotAirFlow.Size = new System.Drawing.Size(855, 295);
             this.plotAirFlow.TabIndex = 1;
-            this.plotAirFlow.Title = "动态流量数据 (L/min)";
+            pTitleAirF.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+            pTitleAirF.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            pTitleAirF.Name = "title";
+            pTitleAirF.Text = "动态流量数据 (L/min)";
+            this.plotAirFlow.Titles.Add(pTitleAirF);
             // 
             // plotHistoryAir
             // 
+            pAreaHistAir.BackColor = System.Drawing.Color.White;
+            pAreaHistAir.Name = "main";
+            this.plotHistoryAir.ChartAreas.Add(pAreaHistAir);
             this.plotHistoryAir.BackColor = System.Drawing.Color.White;
             this.plotHistoryAir.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plotHistoryAir.Location = new System.Drawing.Point(0, 0);
             this.plotHistoryAir.Name = "plotHistoryAir";
-            this.plotHistoryAir.ShowLegend = false;
+            pSeriesHistAir.ChartArea = "main";
+            pSeriesHistAir.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+            pSeriesHistAir.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(170)))));
+            pSeriesHistAir.IsVisibleInLegend = false;
+            pSeriesHistAir.LegendText = "每日";
+            pSeriesHistAir.Name = "每日";
+            this.plotHistoryAir.Series.Add(pSeriesHistAir);
             this.plotHistoryAir.Size = new System.Drawing.Size(855, 598);
             this.plotHistoryAir.TabIndex = 1;
-            this.plotHistoryAir.Title = "每日耗气量 (m³)";
+            pTitleHistAir.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+            pTitleHistAir.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            pTitleHistAir.Name = "title";
+            pTitleHistAir.Text = "每日耗气量 (m³)";
+            this.plotHistoryAir.Titles.Add(pTitleHistAir);
             this.plotHistoryAir.Visible = false;
             // 
             // tabWater
@@ -839,17 +1177,60 @@ namespace Mes.Hmi
             // 
             // waterGaugePressure
             // 
+            gAreaWatP.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            gAreaWatP.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            gAreaWatP.AxisY.LabelStyle.Format = "0.0";
+            gAreaWatP.AxisY.Maximum = 800D;
+            gAreaWatP.AxisY.Minimum = 0D;
+            gAreaWatP.BackColor = System.Drawing.Color.White;
+            gAreaWatP.Name = "gauge";
+            this.waterGaugePressure.ChartAreas.Add(gAreaWatP);
             this.waterGaugePressure.BackColor = System.Drawing.Color.White;
             this.waterGaugePressure.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.waterGaugePressure.Format = "0.0";
             this.waterGaugePressure.Location = new System.Drawing.Point(0, 66);
             this.waterGaugePressure.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.waterGaugePressure.Max = 800D;
-            this.waterGaugePressure.Min = 0D;
             this.waterGaugePressure.Name = "waterGaugePressure";
+            gSeriesWatP.ChartArea = "gauge";
+            gSeriesWatP.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            gSeriesWatP["DoughnutRadius"] = "58";
+            gSeriesWatP["PieLabelStyle"] = "Disabled";
+            gSeriesWatP["PieStartAngle"] = "150";
+            gSeriesWatP.IsVisibleInLegend = false;
+            gSeriesWatP.Name = "zones";
+            gSeriesWatP.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 150D) { Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(70))))) });
+            gSeriesWatP.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 45D) { Color = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(175)))), ((int)(((byte)(20))))) });
+            gSeriesWatP.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 45D) { Color = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(55)))), ((int)(((byte)(55))))) });
+            gSeriesWatP.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 120D) { Color = System.Drawing.Color.Transparent });
+            this.waterGaugePressure.Series.Add(gSeriesWatP);
+            gNeedleWatP.EndCap = System.Windows.Forms.DataVisualization.Charting.LineAnchorCapStyle.Arrow;
+            gNeedleWatP.IsSizeAlwaysRelative = true;
+            gNeedleWatP.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            gNeedleWatP.Name = "needle";
+            gNeedleWatP.StartCap = System.Windows.Forms.DataVisualization.Charting.LineAnchorCapStyle.None;
+            gNeedleWatP.Visible = false;
+            this.waterGaugePressure.Annotations.Add(gNeedleWatP);
+            gHubWatP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            gHubWatP.IsSizeAlwaysRelative = true;
+            gHubWatP.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            gHubWatP.Name = "hub";
+            this.waterGaugePressure.Annotations.Add(gHubWatP);
+            gValueWatP.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gValueWatP.IsSizeAlwaysRelative = true;
+            gValueWatP.Name = "value";
+            gValueWatP.Text = "--";
+            gValueWatP.X = 50D;
+            gValueWatP.Y = 80D;
+            this.waterGaugePressure.Annotations.Add(gValueWatP);
+            gUnitWatP.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gUnitWatP.IsSizeAlwaysRelative = true;
+            gUnitWatP.Name = "unit";
+            gUnitWatP.Text = "kPa";
+            gUnitWatP.X = 50D;
+            gUnitWatP.Y = 62D;
+            this.waterGaugePressure.Annotations.Add(gUnitWatP);
             this.waterGaugePressure.Size = new System.Drawing.Size(289, 173);
             this.waterGaugePressure.TabIndex = 2;
-            this.waterGaugePressure.Unit = "kPa";
+            this.waterGaugePressure.Resize += new System.EventHandler(this.gauge_Resize);
             // 
             // waterPressureValue
             // 
@@ -882,17 +1263,60 @@ namespace Mes.Hmi
             // 
             // waterGaugeFlow
             // 
+            gAreaWatF.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            gAreaWatF.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            gAreaWatF.AxisY.LabelStyle.Format = "0.00";
+            gAreaWatF.AxisY.Maximum = 100D;
+            gAreaWatF.AxisY.Minimum = 0D;
+            gAreaWatF.BackColor = System.Drawing.Color.White;
+            gAreaWatF.Name = "gauge";
+            this.waterGaugeFlow.ChartAreas.Add(gAreaWatF);
             this.waterGaugeFlow.BackColor = System.Drawing.Color.White;
             this.waterGaugeFlow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.waterGaugeFlow.Format = "0.00";
             this.waterGaugeFlow.Location = new System.Drawing.Point(0, 297);
             this.waterGaugeFlow.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.waterGaugeFlow.Max = 100D;
-            this.waterGaugeFlow.Min = 0D;
             this.waterGaugeFlow.Name = "waterGaugeFlow";
+            gSeriesWatF.ChartArea = "gauge";
+            gSeriesWatF.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            gSeriesWatF["DoughnutRadius"] = "58";
+            gSeriesWatF["PieLabelStyle"] = "Disabled";
+            gSeriesWatF["PieStartAngle"] = "150";
+            gSeriesWatF.IsVisibleInLegend = false;
+            gSeriesWatF.Name = "zones";
+            gSeriesWatF.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 144D) { Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(70))))) });
+            gSeriesWatF.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 48D) { Color = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(175)))), ((int)(((byte)(20))))) });
+            gSeriesWatF.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 48D) { Color = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(55)))), ((int)(((byte)(55))))) });
+            gSeriesWatF.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 120D) { Color = System.Drawing.Color.Transparent });
+            this.waterGaugeFlow.Series.Add(gSeriesWatF);
+            gNeedleWatF.EndCap = System.Windows.Forms.DataVisualization.Charting.LineAnchorCapStyle.Arrow;
+            gNeedleWatF.IsSizeAlwaysRelative = true;
+            gNeedleWatF.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            gNeedleWatF.Name = "needle";
+            gNeedleWatF.StartCap = System.Windows.Forms.DataVisualization.Charting.LineAnchorCapStyle.None;
+            gNeedleWatF.Visible = false;
+            this.waterGaugeFlow.Annotations.Add(gNeedleWatF);
+            gHubWatF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            gHubWatF.IsSizeAlwaysRelative = true;
+            gHubWatF.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            gHubWatF.Name = "hub";
+            this.waterGaugeFlow.Annotations.Add(gHubWatF);
+            gValueWatF.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gValueWatF.IsSizeAlwaysRelative = true;
+            gValueWatF.Name = "value";
+            gValueWatF.Text = "--";
+            gValueWatF.X = 50D;
+            gValueWatF.Y = 80D;
+            this.waterGaugeFlow.Annotations.Add(gValueWatF);
+            gUnitWatF.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gUnitWatF.IsSizeAlwaysRelative = true;
+            gUnitWatF.Name = "unit";
+            gUnitWatF.Text = "L/min";
+            gUnitWatF.X = 50D;
+            gUnitWatF.Y = 62D;
+            this.waterGaugeFlow.Annotations.Add(gUnitWatF);
             this.waterGaugeFlow.Size = new System.Drawing.Size(289, 173);
             this.waterGaugeFlow.TabIndex = 5;
-            this.waterGaugeFlow.Unit = "L/min";
+            this.waterGaugeFlow.Resize += new System.EventHandler(this.gauge_Resize);
             // 
             // waterFlowValue
             // 
@@ -965,38 +1389,70 @@ namespace Mes.Hmi
             // 
             // plotWaterPressure
             // 
+            pAreaWatP.BackColor = System.Drawing.Color.White;
+            pAreaWatP.Name = "main";
+            this.plotWaterPressure.ChartAreas.Add(pAreaWatP);
             this.plotWaterPressure.BackColor = System.Drawing.Color.White;
             this.plotWaterPressure.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plotWaterPressure.Location = new System.Drawing.Point(0, 0);
             this.plotWaterPressure.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
             this.plotWaterPressure.Name = "plotWaterPressure";
-            this.plotWaterPressure.ShowLegend = false;
             this.plotWaterPressure.Size = new System.Drawing.Size(855, 295);
             this.plotWaterPressure.TabIndex = 0;
-            this.plotWaterPressure.Title = "供水压力 (kPa)";
+            pTitleWatP.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+            pTitleWatP.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            pTitleWatP.Name = "title";
+            pTitleWatP.Text = "供水压力 (kPa)";
+            this.plotWaterPressure.Titles.Add(pTitleWatP);
             // 
             // plotWaterFlow
             // 
+            pAreaWatF.BackColor = System.Drawing.Color.White;
+            pAreaWatF.Name = "main";
+            this.plotWaterFlow.ChartAreas.Add(pAreaWatF);
             this.plotWaterFlow.BackColor = System.Drawing.Color.White;
             this.plotWaterFlow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plotWaterFlow.Location = new System.Drawing.Point(0, 303);
             this.plotWaterFlow.Margin = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.plotWaterFlow.Name = "plotWaterFlow";
-            this.plotWaterFlow.ShowLegend = false;
+            pSeriesWatF.ChartArea = "main";
+            pSeriesWatF.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            pSeriesWatF.Color = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
+            pSeriesWatF.IsVisibleInLegend = false;
+            pSeriesWatF.LegendText = "流量";
+            pSeriesWatF.Name = "流量";
+            this.plotWaterFlow.Series.Add(pSeriesWatF);
             this.plotWaterFlow.Size = new System.Drawing.Size(855, 295);
             this.plotWaterFlow.TabIndex = 1;
-            this.plotWaterFlow.Title = "动态流量数据 (L/min)";
+            pTitleWatF.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+            pTitleWatF.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            pTitleWatF.Name = "title";
+            pTitleWatF.Text = "动态流量数据 (L/min)";
+            this.plotWaterFlow.Titles.Add(pTitleWatF);
             // 
             // plotHistoryWater
             // 
+            pAreaHistWat.BackColor = System.Drawing.Color.White;
+            pAreaHistWat.Name = "main";
+            this.plotHistoryWater.ChartAreas.Add(pAreaHistWat);
             this.plotHistoryWater.BackColor = System.Drawing.Color.White;
             this.plotHistoryWater.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plotHistoryWater.Location = new System.Drawing.Point(0, 0);
             this.plotHistoryWater.Name = "plotHistoryWater";
-            this.plotHistoryWater.ShowLegend = false;
+            pSeriesHistWat.ChartArea = "main";
+            pSeriesHistWat.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+            pSeriesHistWat.Color = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
+            pSeriesHistWat.IsVisibleInLegend = false;
+            pSeriesHistWat.LegendText = "每日";
+            pSeriesHistWat.Name = "每日";
+            this.plotHistoryWater.Series.Add(pSeriesHistWat);
             this.plotHistoryWater.Size = new System.Drawing.Size(855, 598);
             this.plotHistoryWater.TabIndex = 1;
-            this.plotHistoryWater.Title = "每日耗水量 (m³)";
+            pTitleHistWat.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+            pTitleHistWat.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            pTitleHistWat.Name = "title";
+            pTitleHistWat.Text = "每日耗水量 (m³)";
+            this.plotHistoryWater.Titles.Add(pTitleHistWat);
             this.plotHistoryWater.Visible = false;
             // 
             // refresh
@@ -1032,6 +1488,22 @@ namespace Mes.Hmi
             this.waterMode.ResumeLayout(false);
             this.waterContent.ResumeLayout(false);
             this.realWater.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gaugeVoltage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gaugeCurrent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.airGaugePressure)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.airGaugeFlow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.waterGaugePressure)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.waterGaugeFlow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plotVoltage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plotCurrent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plotPower)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plotHistoryPower)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plotAirPressure)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plotAirFlow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plotHistoryAir)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plotWaterPressure)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plotWaterFlow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plotHistoryWater)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1047,10 +1519,10 @@ namespace Mes.Hmi
         private System.Windows.Forms.Button btnPowerLive;
         private System.Windows.Forms.Button btnPowerHistory;
         private System.Windows.Forms.Label voltageCaption;
-        private Mes.Hmi.GaugeBox gaugeVoltage;
+        private System.Windows.Forms.DataVisualization.Charting.Chart gaugeVoltage;
         private System.Windows.Forms.Label voltageValue;
         private System.Windows.Forms.Label currentCaption;
-        private Mes.Hmi.GaugeBox gaugeCurrent;
+        private System.Windows.Forms.DataVisualization.Charting.Chart gaugeCurrent;
         private System.Windows.Forms.Label currentValue;
         private System.Windows.Forms.Label energyCaption;
         private System.Windows.Forms.Label energyBox;
@@ -1058,10 +1530,10 @@ namespace Mes.Hmi
         private System.Windows.Forms.Label todayValue;
         private System.Windows.Forms.Panel powerContent;
         private System.Windows.Forms.TableLayoutPanel realPower;
-        private Mes.Hmi.PlotBox plotVoltage;
-        private Mes.Hmi.PlotBox plotCurrent;
-        private Mes.Hmi.PlotBox plotPower;
-        private Mes.Hmi.PlotBox plotHistoryPower;
+        private System.Windows.Forms.DataVisualization.Charting.Chart plotVoltage;
+        private System.Windows.Forms.DataVisualization.Charting.Chart plotCurrent;
+        private System.Windows.Forms.DataVisualization.Charting.Chart plotPower;
+        private System.Windows.Forms.DataVisualization.Charting.Chart plotHistoryPower;
         private System.Windows.Forms.TabPage tabAir;
         private System.Windows.Forms.TableLayoutPanel airBody;
         private System.Windows.Forms.TableLayoutPanel airSide;
@@ -1069,18 +1541,18 @@ namespace Mes.Hmi
         private System.Windows.Forms.Button btnAirLive;
         private System.Windows.Forms.Button btnAirHistory;
         private System.Windows.Forms.Label airPressureCaption;
-        private Mes.Hmi.GaugeBox airGaugePressure;
+        private System.Windows.Forms.DataVisualization.Charting.Chart airGaugePressure;
         private System.Windows.Forms.Label airPressureValue;
         private System.Windows.Forms.Label airFlowCaption;
-        private Mes.Hmi.GaugeBox airGaugeFlow;
+        private System.Windows.Forms.DataVisualization.Charting.Chart airGaugeFlow;
         private System.Windows.Forms.Label airFlowValue;
         private System.Windows.Forms.Label airEnergyCaption;
         private System.Windows.Forms.Label airEnergyBox;
         private System.Windows.Forms.Panel airContent;
         private System.Windows.Forms.TableLayoutPanel realAir;
-        private Mes.Hmi.PlotBox plotAirPressure;
-        private Mes.Hmi.PlotBox plotAirFlow;
-        private Mes.Hmi.PlotBox plotHistoryAir;
+        private System.Windows.Forms.DataVisualization.Charting.Chart plotAirPressure;
+        private System.Windows.Forms.DataVisualization.Charting.Chart plotAirFlow;
+        private System.Windows.Forms.DataVisualization.Charting.Chart plotHistoryAir;
         private System.Windows.Forms.TabPage tabWater;
         private System.Windows.Forms.TableLayoutPanel waterBody;
         private System.Windows.Forms.TableLayoutPanel waterSide;
@@ -1088,18 +1560,18 @@ namespace Mes.Hmi
         private System.Windows.Forms.Button btnWaterLive;
         private System.Windows.Forms.Button btnWaterHistory;
         private System.Windows.Forms.Label waterPressureCaption;
-        private Mes.Hmi.GaugeBox waterGaugePressure;
+        private System.Windows.Forms.DataVisualization.Charting.Chart waterGaugePressure;
         private System.Windows.Forms.Label waterPressureValue;
         private System.Windows.Forms.Label waterFlowCaption;
-        private Mes.Hmi.GaugeBox waterGaugeFlow;
+        private System.Windows.Forms.DataVisualization.Charting.Chart waterGaugeFlow;
         private System.Windows.Forms.Label waterFlowValue;
         private System.Windows.Forms.Label waterEnergyCaption;
         private System.Windows.Forms.Label waterEnergyBox;
         private System.Windows.Forms.Panel waterContent;
         private System.Windows.Forms.TableLayoutPanel realWater;
-        private Mes.Hmi.PlotBox plotWaterPressure;
-        private Mes.Hmi.PlotBox plotWaterFlow;
-        private Mes.Hmi.PlotBox plotHistoryWater;
+        private System.Windows.Forms.DataVisualization.Charting.Chart plotWaterPressure;
+        private System.Windows.Forms.DataVisualization.Charting.Chart plotWaterFlow;
+        private System.Windows.Forms.DataVisualization.Charting.Chart plotHistoryWater;
         private System.Windows.Forms.Timer refresh;
     }
 }

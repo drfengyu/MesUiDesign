@@ -15,8 +15,11 @@ namespace Mes.Hmi
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle headerStyle = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle cellStyle = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series seriesPie = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.root = new System.Windows.Forms.TableLayoutPanel();
             this.leftPanel = new System.Windows.Forms.TableLayoutPanel();
             this.faultTitle = new System.Windows.Forms.Label();
@@ -46,7 +49,7 @@ namespace Mes.Hmi
             this.colMinutes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colText = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rightPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.plotPie = new Mes.Hmi.PlotBox();
+            this.plotPie = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.btnExport = new System.Windows.Forms.Button();
             this.queryPanel = new System.Windows.Forms.TableLayoutPanel();
             this.fromLabel = new System.Windows.Forms.Label();
@@ -61,25 +64,9 @@ namespace Mes.Hmi
             this.faultBody.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.rightPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.plotPie)).BeginInit();
             this.queryPanel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // headerStyle
-            // 
-            headerStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            headerStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            headerStyle.Font = new System.Drawing.Font("微软雅黑", 9.5F, System.Drawing.FontStyle.Bold);
-            headerStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(66)))), ((int)(((byte)(72)))));
-            headerStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            headerStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(66)))), ((int)(((byte)(72)))));
-            // 
-            // cellStyle
-            // 
-            cellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            cellStyle.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            cellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
-            cellStyle.SelectionBackColor = System.Drawing.Color.White;
-            cellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
             // 
             // root
             // 
@@ -111,7 +98,7 @@ namespace Mes.Hmi
             this.leftPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.leftPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 246F));
             this.leftPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.leftPanel.Size = new System.Drawing.Size(650, 646);
+            this.leftPanel.Size = new System.Drawing.Size(462, 646);
             this.leftPanel.TabIndex = 0;
             // 
             // faultTitle
@@ -123,7 +110,7 @@ namespace Mes.Hmi
             this.faultTitle.Location = new System.Drawing.Point(0, 0);
             this.faultTitle.Margin = new System.Windows.Forms.Padding(0);
             this.faultTitle.Name = "faultTitle";
-            this.faultTitle.Size = new System.Drawing.Size(650, 36);
+            this.faultTitle.Size = new System.Drawing.Size(462, 36);
             this.faultTitle.TabIndex = 0;
             this.faultTitle.Text = "故障计时";
             this.faultTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -165,7 +152,7 @@ namespace Mes.Hmi
             this.faultBody.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.faultBody.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.faultBody.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.faultBody.Size = new System.Drawing.Size(650, 246);
+            this.faultBody.Size = new System.Drawing.Size(462, 246);
             this.faultBody.TabIndex = 1;
             // 
             // infoLabel
@@ -187,7 +174,7 @@ namespace Mes.Hmi
             this.faultLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(126)))), ((int)(((byte)(134)))));
             this.faultLabel.Location = new System.Drawing.Point(81, 0);
             this.faultLabel.Name = "faultLabel";
-            this.faultLabel.Size = new System.Drawing.Size(281, 30);
+            this.faultLabel.Size = new System.Drawing.Size(147, 30);
             this.faultLabel.TabIndex = 1;
             this.faultLabel.Text = "当前无故障";
             this.faultLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -211,7 +198,7 @@ namespace Mes.Hmi
             this.faultCodeBox.Location = new System.Drawing.Point(81, 33);
             this.faultCodeBox.Name = "faultCodeBox";
             this.faultCodeBox.ReadOnly = true;
-            this.faultCodeBox.Size = new System.Drawing.Size(281, 24);
+            this.faultCodeBox.Size = new System.Drawing.Size(147, 24);
             this.faultCodeBox.TabIndex = 3;
             this.faultCodeBox.TabStop = false;
             // 
@@ -219,10 +206,10 @@ namespace Mes.Hmi
             // 
             this.btnManualFault.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnManualFault.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnManualFault.Location = new System.Drawing.Point(368, 32);
+            this.btnManualFault.Location = new System.Drawing.Point(234, 32);
             this.btnManualFault.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnManualFault.Name = "btnManualFault";
-            this.btnManualFault.Size = new System.Drawing.Size(240, 34);
+            this.btnManualFault.Size = new System.Drawing.Size(128, 34);
             this.btnManualFault.TabIndex = 4;
             this.btnManualFault.Text = "手动选择故障代码";
             this.btnManualFault.UseVisualStyleBackColor = true;
@@ -247,7 +234,7 @@ namespace Mes.Hmi
             this.faultStartLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(66)))), ((int)(((byte)(72)))));
             this.faultStartLabel.Location = new System.Drawing.Point(81, 68);
             this.faultStartLabel.Name = "faultStartLabel";
-            this.faultStartLabel.Size = new System.Drawing.Size(281, 34);
+            this.faultStartLabel.Size = new System.Drawing.Size(147, 34);
             this.faultStartLabel.TabIndex = 6;
             this.faultStartLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -255,10 +242,10 @@ namespace Mes.Hmi
             // 
             this.btnEndFault.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnEndFault.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnEndFault.Location = new System.Drawing.Point(368, 70);
+            this.btnEndFault.Location = new System.Drawing.Point(234, 70);
             this.btnEndFault.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEndFault.Name = "btnEndFault";
-            this.btnEndFault.Size = new System.Drawing.Size(240, 30);
+            this.btnEndFault.Size = new System.Drawing.Size(128, 30);
             this.btnEndFault.TabIndex = 7;
             this.btnEndFault.Text = "结束当前故障";
             this.btnEndFault.UseVisualStyleBackColor = true;
@@ -283,7 +270,7 @@ namespace Mes.Hmi
             this.btnPlannedStart.Location = new System.Drawing.Point(2, 126);
             this.btnPlannedStart.Margin = new System.Windows.Forms.Padding(2);
             this.btnPlannedStart.Name = "btnPlannedStart";
-            this.btnPlannedStart.Size = new System.Drawing.Size(213, 41);
+            this.btnPlannedStart.Size = new System.Drawing.Size(74, 44);
             this.btnPlannedStart.TabIndex = 9;
             this.btnPlannedStart.Text = "计划停机开始";
             this.btnPlannedStart.UseVisualStyleBackColor = true;
@@ -293,10 +280,10 @@ namespace Mes.Hmi
             // 
             this.btnFirstStart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnFirstStart.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnFirstStart.Location = new System.Drawing.Point(222, 126);
+            this.btnFirstStart.Location = new System.Drawing.Point(80, 126);
             this.btnFirstStart.Margin = new System.Windows.Forms.Padding(2);
             this.btnFirstStart.Name = "btnFirstStart";
-            this.btnFirstStart.Size = new System.Drawing.Size(186, 41);
+            this.btnFirstStart.Size = new System.Drawing.Size(149, 44);
             this.btnFirstStart.TabIndex = 10;
             this.btnFirstStart.Text = "首件计时开始";
             this.btnFirstStart.UseVisualStyleBackColor = true;
@@ -306,10 +293,10 @@ namespace Mes.Hmi
             // 
             this.btnChangeStart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnChangeStart.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnChangeStart.Location = new System.Drawing.Point(413, 126);
+            this.btnChangeStart.Location = new System.Drawing.Point(233, 126);
             this.btnChangeStart.Margin = new System.Windows.Forms.Padding(2);
             this.btnChangeStart.Name = "btnChangeStart";
-            this.btnChangeStart.Size = new System.Drawing.Size(133, 41);
+            this.btnChangeStart.Size = new System.Drawing.Size(130, 44);
             this.btnChangeStart.TabIndex = 11;
             this.btnChangeStart.Text = "切线计时开始";
             this.btnChangeStart.UseVisualStyleBackColor = true;
@@ -319,10 +306,10 @@ namespace Mes.Hmi
             // 
             this.btnPlannedEnd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnPlannedEnd.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnPlannedEnd.Location = new System.Drawing.Point(2, 171);
+            this.btnPlannedEnd.Location = new System.Drawing.Point(2, 174);
             this.btnPlannedEnd.Margin = new System.Windows.Forms.Padding(2);
             this.btnPlannedEnd.Name = "btnPlannedEnd";
-            this.btnPlannedEnd.Size = new System.Drawing.Size(213, 41);
+            this.btnPlannedEnd.Size = new System.Drawing.Size(74, 44);
             this.btnPlannedEnd.TabIndex = 12;
             this.btnPlannedEnd.Text = "计划停机结束";
             this.btnPlannedEnd.UseVisualStyleBackColor = true;
@@ -332,10 +319,10 @@ namespace Mes.Hmi
             // 
             this.btnFirstEnd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnFirstEnd.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnFirstEnd.Location = new System.Drawing.Point(222, 171);
+            this.btnFirstEnd.Location = new System.Drawing.Point(80, 174);
             this.btnFirstEnd.Margin = new System.Windows.Forms.Padding(2);
             this.btnFirstEnd.Name = "btnFirstEnd";
-            this.btnFirstEnd.Size = new System.Drawing.Size(186, 41);
+            this.btnFirstEnd.Size = new System.Drawing.Size(149, 44);
             this.btnFirstEnd.TabIndex = 13;
             this.btnFirstEnd.Text = "首件计时结束";
             this.btnFirstEnd.UseVisualStyleBackColor = true;
@@ -345,10 +332,10 @@ namespace Mes.Hmi
             // 
             this.btnChangeEnd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnChangeEnd.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnChangeEnd.Location = new System.Drawing.Point(413, 171);
+            this.btnChangeEnd.Location = new System.Drawing.Point(233, 174);
             this.btnChangeEnd.Margin = new System.Windows.Forms.Padding(2);
             this.btnChangeEnd.Name = "btnChangeEnd";
-            this.btnChangeEnd.Size = new System.Drawing.Size(133, 41);
+            this.btnChangeEnd.Size = new System.Drawing.Size(130, 44);
             this.btnChangeEnd.TabIndex = 14;
             this.btnChangeEnd.Text = "切线计时结束";
             this.btnChangeEnd.UseVisualStyleBackColor = true;
@@ -359,10 +346,10 @@ namespace Mes.Hmi
             this.plannedElapsed.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plannedElapsed.Font = new System.Drawing.Font("微软雅黑", 8.5F);
             this.plannedElapsed.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(126)))), ((int)(((byte)(134)))));
-            this.plannedElapsed.Location = new System.Drawing.Point(2, 215);
+            this.plannedElapsed.Location = new System.Drawing.Point(2, 221);
             this.plannedElapsed.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.plannedElapsed.Name = "plannedElapsed";
-            this.plannedElapsed.Size = new System.Drawing.Size(213, 30);
+            this.plannedElapsed.Size = new System.Drawing.Size(74, 24);
             this.plannedElapsed.TabIndex = 15;
             this.plannedElapsed.Text = "未计时";
             this.plannedElapsed.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -372,10 +359,10 @@ namespace Mes.Hmi
             this.firstElapsed.Dock = System.Windows.Forms.DockStyle.Fill;
             this.firstElapsed.Font = new System.Drawing.Font("微软雅黑", 8.5F);
             this.firstElapsed.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(126)))), ((int)(((byte)(134)))));
-            this.firstElapsed.Location = new System.Drawing.Point(222, 215);
+            this.firstElapsed.Location = new System.Drawing.Point(80, 221);
             this.firstElapsed.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.firstElapsed.Name = "firstElapsed";
-            this.firstElapsed.Size = new System.Drawing.Size(186, 30);
+            this.firstElapsed.Size = new System.Drawing.Size(149, 24);
             this.firstElapsed.TabIndex = 16;
             this.firstElapsed.Text = "未计时";
             this.firstElapsed.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -385,10 +372,10 @@ namespace Mes.Hmi
             this.changeElapsed.Dock = System.Windows.Forms.DockStyle.Fill;
             this.changeElapsed.Font = new System.Drawing.Font("微软雅黑", 8.5F);
             this.changeElapsed.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(126)))), ((int)(((byte)(134)))));
-            this.changeElapsed.Location = new System.Drawing.Point(413, 215);
+            this.changeElapsed.Location = new System.Drawing.Point(233, 221);
             this.changeElapsed.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.changeElapsed.Name = "changeElapsed";
-            this.changeElapsed.Size = new System.Drawing.Size(133, 30);
+            this.changeElapsed.Size = new System.Drawing.Size(130, 24);
             this.changeElapsed.TabIndex = 17;
             this.changeElapsed.Text = "未计时";
             this.changeElapsed.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -402,7 +389,13 @@ namespace Mes.Hmi
             this.grid.BackgroundColor = System.Drawing.Color.White;
             this.grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.grid.ColumnHeadersDefaultCellStyle = headerStyle;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("微软雅黑", 9.5F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(66)))), ((int)(((byte)(72)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(66)))), ((int)(((byte)(72)))));
+            this.grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.grid.ColumnHeadersHeight = 32;
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -411,7 +404,14 @@ namespace Mes.Hmi
             this.colCode,
             this.colMinutes,
             this.colText});
-            this.grid.DefaultCellStyle = cellStyle;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grid.DefaultCellStyle = dataGridViewCellStyle2;
             this.grid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grid.EnableHeadersVisualStyles = false;
             this.grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(243)))));
@@ -422,7 +422,7 @@ namespace Mes.Hmi
             this.grid.RowHeadersVisible = false;
             this.grid.RowTemplate.Height = 30;
             this.grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grid.Size = new System.Drawing.Size(650, 364);
+            this.grid.Size = new System.Drawing.Size(462, 364);
             this.grid.TabIndex = 2;
             // 
             // colIndex
@@ -468,24 +468,59 @@ namespace Mes.Hmi
             this.rightPanel.Controls.Add(this.btnExport, 0, 1);
             this.rightPanel.Controls.Add(this.queryPanel, 0, 2);
             this.rightPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rightPanel.Location = new System.Drawing.Point(664, 7);
+            this.rightPanel.Location = new System.Drawing.Point(475, 7);
             this.rightPanel.Name = "rightPanel";
             this.rightPanel.RowCount = 3;
             this.rightPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.rightPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 72F));
             this.rightPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 132F));
-            this.rightPanel.Size = new System.Drawing.Size(506, 646);
+            this.rightPanel.Size = new System.Drawing.Size(698, 646);
             this.rightPanel.TabIndex = 1;
             // 
             // plotPie
             // 
+            chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("微软雅黑", 9F);
+            chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
+            chartArea1.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(235)))), ((int)(((byte)(239)))));
+            chartArea1.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea1.AxisX.MajorTickMark.Enabled = false;
+            chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font("微软雅黑", 9F);
+            chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
+            chartArea1.AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(235)))), ((int)(((byte)(239)))));
+            chartArea1.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea1.AxisY.MajorTickMark.Enabled = false;
+            chartArea1.BackColor = System.Drawing.Color.White;
+            chartArea1.Name = "main";
+            this.plotPie.ChartAreas.Add(chartArea1);
             this.plotPie.BackColor = System.Drawing.Color.White;
+            this.plotPie.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(233)))), ((int)(((byte)(238)))));
+            this.plotPie.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
             this.plotPie.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plotPie.Kind = Mes.Hmi.PlotKind.Pie;
+            this.plotPie.IsSoftShadows = false;
+            legend1.Alignment = System.Drawing.StringAlignment.Center;
+            legend1.BackColor = System.Drawing.Color.Transparent;
+            legend1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(215)))), ((int)(((byte)(222)))));
+            legend1.Font = new System.Drawing.Font("微软雅黑", 9F);
+            legend1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
+            legend1.IsTextAutoFit = false;
+            legend1.Name = "legend";
+            this.plotPie.Legends.Add(legend1);
             this.plotPie.Location = new System.Drawing.Point(0, 0);
             this.plotPie.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
             this.plotPie.Name = "plotPie";
-            this.plotPie.Size = new System.Drawing.Size(506, 438);
+            seriesPie.ChartArea = "main";
+            seriesPie.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            seriesPie.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(120)))));
+            seriesPie["DoughnutRadius"] = "45";
+            seriesPie.IsVisibleInLegend = true;
+            seriesPie.LegendText = "停机";
+            seriesPie.Name = "停机";
+            seriesPie["PieDrawingStyle"] = "SoftEdge";
+            seriesPie["PieLabelStyle"] = "Disabled";
+            this.plotPie.Series.Add(seriesPie);
+            this.plotPie.Size = new System.Drawing.Size(698, 438);
             this.plotPie.TabIndex = 0;
             // 
             // btnExport
@@ -499,7 +534,7 @@ namespace Mes.Hmi
             this.btnExport.Location = new System.Drawing.Point(0, 446);
             this.btnExport.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(506, 64);
+            this.btnExport.Size = new System.Drawing.Size(698, 64);
             this.btnExport.TabIndex = 1;
             this.btnExport.Text = "手动导出数据";
             this.btnExport.UseVisualStyleBackColor = false;
@@ -525,7 +560,7 @@ namespace Mes.Hmi
             this.queryPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.queryPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.queryPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.queryPanel.Size = new System.Drawing.Size(506, 132);
+            this.queryPanel.Size = new System.Drawing.Size(698, 132);
             this.queryPanel.TabIndex = 2;
             // 
             // fromLabel
@@ -549,7 +584,7 @@ namespace Mes.Hmi
             this.fromPicker.Location = new System.Drawing.Point(84, 8);
             this.fromPicker.Margin = new System.Windows.Forms.Padding(0, 8, 0, 8);
             this.fromPicker.Name = "fromPicker";
-            this.fromPicker.Size = new System.Drawing.Size(211, 24);
+            this.fromPicker.Size = new System.Drawing.Size(307, 24);
             this.fromPicker.TabIndex = 1;
             // 
             // toLabel
@@ -573,7 +608,7 @@ namespace Mes.Hmi
             this.toPicker.Location = new System.Drawing.Point(84, 47);
             this.toPicker.Margin = new System.Windows.Forms.Padding(0, 8, 0, 8);
             this.toPicker.Name = "toPicker";
-            this.toPicker.Size = new System.Drawing.Size(211, 24);
+            this.toPicker.Size = new System.Drawing.Size(307, 24);
             this.toPicker.TabIndex = 3;
             // 
             // btnQuery
@@ -586,7 +621,7 @@ namespace Mes.Hmi
             this.btnQuery.Location = new System.Drawing.Point(86, 82);
             this.btnQuery.Margin = new System.Windows.Forms.Padding(2, 4, 6, 4);
             this.btnQuery.Name = "btnQuery";
-            this.btnQuery.Size = new System.Drawing.Size(203, 46);
+            this.btnQuery.Size = new System.Drawing.Size(299, 46);
             this.btnQuery.TabIndex = 4;
             this.btnQuery.Text = "刷新";
             this.btnQuery.UseVisualStyleBackColor = false;
@@ -600,10 +635,10 @@ namespace Mes.Hmi
             this.btnExportBottom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExportBottom.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.btnExportBottom.ForeColor = System.Drawing.Color.White;
-            this.btnExportBottom.Location = new System.Drawing.Point(297, 82);
+            this.btnExportBottom.Location = new System.Drawing.Point(393, 82);
             this.btnExportBottom.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btnExportBottom.Name = "btnExportBottom";
-            this.btnExportBottom.Size = new System.Drawing.Size(207, 46);
+            this.btnExportBottom.Size = new System.Drawing.Size(303, 46);
             this.btnExportBottom.TabIndex = 5;
             this.btnExportBottom.Text = "导出";
             this.btnExportBottom.UseVisualStyleBackColor = false;
@@ -628,6 +663,7 @@ namespace Mes.Hmi
             this.faultBody.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.rightPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.plotPie)).EndInit();
             this.queryPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -664,7 +700,7 @@ namespace Mes.Hmi
         private System.Windows.Forms.DataGridViewTextBoxColumn colMinutes;
         private System.Windows.Forms.DataGridViewTextBoxColumn colText;
         private System.Windows.Forms.TableLayoutPanel rightPanel;
-        private Mes.Hmi.PlotBox plotPie;
+        private System.Windows.Forms.DataVisualization.Charting.Chart plotPie;
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.TableLayoutPanel queryPanel;
         private System.Windows.Forms.Label fromLabel;

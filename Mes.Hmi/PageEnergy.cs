@@ -1,8 +1,9 @@
-﻿using Mes.Business;
+using Mes.Business;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Mes.Hmi
 {
@@ -12,10 +13,7 @@ namespace Mes.Hmi
     /// </summary>
     public partial class PageEnergy : UserControl
     {
-        private static readonly Color Green = Color.FromArgb(0, 160, 70);
         private static readonly Color Active = Color.FromArgb(40, 120, 200);
-        private static readonly Color Yellow = Color.FromArgb(235, 175, 20);
-        private static readonly Color Red = Color.FromArgb(200, 55, 55);
         private static readonly Color Quiet = Color.FromArgb(90, 96, 105);
         private static readonly Color Idle = Color.FromArgb(238, 241, 244);
         private static readonly Color Border = Color.FromArgb(200, 205, 212);
@@ -39,52 +37,42 @@ namespace Mes.Hmi
         {
             this.station = station;
 
-            gaugeVoltage.SetZones(
-                new GaugeZone(0, 190, Red),
-                new GaugeZone(190, 205, Yellow),
-                new GaugeZone(205, 240, Green),
-                new GaugeZone(240, 260, Yellow),
-                new GaugeZone(260, 400, Red));
-            gaugeCurrent.SetZones(
-                new GaugeZone(0, 40, Green),
-                new GaugeZone(40, 60, Yellow),
-                new GaugeZone(60, 100, Red));
-            airGaugePressure.SetZones(
-                new GaugeZone(0, 600, Green),
-                new GaugeZone(600, 700, Yellow),
-                new GaugeZone(700, 800, Red));
-            airGaugeFlow.SetZones(
-                new GaugeZone(0, 60, Green),
-                new GaugeZone(60, 80, Yellow),
-                new GaugeZone(80, 100, Red));
-            waterGaugePressure.SetZones(
-                new GaugeZone(0, 500, Green),
-                new GaugeZone(500, 650, Yellow),
-                new GaugeZone(650, 800, Red));
-            waterGaugeFlow.SetZones(
-                new GaugeZone(0, 60, Green),
-                new GaugeZone(60, 80, Yellow),
-                new GaugeZone(80, 100, Red));
-            airGaugePressure.SetValue(double.NaN);
-            waterGaugePressure.SetValue(double.NaN);
+            ChartKit.StyleGauge(gaugeVoltage);
+            ChartKit.StyleGauge(gaugeCurrent);
+            ChartKit.StyleGauge(airGaugePressure);
+            ChartKit.StyleGauge(airGaugeFlow);
+            ChartKit.StyleGauge(waterGaugePressure);
+            ChartKit.StyleGauge(waterGaugeFlow);
 
-            plotHistoryPower.Kind = PlotKind.Bars;
-            plotHistoryAir.Kind = PlotKind.Bars;
-            plotHistoryWater.Kind = PlotKind.Bars;
+            ChartKit.StylePlot(plotVoltage);
+            ChartKit.StylePlot(plotCurrent);
+            ChartKit.StylePlot(plotPower);
+            ChartKit.StylePlot(plotHistoryPower);
+            ChartKit.StylePlot(plotAirPressure);
+            ChartKit.StylePlot(plotAirFlow);
+            ChartKit.StylePlot(plotHistoryAir);
+            ChartKit.StylePlot(plotWaterPressure);
+            ChartKit.StylePlot(plotWaterFlow);
+            ChartKit.StylePlot(plotHistoryWater);
 
-            plotVoltage.SetEmpty("等待采样");
-            plotCurrent.SetEmpty("等待采样");
-            plotPower.SetEmpty("等待采样");
-            plotAirFlow.SetEmpty("等待采样");
-            plotWaterFlow.SetEmpty("等待采样");
-            plotAirPressure.SetEmpty("未接气路压力仪表，只有流量数据");
-            plotWaterPressure.SetEmpty("未接供水压力仪表，只有流量数据");
-            plotHistoryPower.SetEmpty("还没有日统计");
-            plotHistoryAir.SetEmpty("还没有日统计");
-            plotHistoryWater.SetEmpty("还没有日统计");
+            ChartKit.Empty(plotVoltage, "等待采样");
+            ChartKit.Empty(plotCurrent, "等待采样");
+            ChartKit.Empty(plotPower, "等待采样");
+            ChartKit.Empty(plotAirFlow, "等待采样");
+            ChartKit.Empty(plotWaterFlow, "等待采样");
+            ChartKit.Empty(plotAirPressure, "未接气路压力仪表，只有流量数据");
+            ChartKit.Empty(plotWaterPressure, "未接供水压力仪表，只有流量数据");
+            ChartKit.Empty(plotHistoryPower, "还没有日统计");
+            ChartKit.Empty(plotHistoryAir, "还没有日统计");
+            ChartKit.Empty(plotHistoryWater, "还没有日统计");
 
             RefreshModeButtons();
             refresh.Enabled = true;
+        }
+
+        private void gauge_Resize(object sender, EventArgs e)
+        {
+            ChartKit.LayoutGauge((Chart)sender);
         }
 
         private void refresh_Tick(object sender, EventArgs e)
@@ -108,10 +96,10 @@ namespace Mes.Hmi
         {
             if (snapshot.HasData)
             {
-                gaugeVoltage.SetValue(snapshot.Voltage);
-                gaugeCurrent.SetValue(snapshot.Current);
-                airGaugeFlow.SetValue(snapshot.AirFlow);
-                waterGaugeFlow.SetValue(snapshot.WaterFlow);
+                ChartKit.SetGaugeValue(gaugeVoltage, snapshot.Voltage);
+                ChartKit.SetGaugeValue(gaugeCurrent, snapshot.Current);
+                ChartKit.SetGaugeValue(airGaugeFlow, snapshot.AirFlow);
+                ChartKit.SetGaugeValue(waterGaugeFlow, snapshot.WaterFlow);
                 energyBox.Text = snapshot.Power.ToString("0.00") + " kW";
                 voltageValue.Text = "实时电压  " + snapshot.Voltage.ToString("0.0") + " V";
                 currentValue.Text = "实时电流  " + snapshot.Current.ToString("0.0") + " A";
@@ -120,10 +108,10 @@ namespace Mes.Hmi
             }
             else
             {
-                gaugeVoltage.SetValue(double.NaN);
-                gaugeCurrent.SetValue(double.NaN);
-                airGaugeFlow.SetValue(double.NaN);
-                waterGaugeFlow.SetValue(double.NaN);
+                ChartKit.SetGaugeValue(gaugeVoltage, double.NaN);
+                ChartKit.SetGaugeValue(gaugeCurrent, double.NaN);
+                ChartKit.SetGaugeValue(airGaugeFlow, double.NaN);
+                ChartKit.SetGaugeValue(waterGaugeFlow, double.NaN);
                 energyBox.Text = "--";
                 voltageValue.Text = "实时电压  --";
                 currentValue.Text = "实时电流  --";
@@ -234,17 +222,17 @@ namespace Mes.Hmi
         {
             if (tabs.SelectedIndex == 0)
             {
-                if (powerHistory) DrawHistory(plotHistoryPower, "耗电量", Color.FromArgb(40, 120, 200));
+                if (powerHistory) DrawHistory(plotHistoryPower, "耗电量");
                 else DrawLivePower(snapshot);
             }
             else if (tabs.SelectedIndex == 1)
             {
-                if (airHistory) DrawHistory(plotHistoryAir, "耗气量", Color.FromArgb(0, 150, 170));
+                if (airHistory) DrawHistory(plotHistoryAir, "耗气量");
                 else DrawLiveAir(snapshot);
             }
             else
             {
-                if (waterHistory) DrawHistory(plotHistoryWater, "耗水量", Color.FromArgb(70, 130, 200));
+                if (waterHistory) DrawHistory(plotHistoryWater, "耗水量");
                 else DrawLiveWater(snapshot);
             }
         }
@@ -254,9 +242,9 @@ namespace Mes.Hmi
             var points = Tail(snapshot.Points, LivePoints);
             if (points.Length == 0)
             {
-                plotVoltage.SetEmpty("等待采样");
-                plotCurrent.SetEmpty("等待采样");
-                plotPower.SetEmpty("等待采样");
+                ChartKit.Empty(plotVoltage, "等待采样");
+                ChartKit.Empty(plotCurrent, "等待采样");
+                ChartKit.Empty(plotPower, "等待采样");
                 return;
             }
             var labels = new string[points.Length];
@@ -270,9 +258,9 @@ namespace Mes.Hmi
                 current[i] = points[i].Current;
                 power[i] = points[i].Power;
             }
-            plotVoltage.SetSeries(new[] { Series("电压", voltage, Color.FromArgb(40, 120, 200)) }, labels);
-            plotCurrent.SetSeries(new[] { Series("电流", current, Color.FromArgb(230, 150, 30)) }, labels);
-            plotPower.SetSeries(new[] { Series("功率", power, Green) }, labels);
+            ChartKit.Fill(plotVoltage, labels, new[] { voltage });
+            ChartKit.Fill(plotCurrent, labels, new[] { current });
+            ChartKit.Fill(plotPower, labels, new[] { power });
         }
 
         private void DrawLiveAir(EnergySnapshot snapshot)
@@ -280,7 +268,7 @@ namespace Mes.Hmi
             var points = Tail(snapshot.Points, LivePoints);
             if (points.Length == 0)
             {
-                plotAirFlow.SetEmpty("等待采样");
+                ChartKit.Empty(plotAirFlow, "等待采样");
                 return;
             }
             var labels = new string[points.Length];
@@ -290,7 +278,7 @@ namespace Mes.Hmi
                 labels[i] = i.ToString();
                 flow[i] = points[i].AirFlow;
             }
-            plotAirFlow.SetSeries(new[] { Series("流量", flow, Color.FromArgb(0, 150, 170)) }, labels);
+            ChartKit.Fill(plotAirFlow, labels, new[] { flow });
         }
 
         private void DrawLiveWater(EnergySnapshot snapshot)
@@ -298,7 +286,7 @@ namespace Mes.Hmi
             var points = Tail(snapshot.Points, LivePoints);
             if (points.Length == 0)
             {
-                plotWaterFlow.SetEmpty("等待采样");
+                ChartKit.Empty(plotWaterFlow, "等待采样");
                 return;
             }
             var labels = new string[points.Length];
@@ -308,10 +296,10 @@ namespace Mes.Hmi
                 labels[i] = i.ToString();
                 flow[i] = points[i].WaterFlow;
             }
-            plotWaterFlow.SetSeries(new[] { Series("流量", flow, Color.FromArgb(70, 130, 200)) }, labels);
+            ChartKit.Fill(plotWaterFlow, labels, new[] { flow });
         }
 
-        private void DrawHistory(PlotBox plot, string column, Color color)
+        private void DrawHistory(Chart plot, string column)
         {
             var entries = new List<KeyValuePair<string, double>>();
             foreach (var row in station.EnergyDaily.All())
@@ -323,7 +311,7 @@ namespace Mes.Hmi
             }
             if (entries.Count == 0)
             {
-                plot.SetEmpty("还没有日统计；采样每 30 秒回写一次");
+                ChartKit.Empty(plot, "还没有日统计；采样每 30 秒回写一次");
                 return;
             }
             entries.Sort((a, b) => string.CompareOrdinal(a.Key, b.Key));
@@ -337,7 +325,7 @@ namespace Mes.Hmi
                 var day = entries[start + i].Key;
                 labels[i] = day.Length >= 5 ? day.Substring(5) : day;
             }
-            plot.SetSeries(new[] { Series("每日", values, color) }, labels);
+            ChartKit.Fill(plot, labels, new[] { values });
         }
 
         private static EnergyPoint[] Tail(EnergyPoint[] source, int count)
@@ -347,11 +335,6 @@ namespace Mes.Hmi
             var result = new EnergyPoint[count];
             Array.Copy(source, source.Length - count, result, 0, count);
             return result;
-        }
-
-        private static PlotSeries Series(string name, double[] values, Color color)
-        {
-            return new PlotSeries { Name = name, Values = values, Color = color };
         }
     }
 }

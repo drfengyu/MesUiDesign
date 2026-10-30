@@ -34,10 +34,10 @@ namespace Mes.Hmi
         public PageParamChart(StationContext station) : this()
         {
             this.station = station;
-            plotPressure.LabelInterval = 2;
-            plotTemperature.LabelInterval = 2;
-            plotPressure.SetEmpty("等待采样");
-            plotTemperature.SetEmpty("等待采样");
+            ChartKit.StylePlot(plotPressure);
+            ChartKit.StylePlot(plotTemperature);
+            ChartKit.Empty(plotPressure, "等待采样");
+            ChartKit.Empty(plotTemperature, "等待采样");
             refresh.Enabled = true;
             pumping = true;
             var thread = new Thread(PumpLoop);
@@ -116,28 +116,23 @@ namespace Mes.Hmi
             if (frame.Revision == shownRevision) return;
             shownRevision = frame.Revision;
             if (tabPressure.Text != TabTitle) tabPressure.Text = TabTitle;
-            plotPressure.SetSeries(new[]
+            ChartKit.Fill(plotPressure, Labels(frame.Pressure[0].Length), new[]
             {
-                Series("穴1压力", frame.Pressure[0]),
-                Series("穴2压力", frame.Pressure[1]),
-                Series("穴3压力", frame.Pressure[2]),
-                Series("穴4压力", frame.Pressure[3]),
-            }, Labels(frame.Pressure[0].Length));
-            plotTemperature.SetSeries(new[]
+                frame.Pressure[0],
+                frame.Pressure[1],
+                frame.Pressure[2],
+                frame.Pressure[3],
+            }, 2);
+            ChartKit.Fill(plotTemperature, Labels(frame.Temperature[0].Length), new[]
             {
-                Series("穴1温度", frame.Temperature[0]),
-                Series("穴2温度", frame.Temperature[1]),
-                Series("穴3温度", frame.Temperature[2]),
-                Series("穴4温度", frame.Temperature[3]),
-            }, Labels(frame.Temperature[0].Length));
+                frame.Temperature[0],
+                frame.Temperature[1],
+                frame.Temperature[2],
+                frame.Temperature[3],
+            }, 2);
         }
 
         private int shownRevision = -1;
-
-        private static PlotSeries Series(string name, double[] values)
-        {
-            return new PlotSeries { Name = name, Values = values };
-        }
 
         private static string[] Labels(int count)
         {

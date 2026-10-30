@@ -41,9 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GaugeBox.cs" />
+    <Compile Include="ChartKit.cs" />
     <Compile Include="NavEntry.cs" />
-    <Compile Include="PlotBox.cs" />
     <Compile Include="FaultCodeDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PageUptime.resx">
       <DependentUpon>PageUptime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PartChangeDialog.resx">
+      <DependentUpon>PartChangeDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ShellForm.resx">
       <DependentUpon>ShellForm.cs</DependentUpon>

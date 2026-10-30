@@ -14,16 +14,30 @@ namespace Mes.Hmi
 
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.components = new System.ComponentModel.Container();
             this.tabs = new System.Windows.Forms.TabControl();
             this.tabPressure = new System.Windows.Forms.TabPage();
             this.plots = new System.Windows.Forms.TableLayoutPanel();
-            this.plotPressure = new Mes.Hmi.PlotBox();
-            this.plotTemperature = new Mes.Hmi.PlotBox();
+            this.plotPressure = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.plotTemperature = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.refresh = new System.Windows.Forms.Timer(this.components);
             this.tabs.SuspendLayout();
             this.tabPressure.SuspendLayout();
             this.plots.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.plotPressure)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plotTemperature)).BeginInit();
             this.SuspendLayout();
             // 
             // tabs
@@ -66,25 +80,115 @@ namespace Mes.Hmi
             // 
             // plotPressure
             // 
+            chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
+            chartArea1.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(235)))), ((int)(((byte)(239)))));
+            chartArea1.AxisX.MajorTickMark.Enabled = false;
+            chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
+            chartArea1.AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(235)))), ((int)(((byte)(239)))));
+            chartArea1.AxisY.MajorTickMark.Enabled = false;
+            chartArea1.BackColor = System.Drawing.Color.White;
+            chartArea1.Name = "main";
+            this.plotPressure.ChartAreas.Add(chartArea1);
             this.plotPressure.BackColor = System.Drawing.Color.White;
             this.plotPressure.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend1.Alignment = System.Drawing.StringAlignment.Center;
+            legend1.BackColor = System.Drawing.Color.Transparent;
+            legend1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(215)))), ((int)(((byte)(222)))));
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Right;
+            legend1.IsTextAutoFit = false;
+            legend1.Name = "legend";
+            this.plotPressure.Legends.Add(legend1);
             this.plotPressure.Location = new System.Drawing.Point(0, 0);
             this.plotPressure.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
             this.plotPressure.Name = "plotPressure";
+            series1.ChartArea = "main";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(120)))));
+            series1.LegendText = "穴1压力";
+            series1.Name = "穴1压力";
+            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series2.ChartArea = "main";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(120)))), ((int)(((byte)(200)))));
+            series2.LegendText = "穴2压力";
+            series2.Name = "穴2压力";
+            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series3.ChartArea = "main";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(150)))), ((int)(((byte)(30)))));
+            series3.LegendText = "穴3压力";
+            series3.Name = "穴3压力";
+            series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series4.ChartArea = "main";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Color = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
+            series4.LegendText = "穴4压力";
+            series4.Name = "穴4压力";
+            series4.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            this.plotPressure.Series.Add(series1);
+            this.plotPressure.Series.Add(series2);
+            this.plotPressure.Series.Add(series3);
+            this.plotPressure.Series.Add(series4);
             this.plotPressure.Size = new System.Drawing.Size(1168, 307);
             this.plotPressure.TabIndex = 0;
-            this.plotPressure.Unit = "MPa";
             // 
             // plotTemperature
             // 
+            chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
+            chartArea2.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
+            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(235)))), ((int)(((byte)(239)))));
+            chartArea2.AxisX.MajorTickMark.Enabled = false;
+            chartArea2.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
+            chartArea2.AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
+            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(235)))), ((int)(((byte)(239)))));
+            chartArea2.AxisY.MajorTickMark.Enabled = false;
+            chartArea2.BackColor = System.Drawing.Color.White;
+            chartArea2.Name = "main";
+            this.plotTemperature.ChartAreas.Add(chartArea2);
             this.plotTemperature.BackColor = System.Drawing.Color.White;
             this.plotTemperature.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend2.Alignment = System.Drawing.StringAlignment.Center;
+            legend2.BackColor = System.Drawing.Color.Transparent;
+            legend2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(215)))), ((int)(((byte)(222)))));
+            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Right;
+            legend2.IsTextAutoFit = false;
+            legend2.Name = "legend";
+            this.plotTemperature.Legends.Add(legend2);
             this.plotTemperature.Location = new System.Drawing.Point(0, 315);
             this.plotTemperature.Margin = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.plotTemperature.Name = "plotTemperature";
+            series5.ChartArea = "main";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(120)))));
+            series5.LegendText = "穴1温度";
+            series5.Name = "穴1温度";
+            series5.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series6.ChartArea = "main";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series6.Color = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(120)))), ((int)(((byte)(200)))));
+            series6.LegendText = "穴2温度";
+            series6.Name = "穴2温度";
+            series6.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series7.ChartArea = "main";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series7.Color = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(150)))), ((int)(((byte)(30)))));
+            series7.LegendText = "穴3温度";
+            series7.Name = "穴3温度";
+            series7.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series8.ChartArea = "main";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series8.Color = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
+            series8.LegendText = "穴4温度";
+            series8.Name = "穴4温度";
+            series8.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            this.plotTemperature.Series.Add(series5);
+            this.plotTemperature.Series.Add(series6);
+            this.plotTemperature.Series.Add(series7);
+            this.plotTemperature.Series.Add(series8);
             this.plotTemperature.Size = new System.Drawing.Size(1168, 307);
             this.plotTemperature.TabIndex = 1;
-            this.plotTemperature.Unit = "℃";
             // 
             // refresh
             // 
@@ -102,6 +206,8 @@ namespace Mes.Hmi
             this.tabs.ResumeLayout(false);
             this.tabPressure.ResumeLayout(false);
             this.plots.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.plotPressure)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plotTemperature)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -111,8 +217,8 @@ namespace Mes.Hmi
         private System.Windows.Forms.TabControl tabs;
         private System.Windows.Forms.TabPage tabPressure;
         private System.Windows.Forms.TableLayoutPanel plots;
-        private Mes.Hmi.PlotBox plotPressure;
-        private Mes.Hmi.PlotBox plotTemperature;
+        private System.Windows.Forms.DataVisualization.Charting.Chart plotPressure;
+        private System.Windows.Forms.DataVisualization.Charting.Chart plotTemperature;
         private System.Windows.Forms.Timer refresh;
     }
 }
