@@ -1,0 +1,6 @@
+等级,密码,现场对应项,说明
+操作员,操作员,Operator_pwd,现场在 setting.ini 的 [PassWord] 段；本机用等级名本身当密码，课上也就不用记密码
+技术员,技术员,Technician_pwd,同上
+工程师,工程师,Engineer_pwd,同上
+管理员,管理员,Administrator_pwd,同上
+超级管理员,超级管理员,SuperAdministrator_pwd,同上

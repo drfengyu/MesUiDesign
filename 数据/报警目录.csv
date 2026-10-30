@@ -1,0 +1,10 @@
+序号,代码,中文描述,等级,模组代码,处理对策,DT分类EN,DT分类CN,类别EN,类别CN,英文描述,大类
+1,0000000,运行,0,-,无需处理。Running 状态只用于算稼动率，不报警,Running,运行,Normal,正常,Running,生产
+2,6010044,左扫码枪未读到条码,2,SCN-01,检查扫码枪电源与触发信号线；确认条码区 MW63050 里有没有内容,Unplanned,良率非计划性停机,YieldLoss,良率损失,Left scanner read failure,停机
+3,6010045,右扫码枪未读到条码,2,SCN-02,检查扫码枪电源与触发信号线；确认条码区 MW63075 里有没有内容,Unplanned,良率非计划性停机,YieldLoss,良率损失,Right scanner read failure,停机
+4,6010121,左工位焊前校验NG,2,WLD-01,核对送码到 MW63100 的产品码与治具号 MW63124；在过站判定页查该码的追溯记录,Unplanned,良率非计划性停机,QualityLoss,质量损失,Pre-weld check NG at station 1,停机
+5,6010141,CCD1拍照NG,2,CCD-01,检查光源与相机连线；确认定位标志点是否被胶遮挡,Unplanned,良率非计划性停机,YieldLoss,良率损失,CCD1 image NG,停机
+6,6010161,左焊接NG,3,WLD-01,查看 WD 参数区 MW15900 的回读值是否超限；确认冷却水与保护气流量,Unplanned,良率非计划性停机,QualityLoss,质量损失,Left welding NG,停机
+7,6010181,左探高NG,2,CCD-02,检查 BOSS 柱高度区 MW15058 的回读值；确认测高传感器归零,Unplanned,良率非计划性停机,QualityLoss,质量损失,Height detect NG,停机
+8,6020011,安全门被打开,1,SAF-01,关闭安全门后按复位；排查行程开关是否松动,Planned,机台计划性停机,MachinePlan,计划停机,Safety door opened,停机
+9,6020031,三色灯蜂鸣请求消音,1,SAF-02,确认报警已处理再按消音按钮,Planned,机台计划性停机,MachinePlan,计划停机,Buzzer mute requested,停机

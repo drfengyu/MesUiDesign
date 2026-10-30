@@ -1,0 +1,8 @@
+.vs/
+**/bin/
+**/obj/
+*.user
+*.suo
+*.log
+# 客户 RFP 原件（约 400MB PDF），不入库
+Common RFP/

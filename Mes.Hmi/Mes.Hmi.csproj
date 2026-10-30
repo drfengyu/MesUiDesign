@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A5CCB009-6B60-401F-9919-603A15B423DA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Mes.Hmi</RootNamespace>
+    <AssemblyName>Mes.Hmi</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NavEntry.cs" />
+    <Compile Include="PageHome.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PageHome.Designer.cs">
+      <DependentUpon>PageHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PageIoMonitor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PageIoMonitor.Designer.cs">
+      <DependentUpon>PageIoMonitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PageLogin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PageLogin.Designer.cs">
+      <DependentUpon>PageLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PageMachineSimulator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PageMachineSimulator.Designer.cs">
+      <DependentUpon>PageMachineSimulator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PageManualOperation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PageManualOperation.Designer.cs">
+      <DependentUpon>PageManualOperation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PagePlaceholder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PagePlaceholder.Designer.cs">
+      <DependentUpon>PagePlaceholder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShellForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShellForm.Designer.cs">
+      <DependentUpon>ShellForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PageHome.resx">
+      <DependentUpon>PageHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShellForm.resx">
+      <DependentUpon>ShellForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <Content Include="log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <!-- 码表跟着输出目录走：StationContext 读的是 BaseDirectory\数据。
+         现场换机台只改这一份 csv，不用重新编译。 -->
+    <Content Include="..\数据\*.csv">
+      <Link>数据\%(Filename)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mes.Business\Mes.Business.csproj">
+      <Project>{704a37e5-80ff-432b-94cd-901d4004d000}</Project>
+      <Name>Mes.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mes.Common\Mes.Common.csproj">
+      <Project>{8fa39e71-4861-46ab-8899-34bdba0abf14}</Project>
+      <Name>Mes.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mes.Data\Mes.Data.csproj">
+      <Project>{7b533968-b850-4ae7-b6c4-033453eede17}</Project>
+      <Name>Mes.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mes.Devices\Mes.Devices.csproj">
+      <Project>{dd24454a-1dd5-4b0e-83b5-0749ac82768e}</Project>
+      <Name>Mes.Devices</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

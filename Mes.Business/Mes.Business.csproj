@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{704A37E5-80FF-432B-94CD-901D4004D000}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mes.Business</RootNamespace>
+    <AssemblyName>Mes.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccessPolicy.cs" />
+    <Compile Include="AccessRule.cs" />
+    <Compile Include="AlarmBoard.cs" />
+    <Compile Include="AlarmCatalog.cs" />
+    <Compile Include="AlarmEntry.cs" />
+    <Compile Include="AlarmInfo.cs" />
+    <Compile Include="BatchSummary.cs" />
+    <Compile Include="Cylinder.cs" />
+    <Compile Include="FixtureLifeRow.cs" />
+    <Compile Include="HourlyThroughput.cs" />
+    <Compile Include="IoCatalog.cs" />
+    <Compile Include="IoPoint.cs" />
+    <Compile Include="LifeLedger.cs" />
+    <Compile Include="MachineSimulator.cs" />
+    <Compile Include="ManualOperations.cs" />
+    <Compile Include="LoginLevel.cs" />
+    <Compile Include="ParamCatalog.cs" />
+    <Compile Include="ParamDefinition.cs" />
+    <Compile Include="PasswordStore.cs" />
+    <Compile Include="PartLifeRow.cs" />
+    <Compile Include="QualityCatalog.cs" />
+    <Compile Include="QualityLimit.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StationContext.cs" />
+    <Compile Include="StationFlow.cs" />
+    <Compile Include="StationPage.cs" />
+    <Compile Include="ThroughputReport.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mes.Common\Mes.Common.csproj">
+      <Project>{8fa39e71-4861-46ab-8899-34bdba0abf14}</Project>
+      <Name>Mes.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mes.Data\Mes.Data.csproj">
+      <Project>{7b533968-b850-4ae7-b6c4-033453eede17}</Project>
+      <Name>Mes.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mes.Devices\Mes.Devices.csproj">
+      <Project>{dd24454a-1dd5-4b0e-83b5-0749ac82768e}</Project>
+      <Name>Mes.Devices</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

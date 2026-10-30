@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="Mes.Business/Mes.Business.csproj" Id="704a37e5-80ff-432b-94cd-901d4004d000" />
+  <Project Path="Mes.Common/Mes.Common.csproj" Id="8fa39e71-4861-46ab-8899-34bdba0abf14" />
+  <Project Path="Mes.Data/Mes.Data.csproj" Id="7b533968-b850-4ae7-b6c4-033453eede17" />
+  <Project Path="Mes.Devices/Mes.Devices.csproj" Id="dd24454a-1dd5-4b0e-83b5-0749ac82768e" />
+  <Project Path="Mes.Hmi/Mes.Hmi.csproj" Id="a5ccb009-6b60-401f-9919-603a15b423da" />
+</Solution>
