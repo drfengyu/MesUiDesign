@@ -142,6 +142,7 @@ namespace Mes.Business
                 // 气缸不跟着"暂停/手动"停：手动操作页就是要在这种状态下点动，
                 // 所以这一句放在下面的 continue 之前。
                 SimulateCylinders();
+                SimulateProcessValues();
                 plc.PokeBit(AutoButtonBit, Running && AutoMode);
                 // 上一片"双手按下"到这一轮开头收掉：焊接那几秒它是亮着的（见 SendToStation）
                 plc.PokeBit(DualStart1Bit, false);
@@ -312,6 +313,36 @@ namespace Mes.Business
             if (Environment.TickCount - pressedAt < CylinderStrokeMs) return;
             plc.PokeBit(thisSideSensor, true);
             plc.PokeBit(otherSideSensor, false);
+        }
+
+        /// <summary>
+        /// 四个腔体的压力与温度。压力走现场 9100/9120/9140/9160 每区第一个浮点；
+        /// 温度本机没有真实地址，用 PlcAddresses.TemperatureArea 这一段约定地址。
+        /// 停机时压力回到 0.4MPa 左右，温度缓慢漂移，参数图表才有活数据可看。
+        /// </summary>
+        private void SimulateProcessValues()
+        {
+            var t = Environment.TickCount / 1000D;
+            for (var i = 0; i < 4; i++)
+            {
+                var pressure = Running && AutoMode
+                    ? 0.55 + 0.05 * Math.Sin(t * 0.7 + i * 1.3)
+                    : 0.40 + 0.01 * Math.Sin(t * 0.2 + i);
+                plc.PokeFloat(PlcAddresses.Mw(PlcAddresses.StationPressureAreas[i]), pressure);
+                var temperature = 30.5 + 1.8 * Math.Sin(t * 0.08 + i * 0.9);
+                plc.PokeFloat(PlcAddresses.Mw(PlcAddresses.TemperatureArea + i * 2), temperature);
+            }
+
+            var voltage = 221 + 2.5 * Math.Sin(t * 0.4);
+            var current = (Running && AutoMode ? 8.2 : 1.4) + 0.6 * Math.Sin(t * 1.1);
+            var power = voltage * current * 0.85 / 1000D;
+            var airFlow = (Running && AutoMode ? 42 : 6) + 3 * Math.Sin(t * 0.6);
+            var waterFlow = (Running && AutoMode ? 7.5 : 0.8) + 0.4 * Math.Cos(t * 0.5);
+            plc.PokeFloat(PlcAddresses.Mw(PlcAddresses.EnergyArea), voltage);
+            plc.PokeFloat(PlcAddresses.Mw(PlcAddresses.EnergyArea + 2), current);
+            plc.PokeFloat(PlcAddresses.Mw(PlcAddresses.EnergyArea + 4), power);
+            plc.PokeFloat(PlcAddresses.Mw(PlcAddresses.EnergyArea + 6), airFlow);
+            plc.PokeFloat(PlcAddresses.Mw(PlcAddresses.EnergyArea + 8), waterFlow);
         }
 
         /// <summary>机台侧盯着参数区，发现有人改了值就把"修改前/修改后"两个触发置 1。</summary>

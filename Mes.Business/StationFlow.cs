@@ -1,6 +1,7 @@
 ﻿using Mes.Devices;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading;
 
 namespace Mes.Business
@@ -21,6 +22,8 @@ namespace Mes.Business
     {
         private readonly StationContext owner;
         private readonly SimulatedPlc plc;
+        private readonly DateTime[] sendAt = new DateTime[4];
+        private readonly DateTime[] lastCheckout = new DateTime[4];
         private Thread loop;
         private volatile bool alive;
 
@@ -138,6 +141,8 @@ namespace Mes.Business
                     ? owner.Ledger.Fixtures[index].FixtureCode
                     : string.Empty;
                 owner.ProductLog.AttachFixture(code, fixture);
+                owner.Ledger.OnFixtureUsed(fixture);
+                sendAt[station - 1] = DateTime.Now;
                 owner.Say("工位 " + station + " 取料 " + code + " 治具 " + (fixture.Length == 0 ? "无" : fixture));
             }
         }
@@ -161,6 +166,10 @@ namespace Mes.Business
             var code = Clean(WordCodec.WordsToAscii(plc.Read(
                 PlcAddresses.Mw(PlcAddresses.StationBarcodeAreas[station - 1]),
                 PlcAddresses.BarcodeWords)));
+            var fixtureIndex = plc.Read(PlcAddresses.Mw(PlcAddresses.StationFixtureIndexes[station - 1]), 1)[0];
+            var fixtureCode = fixtureIndex >= 0 && fixtureIndex < owner.Ledger.Fixtures.Count
+                ? owner.Ledger.Fixtures[fixtureIndex].FixtureCode
+                : string.Empty;
             var mc = plc.ReadFloatArray(PlcAddresses.Mw(PlcAddresses.McArea(station)), 12);
             var boss = plc.ReadFloatArray(PlcAddresses.Mw(PlcAddresses.BossArea(station)), 12);
             var wd = plc.ReadFloatArray(PlcAddresses.Mw(PlcAddresses.WdArea(station)), 8);
@@ -178,13 +187,41 @@ namespace Mes.Business
             owner.ProductLog.WriteWelding(code, now, now, ct);
 
             var bad = owner.Limits.Violations(measured);
-            var verdict = bad.Count == 0
-                ? "OK"
-                : (station <= 2 ? "左" : "右") + "焊后过站NG";
+            var overdue = fixtureCode.Length == 0 ? null : owner.Ledger.OverdueReason(fixtureCode);
+            var verdict = overdue != null
+                ? "治具保养超期"
+                : bad.Count == 0 ? "OK" : (station <= 2 ? "左" : "右") + "焊后过站NG";
+            var failed = overdue != null || bad.Count > 0;
+            if (overdue != null)
+            {
+                owner.FixtureBlocks.Append(now, fixtureCode, overdue, code, "NG");
+                owner.Log.Write("系统", "治具卡控", fixtureCode, overdue, code);
+            }
             owner.ProductLog.Complete(code, verdict);
-            plc.WriteChecked(PlcAddresses.Mw(PlcAddresses.CheckOutResult(station)), (short)(bad.Count == 0 ? 1 : 2));
+            owner.Ledger.OnProductCompleted();
+            plc.WriteChecked(PlcAddresses.Mw(PlcAddresses.CheckOutResult(station)), (short)(failed ? 2 : 1));
             owner.Say("工位 " + station + " " + code + " 过站 " + verdict
-                + (bad.Count == 0 ? string.Empty : "：" + string.Join("、", bad.ToArray())));
+                + (bad.Count == 0 ? string.Empty : "：" + string.Join("、", bad.ToArray()))
+                + (overdue == null ? string.Empty : "：" + overdue));
+
+            var at = DateTime.Now;
+            if (lastCheckout[station - 1] != default(DateTime) && station <= 3)
+            {
+                owner.Timing.Add(FlowGroup(station),
+                    (at - lastCheckout[station - 1]).TotalMilliseconds);
+            }
+            lastCheckout[station - 1] = at;
+            if (sendAt[station - 1] != default(DateTime) && (station == 2 || station == 3))
+            {
+                owner.Timing.Add(station == 2 ? TimingBoard.Fit2 : TimingBoard.Fit3,
+                    (at - sendAt[station - 1]).TotalMilliseconds);
+            }
+        }
+
+        private static string FlowGroup(int station)
+        {
+            return station == 1 ? TimingBoard.Flow1
+                : station == 2 ? TimingBoard.Flow2 : TimingBoard.Flow3;
         }
 
         private static KeyValuePair<string, double> Pair(string name, double[] values, int at)
@@ -200,7 +237,9 @@ namespace Mes.Business
         /// </summary>
         private void PollStatus()
         {
+            var watch = Stopwatch.StartNew();
             owner.MesDisabled = plc.Read(PlcAddresses.Mw(PlcAddresses.MesDisabled), 1)[0];
+            owner.Timing.Add(TimingBoard.Communication, watch.Elapsed.TotalMilliseconds);
         }
 
         // ── 报警 ──────────────────────────────────────────────────────────
@@ -213,8 +252,11 @@ namespace Mes.Business
             if (index == 0) return;
             var info = owner.Alarms.FindByIndex(index);
             if (info == null) return;
-            owner.ActiveAlarms.Raise(info);
-            owner.Log.Write("系统", "机台报警", info.Code, info.Title, string.Empty);
+            if (owner.ActiveAlarms.Raise(info))
+            {
+                owner.Uptime.FaultStarted(info, "系统");
+                owner.Log.Write("系统", "机台报警", info.Code, info.Title, string.Empty);
+            }
         }
 
         /// <summary>
@@ -229,6 +271,7 @@ namespace Mes.Business
                 plc.WriteChecked(PlcAddresses.Mw(register), 0);
             }
             owner.ActiveAlarms.Clear();
+            owner.Uptime.FaultEnded();
             owner.Say("报警已复位");
         }
 

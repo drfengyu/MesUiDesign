@@ -43,6 +43,7 @@
     <Compile Include="AlarmInfo.cs" />
     <Compile Include="BatchSummary.cs" />
     <Compile Include="Cylinder.cs" />
+    <Compile Include="EnergyMeter.cs" />
     <Compile Include="FixtureLifeRow.cs" />
     <Compile Include="HourlyThroughput.cs" />
     <Compile Include="IoCatalog.cs" />
@@ -62,6 +63,8 @@
     <Compile Include="StationFlow.cs" />
     <Compile Include="StationPage.cs" />
     <Compile Include="ThroughputReport.cs" />
+    <Compile Include="TimingBoard.cs" />
+    <Compile Include="UptimeTracker.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mes.Common\Mes.Common.csproj">

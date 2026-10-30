@@ -42,6 +42,13 @@ namespace Mes.Hmi
             new Dictionary<string, Func<StationContext, Control>>
             {
                 { StationPage.Home, station => new PageHome(station) },
+                { StationPage.UptimeLog, station => new PageUptime(station) },
+                { StationPage.ParamChart, station => new PageParamChart(station) },
+                { StationPage.PartLife, station => new PagePartLife(station) },
+                { StationPage.FixtureLife, station => new PageFixtureLife(station) },
+                { StationPage.ParamControl, station => new PageParamControl(station) },
+                { StationPage.TimeDetail, station => new PageTimeDetail(station) },
+                { StationPage.EnergyMonitor, station => new PageEnergy(station) },
                 { StationPage.Login, station => new PageLogin(station) },
                 { StationPage.IoInput, station => new PageIoMonitor(station, 'I') },
                 { StationPage.IoOutput, station => new PageIoMonitor(station, 'Q') },
@@ -224,7 +231,7 @@ namespace Mes.Hmi
             }
         }
 
-        /// <summary>"主界面/报站送码" → "报站送码"。</summary>
+        /// <summary>"主界面/Uptime记录" → "Uptime记录"。</summary>
         private static string PageTitle(string page)
         {
             var at = page.IndexOf('/');

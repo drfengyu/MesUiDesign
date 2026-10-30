@@ -162,6 +162,18 @@
 
         public const int TenMoldCtWords = 22;
 
+        // ── 能耗（本机约定，不在现场地址表里）─────────────────────────────
+        /// <summary>
+        /// MW16000 起五个浮点：电压 V、电流 A、有功功率 kW、气流量 L/min、冷却水流量 L/min，各占两个字。
+        /// 现场这块表走的是独立电表/流量计，地址要按实际仪表对；本机先用这一段把页面接通。
+        /// </summary>
+        public const int EnergyArea = 16000;
+
+        public const int EnergyWords = 10;
+
+        /// <summary>四个腔体温度的本机约定区：MW16100 起四个浮点。现场有独立温控表后换成真实地址。</summary>
+        public const int TemperatureArea = 16100;
+
         // ── 设备连接状态（本机约定，不在现场地址表里）──────────────────────
         /// <summary>
         /// 主界面区域5 那四颗连接灯的字地址起点：MW62080 起四个字，1=连接OK、0=NG。

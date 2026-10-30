@@ -36,11 +36,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Csv.cs" />
+    <Compile Include="EnergyDailyTable.cs" />
+    <Compile Include="FixtureBlockTable.cs" />
+    <Compile Include="FixtureCareTable.cs" />
     <Compile Include="OperationLog.cs" />
+    <Compile Include="PartChangeTable.cs" />
+    <Compile Include="PartStateTable.cs" />
     <Compile Include="ProductLogTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Record.cs" />
     <Compile Include="RecordTable.cs" />
+    <Compile Include="UptimeTable.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mes.Common\Mes.Common.csproj">

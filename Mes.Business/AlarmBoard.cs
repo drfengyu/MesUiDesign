@@ -18,12 +18,13 @@ namespace Mes.Business
         private readonly Dictionary<string, AlarmEntry> activeByCode =
             new Dictionary<string, AlarmEntry>(System.StringComparer.Ordinal);
 
-        public void Raise(AlarmInfo info)
+        /// <summary>登记一条活动报警；同码已经在板上时不重复登记，返回 false。</summary>
+        public bool Raise(AlarmInfo info)
         {
-            if (info == null) return;
+            if (info == null) return false;
             lock (gate)
             {
-                if (activeByCode.ContainsKey(info.Code)) return;
+                if (activeByCode.ContainsKey(info.Code)) return false;
                 var entry = new AlarmEntry { At = System.DateTime.Now, Code = info.Code, Text = info.Title };
                 active.Add(entry);
                 activeByCode[entry.Code] = entry;
@@ -33,6 +34,7 @@ namespace Mes.Business
                     active.RemoveAt(0);
                     activeByCode.Remove(dropped.Code);
                 }
+                return true;
             }
         }
 

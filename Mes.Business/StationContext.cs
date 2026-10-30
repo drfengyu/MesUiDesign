@@ -27,6 +27,21 @@ namespace Mes.Business
         public AlarmBoard ActiveAlarms { get; private set; }
         public BatchSummary Batch { get; private set; }
 
+        /// <summary>Uptime / DT 计时，计划停机、首件、切线、故障都落 记录\Uptime.csv</summary>
+        public UptimeTracker Uptime { get; private set; }
+
+        /// <summary>时间明细采样，过站线程往里写，页面只读</summary>
+        public TimingBoard Timing { get; private set; }
+
+        /// <summary>能耗采样线程与今日累计</summary>
+        public EnergyMeter Energy { get; private set; }
+
+        /// <summary>能耗日统计（能耗页的"历史数据"读这张表）</summary>
+        public EnergyDailyTable EnergyDaily { get; private set; }
+
+        /// <summary>治具保养超期仍上机时的卡控记录</summary>
+        public FixtureBlockTable FixtureBlocks { get; private set; }
+
         /// <summary>过站链路（报站/送码/判定）的轮询线程，界面只读它的结果。</summary>
         public StationFlow Flow { get; private set; }
 
@@ -71,7 +86,7 @@ namespace Mes.Business
             context.Plc.ConnectPlc();
             context.Alarms = AlarmCatalog.Load(Path.Combine(context.DataFolder, "报警目录.csv"));
             context.Io = IoCatalog.Load(Path.Combine(context.DataFolder, "IO输入输出表.csv"));
-            context.Ledger = LifeLedger.Load(context.DataFolder);
+            context.Ledger = LifeLedger.Load(context.DataFolder, context.RecordFolder);
             context.Params = new ParamCatalog();
             context.Params.Load(Path.Combine(context.DataFolder, "参数名称.csv"));
             context.Limits = new QualityCatalog();
@@ -84,6 +99,12 @@ namespace Mes.Business
 
             context.ProductLog = new ProductLogTable(context.RecordFolder);
             context.Log = new OperationLog(context.RecordFolder);
+            context.FixtureBlocks = new FixtureBlockTable(context.RecordFolder);
+            context.Uptime = new UptimeTracker(new UptimeTable(context.RecordFolder), context.Alarms);
+            context.Timing = new TimingBoard(context.DataFolder);
+            context.EnergyDaily = new EnergyDailyTable(context.RecordFolder);
+            context.Energy = new EnergyMeter(context.Plc, context.EnergyDaily);
+            context.Ledger.LoadUsage(context.ProductLog);
 
             context.Machine = new MachineSimulator(context.Plc, context.Alarms);
             // 模拟机按当天 0001 起的流水排产品码，ProductLog 却是跨进程留着的：
@@ -109,6 +130,7 @@ namespace Mes.Business
             context.Batch = new BatchSummary(context.ProductLog);
             context.Flow = new StationFlow(context);
             context.Flow.Start();
+            context.Energy.Start();
             return context;
         }
 

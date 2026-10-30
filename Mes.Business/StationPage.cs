@@ -11,8 +11,6 @@
     {
         // 主界面
         public const string Home = "主界面/主界面";
-        public const string CheckInBarcode = "主界面/报站送码";
-        public const string CheckOutJudge = "主界面/过站判定";
         public const string UptimeLog = "主界面/Uptime记录";
         public const string ParamChart = "主界面/参数图表";
         public const string PartLife = "主界面/配件管控";

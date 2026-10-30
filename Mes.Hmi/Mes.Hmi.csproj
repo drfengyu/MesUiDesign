@@ -37,10 +37,37 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GaugeBox.cs" />
     <Compile Include="NavEntry.cs" />
+    <Compile Include="PlotBox.cs" />
+    <Compile Include="FaultCodeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FaultCodeDialog.Designer.cs">
+      <DependentUpon>FaultCodeDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PartChangeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PartChangeDialog.Designer.cs">
+      <DependentUpon>PartChangeDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PageEnergy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PageEnergy.Designer.cs">
+      <DependentUpon>PageEnergy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PageFixtureLife.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PageFixtureLife.Designer.cs">
+      <DependentUpon>PageFixtureLife.cs</DependentUpon>
+    </Compile>
     <Compile Include="PageHome.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -71,11 +98,41 @@
     <Compile Include="PageManualOperation.Designer.cs">
       <DependentUpon>PageManualOperation.cs</DependentUpon>
     </Compile>
+    <Compile Include="PageParamChart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PageParamChart.Designer.cs">
+      <DependentUpon>PageParamChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PageParamControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PageParamControl.Designer.cs">
+      <DependentUpon>PageParamControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PagePartLife.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PagePartLife.Designer.cs">
+      <DependentUpon>PagePartLife.cs</DependentUpon>
+    </Compile>
     <Compile Include="PagePlaceholder.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="PagePlaceholder.Designer.cs">
       <DependentUpon>PagePlaceholder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PageTimeDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PageTimeDetail.Designer.cs">
+      <DependentUpon>PageTimeDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PageUptime.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PageUptime.Designer.cs">
+      <DependentUpon>PageUptime.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -89,6 +146,9 @@
   <ItemGroup>
     <EmbeddedResource Include="PageHome.resx">
       <DependentUpon>PageHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PageUptime.resx">
+      <DependentUpon>PageUptime.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ShellForm.resx">
       <DependentUpon>ShellForm.cs</DependentUpon>

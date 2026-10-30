@@ -29,8 +29,7 @@ namespace Mes.Business
         public static readonly List<AccessRule> Rules = new List<AccessRule>
         {
             new AccessRule { Page = StationPage.Home, Minimum = LoginLevel.Operator },
-            // 顺序照 RFP P4 主界面那一列：Uptime记录 → 参数图表 → 配件管控 → 治具管控 → 参数管控 → 时间明细 → 能耗监控，
-            // 报站送码/过站判定是这一页内部的功能块，排在后面。
+            // 顺序照 RFP P4 主界面那一列：Uptime记录 → 参数图表 → 配件管控 → 治具管控 → 参数管控 → 时间明细 → 能耗监控。
             new AccessRule { Page = StationPage.UptimeLog, Minimum = LoginLevel.Operator },
             new AccessRule { Page = StationPage.ParamChart, Minimum = LoginLevel.Technician },
             new AccessRule { Page = StationPage.PartLife, Minimum = LoginLevel.Technician },
@@ -38,8 +37,6 @@ namespace Mes.Business
             new AccessRule { Page = StationPage.ParamControl, Minimum = LoginLevel.Engineer },
             new AccessRule { Page = StationPage.TimeDetail, Minimum = LoginLevel.Technician },
             new AccessRule { Page = StationPage.EnergyMonitor, Minimum = LoginLevel.Operator },
-            new AccessRule { Page = StationPage.CheckInBarcode, Minimum = LoginLevel.Operator },
-            new AccessRule { Page = StationPage.CheckOutJudge, Minimum = LoginLevel.Operator },
 
             new AccessRule { Page = StationPage.Throughput, Minimum = LoginLevel.Operator },
             new AccessRule { Page = StationPage.ScrapStatistics, Minimum = LoginLevel.Technician },
