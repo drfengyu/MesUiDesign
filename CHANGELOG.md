@@ -6,6 +6,7 @@
 - Mes.Hmi 的 31 张页面按顶部导航图标归到 8 个目录：Home（主界面 8 页）、Statistics（数据统计 7 页）、Io（输入/输出监控）、Manual（模组操作）、Setting（位置速度/时间/通讯/上传）、Alarm（报警 5 页）、User（密码登录/刷卡登录/权限说明）、Help（故障处理/维护保养/设备信息/模拟机台）。
 - 命名空间跟着目录走（Mes.Hmi.Alarm 等），目录名用英文、界面文案仍是文档里的中文，与"标识符英文"的约定一致；ShellForm 与 PartChangeDialog 补上对应 using，csproj 的 Compile / EmbeddedResource 路径同步改。
 - 外壳（ShellForm + 图标 resx）、共享帮助类（ChartKit / MachineMap / NavEntry / PagePlaceholder）和三张对话框留在工程根目录：它们不属于任何一个导航入口，多个入口共用。
+- csproj 里新目录的 Include 路径改成反斜杠：上一提交写成了 `Alarm/PageAlarmActive.cs` 这样的正斜杠，MSBuild 能编，VS 的经典项目系统却按它比对不到物理文件，解决方案管理器里每个页面都显示成"Alarm/PageAlarmActive.cs + PageAlarmActive.cs"两条。
 
 ## 1.6.1 (2026-11-02)
 

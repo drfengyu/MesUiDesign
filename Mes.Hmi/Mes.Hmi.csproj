@@ -62,142 +62,142 @@
     <Compile Include="TimeDistributionDialog.Designer.cs">
       <DependentUpon>TimeDistributionDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Alarm/PageAlarmActive.cs">
+    <Compile Include="Alarm\PageAlarmActive.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Alarm/PageAlarmActive.Designer.cs">
+    <Compile Include="Alarm\PageAlarmActive.Designer.cs">
       <DependentUpon>PageAlarmActive.cs</DependentUpon>
     </Compile>
-    <Compile Include="Alarm/PageAlarmHistory.cs">
+    <Compile Include="Alarm\PageAlarmHistory.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Alarm/PageAlarmHistory.Designer.cs">
+    <Compile Include="Alarm\PageAlarmHistory.Designer.cs">
       <DependentUpon>PageAlarmHistory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Alarm/PageAlarmTop5.cs">
+    <Compile Include="Alarm\PageAlarmTop5.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Alarm/PageAlarmTop5.Designer.cs">
+    <Compile Include="Alarm\PageAlarmTop5.Designer.cs">
       <DependentUpon>PageAlarmTop5.cs</DependentUpon>
     </Compile>
-    <Compile Include="User/PageCardLogin.cs">
+    <Compile Include="User\PageCardLogin.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User/PageCardLogin.Designer.cs">
+    <Compile Include="User\PageCardLogin.Designer.cs">
       <DependentUpon>PageCardLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Statistics/PageCpk.cs">
+    <Compile Include="Statistics\PageCpk.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Statistics/PageCpk.Designer.cs">
+    <Compile Include="Statistics\PageCpk.Designer.cs">
       <DependentUpon>PageCpk.cs</DependentUpon>
     </Compile>
-    <Compile Include="Statistics/PageCylinderStatistics.cs">
+    <Compile Include="Statistics\PageCylinderStatistics.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Statistics/PageCylinderStatistics.Designer.cs">
+    <Compile Include="Statistics\PageCylinderStatistics.Designer.cs">
       <DependentUpon>PageCylinderStatistics.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home/PageEnergy.cs">
+    <Compile Include="Home\PageEnergy.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Home/PageEnergy.Designer.cs">
+    <Compile Include="Home\PageEnergy.Designer.cs">
       <DependentUpon>PageEnergy.cs</DependentUpon>
     </Compile>
-    <Compile Include="Alarm/PageFaultAnalysis.cs">
+    <Compile Include="Alarm\PageFaultAnalysis.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Alarm/PageFaultAnalysis.Designer.cs">
+    <Compile Include="Alarm\PageFaultAnalysis.Designer.cs">
       <DependentUpon>PageFaultAnalysis.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home/PageFixtureLife.cs">
+    <Compile Include="Home\PageFixtureLife.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Home/PageFixtureLife.Designer.cs">
+    <Compile Include="Home\PageFixtureLife.Designer.cs">
       <DependentUpon>PageFixtureLife.cs</DependentUpon>
     </Compile>
-    <Compile Include="Statistics/PageFixtureStatistics.cs">
+    <Compile Include="Statistics\PageFixtureStatistics.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Statistics/PageFixtureStatistics.Designer.cs">
+    <Compile Include="Statistics\PageFixtureStatistics.Designer.cs">
       <DependentUpon>PageFixtureStatistics.cs</DependentUpon>
     </Compile>
-    <Compile Include="Help/PageHelpDoc.cs">
+    <Compile Include="Help\PageHelpDoc.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Help/PageHelpDoc.Designer.cs">
+    <Compile Include="Help\PageHelpDoc.Designer.cs">
       <DependentUpon>PageHelpDoc.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home/PageHome.cs">
+    <Compile Include="Home\PageHome.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Home/PageHome.Designer.cs">
+    <Compile Include="Home\PageHome.Designer.cs">
       <DependentUpon>PageHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="Io/PageIoMonitor.cs">
+    <Compile Include="Io\PageIoMonitor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Io/PageIoMonitor.Designer.cs">
+    <Compile Include="Io\PageIoMonitor.Designer.cs">
       <DependentUpon>PageIoMonitor.cs</DependentUpon>
     </Compile>
-    <Compile Include="User/PageLogin.cs">
+    <Compile Include="User\PageLogin.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User/PageLogin.Designer.cs">
+    <Compile Include="User\PageLogin.Designer.cs">
       <DependentUpon>PageLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Help/PageMachineInfo.cs">
+    <Compile Include="Help\PageMachineInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Help/PageMachineInfo.Designer.cs">
+    <Compile Include="Help\PageMachineInfo.Designer.cs">
       <DependentUpon>PageMachineInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Help/PageMachineSimulator.cs">
+    <Compile Include="Help\PageMachineSimulator.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Help/PageMachineSimulator.Designer.cs">
+    <Compile Include="Help\PageMachineSimulator.Designer.cs">
       <DependentUpon>PageMachineSimulator.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manual/PageManualOperation.cs">
+    <Compile Include="Manual\PageManualOperation.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Manual/PageManualOperation.Designer.cs">
+    <Compile Include="Manual\PageManualOperation.Designer.cs">
       <DependentUpon>PageManualOperation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Alarm/PageOperationLog.cs">
+    <Compile Include="Alarm\PageOperationLog.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Alarm/PageOperationLog.Designer.cs">
+    <Compile Include="Alarm\PageOperationLog.Designer.cs">
       <DependentUpon>PageOperationLog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home/PageParamChart.cs">
+    <Compile Include="Home\PageParamChart.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Home/PageParamChart.Designer.cs">
+    <Compile Include="Home\PageParamChart.Designer.cs">
       <DependentUpon>PageParamChart.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home/PageParamControl.cs">
+    <Compile Include="Home\PageParamControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Home/PageParamControl.Designer.cs">
+    <Compile Include="Home\PageParamControl.Designer.cs">
       <DependentUpon>PageParamControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home/PagePartLife.cs">
+    <Compile Include="Home\PagePartLife.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Home/PagePartLife.Designer.cs">
+    <Compile Include="Home\PagePartLife.Designer.cs">
       <DependentUpon>PagePartLife.cs</DependentUpon>
     </Compile>
-    <Compile Include="Statistics/PagePerformance.cs">
+    <Compile Include="Statistics\PagePerformance.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Statistics/PagePerformance.Designer.cs">
+    <Compile Include="Statistics\PagePerformance.Designer.cs">
       <DependentUpon>PagePerformance.cs</DependentUpon>
     </Compile>
-    <Compile Include="User/PagePermissionMatrix.cs">
+    <Compile Include="User\PagePermissionMatrix.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User/PagePermissionMatrix.Designer.cs">
+    <Compile Include="User\PagePermissionMatrix.Designer.cs">
       <DependentUpon>PagePermissionMatrix.cs</DependentUpon>
     </Compile>
     <Compile Include="PagePlaceholder.cs">
@@ -206,52 +206,52 @@
     <Compile Include="PagePlaceholder.Designer.cs">
       <DependentUpon>PagePlaceholder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Setting/PagePositionSpeed.cs">
+    <Compile Include="Setting\PagePositionSpeed.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Setting/PagePositionSpeed.Designer.cs">
+    <Compile Include="Setting\PagePositionSpeed.Designer.cs">
       <DependentUpon>PagePositionSpeed.cs</DependentUpon>
     </Compile>
-    <Compile Include="Statistics/PageScrap.cs">
+    <Compile Include="Statistics\PageScrap.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Statistics/PageScrap.Designer.cs">
+    <Compile Include="Statistics\PageScrap.Designer.cs">
       <DependentUpon>PageScrap.cs</DependentUpon>
     </Compile>
-    <Compile Include="Setting/PageSettingList.cs">
+    <Compile Include="Setting\PageSettingList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Setting/PageSettingList.Designer.cs">
+    <Compile Include="Setting\PageSettingList.Designer.cs">
       <DependentUpon>PageSettingList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home/PageTimeDetail.cs">
+    <Compile Include="Home\PageTimeDetail.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Home/PageTimeDetail.Designer.cs">
+    <Compile Include="Home\PageTimeDetail.Designer.cs">
       <DependentUpon>PageTimeDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="Statistics/PageTimeStatistics.cs">
+    <Compile Include="Statistics\PageTimeStatistics.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Statistics/PageTimeStatistics.Designer.cs">
+    <Compile Include="Statistics\PageTimeStatistics.Designer.cs">
       <DependentUpon>PageTimeStatistics.cs</DependentUpon>
     </Compile>
-    <Compile Include="Statistics/PageThroughput.cs">
+    <Compile Include="Statistics\PageThroughput.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Statistics/PageThroughput.Designer.cs">
+    <Compile Include="Statistics\PageThroughput.Designer.cs">
       <DependentUpon>PageThroughput.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home/PageUptime.cs">
+    <Compile Include="Home\PageUptime.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Setting/PageUploadSetting.cs">
+    <Compile Include="Setting\PageUploadSetting.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Setting/PageUploadSetting.Designer.cs">
+    <Compile Include="Setting\PageUploadSetting.Designer.cs">
       <DependentUpon>PageUploadSetting.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home/PageUptime.Designer.cs">
+    <Compile Include="Home\PageUptime.Designer.cs">
       <DependentUpon>PageUptime.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -267,13 +267,13 @@
     <EmbeddedResource Include="FaultCodeDialog.resx">
       <DependentUpon>FaultCodeDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Home/PageHome.resx">
+    <EmbeddedResource Include="Home\PageHome.resx">
       <DependentUpon>PageHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Statistics/PageTimeStatistics.resx">
+    <EmbeddedResource Include="Statistics\PageTimeStatistics.resx">
       <DependentUpon>PageTimeStatistics.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Home/PageUptime.resx">
+    <EmbeddedResource Include="Home\PageUptime.resx">
       <DependentUpon>PageUptime.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PartChangeDialog.resx">
