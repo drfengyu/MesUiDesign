@@ -27,6 +27,7 @@ namespace Mes.Business
         private readonly SimulatedPlc plc;
         private readonly AlarmCatalog alarms;
         private readonly CylinderCounter cylinderCounter;
+        private readonly AxisCatalog axes;
         private readonly List<string> fixtureCodes = new List<string>();
         private readonly Random random = new Random(20261019);
         private readonly List<short[]> lastParamWords = new List<short[]>();
@@ -52,11 +53,18 @@ namespace Mes.Business
         /// <summary>阀刚开始按下时的时刻：满 CylinderStrokeMs 才把到位开关置上，模拟"缸在走"。</summary>
         private readonly Dictionary<string, int> valvePressedAt = new Dictionary<string, int>();
 
-        public MachineSimulator(SimulatedPlc plc, AlarmCatalog alarms, CylinderCounter cylinderCounter = null)
+        /// <summary>轴行程上限(mm)。积分用真实经过时间，所以主循环被生产节拍拖慢也不会算少。</summary>
+        private const double AxisTravelMax = 500D;
+        private const double AxisDefaultSpeed = 10D;
+        private int axisLastTick = Environment.TickCount;
+
+        public MachineSimulator(SimulatedPlc plc, AlarmCatalog alarms, CylinderCounter cylinderCounter = null,
+            AxisCatalog axes = null)
         {
             this.plc = plc;
             this.alarms = alarms;
             this.cylinderCounter = cylinderCounter;
+            this.axes = axes;
             // 开机时旋钮就在自动档：线程没启动之前，手动操作页读这一位也要和 AutoMode 一致，
             // 否则会出现"页面显示自动、点动却被放行"的窗口。
             plc.PokeBit(ManualOperations.AutoSelectorBit, AutoMode);
@@ -146,6 +154,7 @@ namespace Mes.Business
                 SimulateCylinders();
                 // 气缸计数在手动/自动两种状态下都要走：手动点动的次数同样是换缸依据。
                 if (cylinderCounter != null) cylinderCounter.Poll();
+                SimulateAxes();
                 SimulateProcessValues();
                 plc.PokeBit(AutoButtonBit, Running && AutoMode);
                 // 上一片"双手按下"到这一轮开头收掉：焊接那几秒它是亮着的（见 SendToStation）
@@ -317,6 +326,67 @@ namespace Mes.Business
             if (Environment.TickCount - pressedAt < CylinderStrokeMs) return;
             plc.PokeBit(thisSideSensor, true);
             plc.PokeBit(otherSideSensor, false);
+        }
+
+        /// <summary>
+        /// 轴仿真：界面把点动脉冲写成 1，这边按速度字把位置积出来，再写回位置字和状态字。
+        ///
+        /// 和气缸同一个道理——位置是编码器给的，不是界面算出来的，所以"按下按钮就把数字改掉"
+        /// 在这里不成立：界面只写脉冲，走不走、走到哪由机台侧算。接真机时这一整段删掉，
+        /// 位置和状态都由轴卡自己刷，上位机只读。
+        /// </summary>
+        private void SimulateAxes()
+        {
+            if (axes == null || axes.Items.Count == 0) return;
+            var now = Environment.TickCount;
+            var seconds = Math.Min(2D, Math.Max(0.05D, (now - axisLastTick) / 1000D));
+            axisLastTick = now;
+            foreach (var axis in axes.Items)
+            {
+                var forward = plc.PeekBit(axis.JogForwardBit);
+                var backward = plc.PeekBit(axis.JogBackwardBit);
+                var position = ReadAxisFloat(axis.PositionAddress);
+                var speed = ReadAxisFloat(axis.SpeedAddress);
+                if (speed <= 0 || speed > AxisTravelMax) speed = AxisDefaultSpeed;
+
+                var overTravel = false;
+                if (forward && !backward)
+                {
+                    position += speed * seconds;
+                    if (position > AxisTravelMax)
+                    {
+                        position = AxisTravelMax;
+                        overTravel = true;
+                    }
+                }
+                else if (backward && !forward)
+                {
+                    position -= speed * seconds;
+                    if (position < 0)
+                    {
+                        position = 0;
+                        overTravel = true;
+                    }
+                }
+
+                var home = position <= 0.0001;
+                var atTop = position >= AxisTravelMax - 0.0001;
+                var status = 0;
+                if (overTravel) status |= 1 << 0;         // 异常：顶到限位了还在给脉冲
+                if (atTop) status |= 1 << 1;              // 正限
+                if (home) status |= 1 << 2;               // 负限
+                if (home) status |= 1 << 3;               // 原点
+                if (forward || backward) status |= 1 << 4;    // 激磁：点动期间伺服才带电
+                if (home) status |= 1 << 5;               // 回原
+                plc.PokeFloat(PlcAddresses.Mw(axis.PositionAddress), position);
+                plc.Poke(PlcAddresses.Mw(axis.StatusAddress), (short)status);
+            }
+        }
+
+        private double ReadAxisFloat(int address)
+        {
+            var words = plc.PeekWords(PlcAddresses.Mw(address), 2);
+            return words.Length >= 2 ? WordCodec.WordsToFloat(words) : 0D;
         }
 
         /// <summary>

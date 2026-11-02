@@ -24,6 +24,12 @@ namespace Mes.Business
         public ParamCatalog Params { get; private set; }
         public QualityCatalog Limits { get; private set; }
         public PasswordStore Passwords { get; private set; }
+
+        /// <summary>轴卡表（位置速度页 P27 那一排轴）</summary>
+        public AxisCatalog Axes { get; private set; }
+
+        /// <summary>上传设置（P30 的 Trace/PDCA/OEE 键值），改完写回 数据\上传设置.csv</summary>
+        public UploadSettings Upload { get; private set; }
         public AlarmBoard ActiveAlarms { get; private set; }
         public BatchSummary Batch { get; private set; }
 
@@ -97,6 +103,10 @@ namespace Mes.Business
             context.Params.Load(Path.Combine(context.DataFolder, "参数名称.csv"));
             context.Limits = new QualityCatalog();
             context.Limits.Load(Path.Combine(context.DataFolder, "判定上下限.csv"));
+            context.Axes = new AxisCatalog();
+            context.Axes.Load(Path.Combine(context.DataFolder, "轴卡分组.csv"));
+            context.Upload = new UploadSettings();
+            context.Upload.Load(Path.Combine(context.DataFolder, "上传设置.csv"));
             context.ActiveAlarms = new AlarmBoard();
             // 登录要用的密码表。现场这五个值在 setting.ini 的 [PassWord] 段（主项目 MainFrm.cs:386
             // 开机读进 Global），那是现场配置不外拷，本机另存一张 csv。
@@ -115,7 +125,7 @@ namespace Mes.Business
             context.Energy = new EnergyMeter(context.Plc, context.EnergyDaily);
             context.Ledger.LoadUsage(context.ProductLog);
 
-            context.Machine = new MachineSimulator(context.Plc, context.Alarms, context.Cylinders);
+            context.Machine = new MachineSimulator(context.Plc, context.Alarms, context.Cylinders, context.Axes);
             // 模拟机按当天 0001 起的流水排产品码，ProductLog 却是跨进程留着的：
             // 同一天重启一次，新一轮的码全撞"同码重复投产"被拦在报站，界面上像整条线都 NG 了。
             // 把当天已用掉的最大流水接给机台，重启后接着排——真机是 PLC 里的计数器掉电保持，效果一样。

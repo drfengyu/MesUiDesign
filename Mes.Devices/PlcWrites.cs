@@ -24,6 +24,16 @@ namespace Mes.Devices
             }
         }
 
+        /// <summary>写一个浮点（参数/设定值下发）。同上：写完必须查结果。</summary>
+        public static void WriteFloatChecked(this PlcBase plc, string address, double value)
+        {
+            var result = plc.WriteFloat(address, value);
+            if (!result.IsSuccess)
+            {
+                throw new InvalidOperationException("写 " + address + " = " + value + " 失败：" + result.Message);
+            }
+        }
+
         /// <summary>
         /// 写一个 I/Q 位（手动操作页点动气缸）。
         ///

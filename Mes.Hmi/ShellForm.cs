@@ -56,6 +56,11 @@ namespace Mes.Hmi
                 { StationPage.FixtureStatistics, station => new PageFixtureStatistics(station) },
                 { StationPage.CylinderStatistics, station => new PageCylinderStatistics(station) },
                 { StationPage.Cpk, station => new PageCpk(station) },
+
+                { StationPage.PositionSpeed, station => new PagePositionSpeed(station) },
+                { StationPage.TimeSetting, station => new PageSettingList(station, PageSettingList.Kind.Time) },
+                { StationPage.CommunicationSetting, station => new PageSettingList(station, PageSettingList.Kind.Comm) },
+                { StationPage.UploadSetting, station => new PageUploadSetting(station) },
                 { StationPage.Login, station => new PageLogin(station) },
                 { StationPage.IoInput, station => new PageIoMonitor(station, 'I') },
                 { StationPage.IoOutput, station => new PageIoMonitor(station, 'Q') },

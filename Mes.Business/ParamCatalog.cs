@@ -40,6 +40,7 @@ namespace Mes.Business
                     Address = parsed,
                     Lower = lower,
                     Upper = upper,
+                    Group = cols.Length > 5 && !string.IsNullOrWhiteSpace(cols[5]) ? cols[5].Trim() : "系统参数",
                 });
             }
         }

@@ -11,6 +11,9 @@
         public double Lower;
         public double Upper;
 
+        /// <summary>参数名称.csv 第六列；位置速度页（P27）按它分页签。老表没这一列时归"系统参数"。</summary>
+        public string Group = "系统参数";
+
         /// <summary>
         /// 在整块读回来的数组里的下标。主项目里这条公式是 index = (地址 - 50000) / 2，
         /// 两层含义要拆开：减块首地址是因为程序一次性把 MW50000 起的一大段读回来（块读省往返）；

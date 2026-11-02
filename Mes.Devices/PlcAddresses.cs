@@ -174,6 +174,18 @@
         /// <summary>四个腔体温度的本机约定区：MW16100 起四个浮点。现场有独立温控表后换成真实地址。</summary>
         public const int TemperatureArea = 16100;
 
+        /// <summary>
+        /// 时间设定区（本机约定）：MW17100 起 20 个浮点，单位秒，对应 UI 文档 P28 的 时间设定(0)~(19)。
+        /// 现场这几项在 PLC 的哪个块没对过表，接真机前换成实际地址即可，页面只认这一段。
+        /// </summary>
+        public const int TimeSettingArea = 17100;
+
+        /// <summary>通讯设定区（本机约定）：MW17200 起 20 个浮点，对应 P29 的 通讯设定(0)~(19)。</summary>
+        public const int CommSettingArea = 17200;
+
+        /// <summary>设定区都是 20 个浮点 = 40 个字。</summary>
+        public const int SettingWords = 40;
+
         // ── 设备连接状态（本机约定，不在现场地址表里）──────────────────────
         /// <summary>
         /// 主界面区域5 那四颗连接灯的字地址起点：MW62080 起四个字，1=连接OK、0=NG。

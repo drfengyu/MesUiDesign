@@ -151,11 +151,23 @@
     <Compile Include="PagePlaceholder.Designer.cs">
       <DependentUpon>PagePlaceholder.cs</DependentUpon>
     </Compile>
+    <Compile Include="PagePositionSpeed.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PagePositionSpeed.Designer.cs">
+      <DependentUpon>PagePositionSpeed.cs</DependentUpon>
+    </Compile>
     <Compile Include="PageScrap.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="PageScrap.Designer.cs">
       <DependentUpon>PageScrap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PageSettingList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PageSettingList.Designer.cs">
+      <DependentUpon>PageSettingList.cs</DependentUpon>
     </Compile>
     <Compile Include="PageTimeDetail.cs">
       <SubType>UserControl</SubType>
@@ -178,6 +190,12 @@
     <Compile Include="PageUptime.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="PageUploadSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PageUploadSetting.Designer.cs">
+      <DependentUpon>PageUploadSetting.cs</DependentUpon>
+    </Compile>
     <Compile Include="PageUptime.Designer.cs">
       <DependentUpon>PageUptime.cs</DependentUpon>
     </Compile>
@@ -193,6 +211,9 @@
   <ItemGroup>
     <EmbeddedResource Include="PageHome.resx">
       <DependentUpon>PageHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PageTimeStatistics.resx">
+      <DependentUpon>PageTimeStatistics.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PageUptime.resx">
       <DependentUpon>PageUptime.cs</DependentUpon>
