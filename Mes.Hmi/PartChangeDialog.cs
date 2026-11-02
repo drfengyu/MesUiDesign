@@ -1,4 +1,5 @@
 using Mes.Business;
+using Mes.Hmi.Home;
 using System;
 using System.Windows.Forms;
 
@@ -6,6 +7,7 @@ namespace Mes.Hmi
 {
     /// <summary>
     /// 配件更换窗口（《Automation UI V3.11》P7）：上半是原配件信息，下半填新条码和更换原因。
+    /// 配件管控页在 Home\ 下，这里只是把"剩余寿命"那行文案复用过来。
     /// </summary>
     public partial class PartChangeDialog : Form
     {

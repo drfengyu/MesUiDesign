@@ -19,10 +19,10 @@ namespace Mes.Hmi
             this.searchLabel = new System.Windows.Forms.Label();
             this.searchBox = new System.Windows.Forms.TextBox();
             this.list = new System.Windows.Forms.ListView();
-            this.colIndex = new System.Windows.Forms.ColumnHeader();
-            this.colCode = new System.Windows.Forms.ColumnHeader();
-            this.colTitle = new System.Windows.Forms.ColumnHeader();
-            this.colDt = new System.Windows.Forms.ColumnHeader();
+            this.colIndex = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colCode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colDt = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.buttonsPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -101,7 +101,7 @@ namespace Mes.Hmi
             this.list.Location = new System.Drawing.Point(13, 57);
             this.list.MultiSelect = false;
             this.list.Name = "list";
-            this.list.Size = new System.Drawing.Size(734, 474);
+            this.list.Size = new System.Drawing.Size(734, 434);
             this.list.TabIndex = 1;
             this.list.UseCompatibleStateImageBehavior = false;
             this.list.View = System.Windows.Forms.View.Details;
@@ -143,7 +143,7 @@ namespace Mes.Hmi
             // 
             this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOk.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.btnOk.Location = new System.Drawing.Point(614, 11);
+            this.btnOk.Location = new System.Drawing.Point(621, 11);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(110, 36);
             this.btnOk.TabIndex = 0;
@@ -154,7 +154,7 @@ namespace Mes.Hmi
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.btnCancel.Location = new System.Drawing.Point(498, 11);
+            this.btnCancel.Location = new System.Drawing.Point(505, 11);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(110, 36);
             this.btnCancel.TabIndex = 1;
@@ -164,7 +164,7 @@ namespace Mes.Hmi
             // FaultCodeDialog
             // 
             this.AcceptButton = this.btnOk;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(760, 560);

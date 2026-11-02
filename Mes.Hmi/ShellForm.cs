@@ -1,4 +1,12 @@
 ﻿using Mes.Business;
+using Mes.Hmi.Alarm;
+using Mes.Hmi.Help;
+using Mes.Hmi.Home;
+using Mes.Hmi.Io;
+using Mes.Hmi.Manual;
+using Mes.Hmi.Setting;
+using Mes.Hmi.Statistics;
+using Mes.Hmi.User;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
