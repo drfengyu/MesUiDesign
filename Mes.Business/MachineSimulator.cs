@@ -26,6 +26,7 @@ namespace Mes.Business
     {
         private readonly SimulatedPlc plc;
         private readonly AlarmCatalog alarms;
+        private readonly CylinderCounter cylinderCounter;
         private readonly List<string> fixtureCodes = new List<string>();
         private readonly Random random = new Random(20261019);
         private readonly List<short[]> lastParamWords = new List<short[]>();
@@ -51,10 +52,11 @@ namespace Mes.Business
         /// <summary>阀刚开始按下时的时刻：满 CylinderStrokeMs 才把到位开关置上，模拟"缸在走"。</summary>
         private readonly Dictionary<string, int> valvePressedAt = new Dictionary<string, int>();
 
-        public MachineSimulator(SimulatedPlc plc, AlarmCatalog alarms)
+        public MachineSimulator(SimulatedPlc plc, AlarmCatalog alarms, CylinderCounter cylinderCounter = null)
         {
             this.plc = plc;
             this.alarms = alarms;
+            this.cylinderCounter = cylinderCounter;
             // 开机时旋钮就在自动档：线程没启动之前，手动操作页读这一位也要和 AutoMode 一致，
             // 否则会出现"页面显示自动、点动却被放行"的窗口。
             plc.PokeBit(ManualOperations.AutoSelectorBit, AutoMode);
@@ -142,6 +144,8 @@ namespace Mes.Business
                 // 气缸不跟着"暂停/手动"停：手动操作页就是要在这种状态下点动，
                 // 所以这一句放在下面的 continue 之前。
                 SimulateCylinders();
+                // 气缸计数在手动/自动两种状态下都要走：手动点动的次数同样是换缸依据。
+                if (cylinderCounter != null) cylinderCounter.Poll();
                 SimulateProcessValues();
                 plc.PokeBit(AutoButtonBit, Running && AutoMode);
                 // 上一片"双手按下"到这一轮开头收掉：焊接那几秒它是亮着的（见 SendToStation）

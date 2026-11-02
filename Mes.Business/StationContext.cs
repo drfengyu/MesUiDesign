@@ -39,6 +39,12 @@ namespace Mes.Business
         /// <summary>能耗日统计（能耗页的"历史数据"读这张表）</summary>
         public EnergyDailyTable EnergyDaily { get; private set; }
 
+        /// <summary>产能目标（目标 UPH 等，数据\产能目标.csv）</summary>
+        public ProductionTargets Targets { get; private set; }
+
+        /// <summary>气缸动作/故障次数，机台线程按阀位计数</summary>
+        public CylinderCounter Cylinders { get; private set; }
+
         /// <summary>治具保养超期仍上机时的卡控记录</summary>
         public FixtureBlockTable FixtureBlocks { get; private set; }
 
@@ -99,14 +105,17 @@ namespace Mes.Business
 
             context.ProductLog = new ProductLogTable(context.RecordFolder);
             context.Log = new OperationLog(context.RecordFolder);
+            context.Targets = ProductionTargets.Load(Path.Combine(context.DataFolder, "产能目标.csv"));
             context.FixtureBlocks = new FixtureBlockTable(context.RecordFolder);
+            context.Cylinders = new CylinderCounter(
+                new CylinderCountTable(context.RecordFolder), context.Plc, context.Io);
             context.Uptime = new UptimeTracker(new UptimeTable(context.RecordFolder), context.Alarms);
             context.Timing = new TimingBoard(context.DataFolder);
             context.EnergyDaily = new EnergyDailyTable(context.RecordFolder);
             context.Energy = new EnergyMeter(context.Plc, context.EnergyDaily);
             context.Ledger.LoadUsage(context.ProductLog);
 
-            context.Machine = new MachineSimulator(context.Plc, context.Alarms);
+            context.Machine = new MachineSimulator(context.Plc, context.Alarms, context.Cylinders);
             // 模拟机按当天 0001 起的流水排产品码，ProductLog 却是跨进程留着的：
             // 同一天重启一次，新一轮的码全撞"同码重复投产"被拦在报站，界面上像整条线都 NG 了。
             // 把当天已用掉的最大流水接给机台，重启后接着排——真机是 PLC 里的计数器掉电保持，效果一样。

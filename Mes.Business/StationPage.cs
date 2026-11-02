@@ -19,11 +19,14 @@
         public const string TimeDetail = "主界面/时间明细";
         public const string EnergyMonitor = "主界面/能耗监控";
 
-        // 数据统计
+        // 数据统计（顺序照 UI 文档 P12~P22 的页签）
         public const string Throughput = "数据统计/产能统计";
         public const string ScrapStatistics = "数据统计/抛料统计";
         public const string TimeStatistics = "数据统计/时间统计";
         public const string Performance = "数据统计/性能仪表";
+        public const string FixtureStatistics = "数据统计/治具统计";
+        public const string CylinderStatistics = "数据统计/气缸统计";
+        public const string Cpk = "数据统计/CPK";
 
         // 监视与手动
         public const string IoInput = "IO监视/输入监控";

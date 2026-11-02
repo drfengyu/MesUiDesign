@@ -125,23 +125,32 @@ namespace Mes.Hmi
             RemoveEmptyNote(chart);
             var area = chart.ChartAreas[0];
             var pie = IsPie(chart.Series[0].ChartType);
+            var hasBar = false;
+            var lineOnly = true;
+            foreach (var series in chart.Series)
+            {
+                if (series.ChartType == SeriesChartType.Column || series.ChartType == SeriesChartType.StackedColumn)
+                    hasBar = true;
+                if (series.ChartType != SeriesChartType.Line) lineOnly = false;
+            }
             area.AxisX.Enabled = pie ? AxisEnabled.False : AxisEnabled.Auto;
             area.AxisY.Enabled = pie ? AxisEnabled.False : AxisEnabled.Auto;
             area.AxisX.IsStartedFromZero = false;
-            area.AxisY.IsStartedFromZero = chart.Series[0].ChartType != SeriesChartType.Line;
-            area.AxisX.IsMarginVisible = chart.Series[0].ChartType != SeriesChartType.Line;
+            area.AxisY.IsStartedFromZero = !lineOnly;
+            area.AxisX.IsMarginVisible = !lineOnly;
             area.AxisX.LabelStyle.Interval = labelInterval > 0
                 ? labelInterval
                 : (count <= 10 ? 1 : Math.Ceiling(count / 8.0));
 
+            // 柱/饼从 1 起，折线从 0 起是 MS Chart 的老习惯；混排（柱 + 目标线）时
+            // 所有系列必须用同一个偏移，否则目标线会整整错开一格。
+            var offset = pie || hasBar ? 1 : 0;
             for (var s = 0; s < chart.Series.Count; s++)
             {
                 var series = chart.Series[s];
                 series.Points.Clear();
                 var data = s < values.Length ? values[s] : null;
                 if (data == null) continue;
-                var offset = pie || series.ChartType == SeriesChartType.Column
-                    || series.ChartType == SeriesChartType.StackedColumn ? 1 : 0;
                 for (var i = 0; i < data.Length; i++)
                 {
                     var value = data[i];

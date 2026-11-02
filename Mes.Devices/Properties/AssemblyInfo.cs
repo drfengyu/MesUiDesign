@@ -6,5 +6,5 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyProduct("MES 上位机数据追溯")]
 [assembly: ComVisible(false)]
 [assembly: Guid("dd24454a-1dd5-4b0e-83b5-0749ac82768e")]
-[assembly: AssemblyVersion("1.2.1.0")]
-[assembly: AssemblyFileVersion("1.2.1.0")]
+[assembly: AssemblyVersion("1.3.0.0")]
+[assembly: AssemblyFileVersion("1.3.0.0")]

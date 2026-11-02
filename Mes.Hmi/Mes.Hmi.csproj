@@ -55,6 +55,24 @@
     <Compile Include="PartChangeDialog.Designer.cs">
       <DependentUpon>PartChangeDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="TimeDistributionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TimeDistributionDialog.Designer.cs">
+      <DependentUpon>TimeDistributionDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PageCpk.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PageCpk.Designer.cs">
+      <DependentUpon>PageCpk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PageCylinderStatistics.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PageCylinderStatistics.Designer.cs">
+      <DependentUpon>PageCylinderStatistics.cs</DependentUpon>
+    </Compile>
     <Compile Include="PageEnergy.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -66,6 +84,12 @@
     </Compile>
     <Compile Include="PageFixtureLife.Designer.cs">
       <DependentUpon>PageFixtureLife.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PageFixtureStatistics.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PageFixtureStatistics.Designer.cs">
+      <DependentUpon>PageFixtureStatistics.cs</DependentUpon>
     </Compile>
     <Compile Include="PageHome.cs">
       <SubType>UserControl</SubType>
@@ -115,17 +139,41 @@
     <Compile Include="PagePartLife.Designer.cs">
       <DependentUpon>PagePartLife.cs</DependentUpon>
     </Compile>
+    <Compile Include="PagePerformance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PagePerformance.Designer.cs">
+      <DependentUpon>PagePerformance.cs</DependentUpon>
+    </Compile>
     <Compile Include="PagePlaceholder.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="PagePlaceholder.Designer.cs">
       <DependentUpon>PagePlaceholder.cs</DependentUpon>
     </Compile>
+    <Compile Include="PageScrap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PageScrap.Designer.cs">
+      <DependentUpon>PageScrap.cs</DependentUpon>
+    </Compile>
     <Compile Include="PageTimeDetail.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="PageTimeDetail.Designer.cs">
       <DependentUpon>PageTimeDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PageTimeStatistics.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PageTimeStatistics.Designer.cs">
+      <DependentUpon>PageTimeStatistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PageThroughput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PageThroughput.Designer.cs">
+      <DependentUpon>PageThroughput.cs</DependentUpon>
     </Compile>
     <Compile Include="PageUptime.cs">
       <SubType>UserControl</SubType>

@@ -319,12 +319,7 @@ namespace Mes.Hmi
         /// <summary>"输出_压持1缸_原点侧阀" → "压持1缸"；表里没有这个地址就把地址显示出来，不编名字。</summary>
         private static string CylinderName(StationContext station, Cylinder cylinder)
         {
-            var point = station.Io.Find(cylinder.HomeValve);
-            if (point == null || string.IsNullOrEmpty(point.Name)) return cylinder.HomeValve;
-            var name = point.Name;
-            if (name.StartsWith("输出_")) name = name.Substring(3);
-            var cut = name.IndexOf('_');
-            return cut > 0 ? name.Substring(0, cut) : name;
+            return CylinderCounter.NameOf(station.Io, cylinder);
         }
     }
 }

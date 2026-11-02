@@ -106,6 +106,12 @@ namespace Mes.Business
             return table.Tail(count);
         }
 
+        /// <summary>整本台账，给时间统计按区间切小时用（表很小，直接复制一份）。</summary>
+        public List<Record> All()
+        {
+            return table.All();
+        }
+
         /// <summary>按时长统计各 DT 分类，给饼图用；只统计已经结束的故障。</summary>
         public Dictionary<string, double> DowntimeByClass(DateTime from, DateTime to)
         {

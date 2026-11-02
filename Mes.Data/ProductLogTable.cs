@@ -96,6 +96,35 @@ namespace Mes.Data
             });
         }
 
+        /// <summary>区间内的记录快照（按生产时间），统计页共用；每次刷新复制一份，字段不多，量级可控。</summary>
+        public List<Record> Between(DateTime from, DateTime to)
+        {
+            var result = new List<Record>();
+            Scan(row =>
+            {
+                DateTime at;
+                if (!DateTime.TryParse(row.Get("生产时间"), out at)) return;
+                if (at < from || at > to) return;
+                result.Add(new Record(row));
+            });
+            return result;
+        }
+
+        /// <summary>
+        /// 区间内的记录逐行过、不复制。统计页每几秒刷一次，用 Between 先把当天的
+        /// 上万条记录复制成字典再数，纯属白分配；只要数个数就用这个。
+        /// </summary>
+        public void ScanBetween(DateTime from, DateTime to, Action<Record> visit)
+        {
+            Scan(row =>
+            {
+                DateTime at;
+                if (!DateTime.TryParse(row.Get("生产时间"), out at)) return;
+                if (at < from || at > to) return;
+                visit(row);
+            });
+        }
+
         /// <summary>按条码追溯：一片料可能有两条（返工重投），所以返回列表不是单个。</summary>
         public List<Record> FindByProductCode(string productCode)
         {

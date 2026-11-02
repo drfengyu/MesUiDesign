@@ -42,9 +42,12 @@
     <Compile Include="AlarmEntry.cs" />
     <Compile Include="AlarmInfo.cs" />
     <Compile Include="BatchSummary.cs" />
+    <Compile Include="CpkCalculator.cs" />
     <Compile Include="Cylinder.cs" />
+    <Compile Include="CylinderCounter.cs" />
     <Compile Include="EnergyMeter.cs" />
     <Compile Include="FixtureLifeRow.cs" />
+    <Compile Include="FixtureReport.cs" />
     <Compile Include="HourlyThroughput.cs" />
     <Compile Include="IoCatalog.cs" />
     <Compile Include="IoPoint.cs" />
@@ -56,13 +59,17 @@
     <Compile Include="ParamDefinition.cs" />
     <Compile Include="PasswordStore.cs" />
     <Compile Include="PartLifeRow.cs" />
+    <Compile Include="ProductionTargets.cs" />
     <Compile Include="QualityCatalog.cs" />
     <Compile Include="QualityLimit.cs" />
+    <Compile Include="ScrapReport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StationContext.cs" />
     <Compile Include="StationFlow.cs" />
     <Compile Include="StationPage.cs" />
     <Compile Include="ThroughputReport.cs" />
+    <Compile Include="TimeDistributionReport.cs" />
+    <Compile Include="TimeStatisticsReport.cs" />
     <Compile Include="TimingBoard.cs" />
     <Compile Include="UptimeTracker.cs" />
   </ItemGroup>

@@ -42,6 +42,9 @@ namespace Mes.Business
             new AccessRule { Page = StationPage.ScrapStatistics, Minimum = LoginLevel.Technician },
             new AccessRule { Page = StationPage.TimeStatistics, Minimum = LoginLevel.Technician },
             new AccessRule { Page = StationPage.Performance, Minimum = LoginLevel.Operator },
+            new AccessRule { Page = StationPage.FixtureStatistics, Minimum = LoginLevel.Technician },
+            new AccessRule { Page = StationPage.CylinderStatistics, Minimum = LoginLevel.Engineer },
+            new AccessRule { Page = StationPage.Cpk, Minimum = LoginLevel.Engineer },
 
             new AccessRule { Page = StationPage.IoInput, Minimum = LoginLevel.Operator },
             new AccessRule { Page = StationPage.IoOutput, Minimum = LoginLevel.Operator },

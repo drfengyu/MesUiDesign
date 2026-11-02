@@ -87,38 +87,67 @@ namespace Mes.Business
         /// </summary>
         public static ThroughputReport Build(List<Record> records, DateTime from, DateTime to, double targetUph)
         {
+            var report = Create(from, to, targetUph);
+            var cells = Index(report);
+            foreach (var row in records) Count(cells, row, from, to);
+            Finish(report);
+            return report;
+        }
+
+        /// <summary>
+        /// 直接从追溯表扫。页面每几秒自动刷一次，别再走 Between 复制全天记录——
+        /// 一天按 658 UPH 是上万条，复制出来的字典最后只用来加三个计数器。
+        /// </summary>
+        public static ThroughputReport Build(ProductLogTable log, DateTime from, DateTime to, double targetUph)
+        {
+            var report = Create(from, to, targetUph);
+            var cells = Index(report);
+            log.ScanBetween(from, to, row => Count(cells, row, from, to));
+            Finish(report);
+            return report;
+        }
+
+        private static ThroughputReport Create(DateTime from, DateTime to, double targetUph)
+        {
             var report = new ThroughputReport { From = from, To = to, TargetUph = targetUph };
-            var cells = new Dictionary<int, HourlyThroughput>();
             foreach (var hour in HourOrder)
             {
-                var cell = new HourlyThroughput { Hour = hour };
-                report.Hours.Add(cell);
-                cells[hour] = cell;
+                report.Hours.Add(new HourlyThroughput { Hour = hour });
             }
+            return report;
+        }
 
-            foreach (var row in records)
-            {
-                DateTime at;
-                if (!DateTime.TryParse(row.Get("生产时间"), out at)) continue;
-                if (at < from || at > to) continue;
-                var cell = cells[at.Hour];
-                cell.Input++;
-                if (!string.IsNullOrEmpty(row.Get("流程结束时间"))) cell.Completed++;
-                var verdict = row.Get("结果");
-                if (verdict == "OK") cell.Passed++;
-                else if (verdict.EndsWith("NG")) cell.Ng++;
-            }
+        private static Dictionary<int, HourlyThroughput> Index(ThroughputReport report)
+        {
+            var cells = new Dictionary<int, HourlyThroughput>();
+            foreach (var cell in report.Hours) cells[cell.Hour] = cell;
+            return cells;
+        }
 
+        private static void Count(Dictionary<int, HourlyThroughput> cells, Record row, DateTime from, DateTime to)
+        {
+            DateTime at;
+            if (!DateTime.TryParse(row.Get("生产时间"), out at)) return;
+            if (at < from || at > to) return;
+            var cell = cells[at.Hour];
+            cell.Input++;
+            if (!string.IsNullOrEmpty(row.Get("流程结束时间"))) cell.Completed++;
+            var verdict = row.Get("结果");
+            if (verdict == "OK") cell.Passed++;
+            else if (verdict.EndsWith("NG")) cell.Ng++;
+        }
+
+        private static void Finish(ThroughputReport report)
+        {
             foreach (var cell in report.Hours)
             {
                 // 一个小时的理论产量就是目标 UPH 本身，所以达成率 = 合格 / 目标UPH
-                cell.UphRate = targetUph <= 0 ? 0 : cell.Passed * 100D / targetUph;
+                cell.UphRate = report.TargetUph <= 0 ? 0 : cell.Passed * 100D / report.TargetUph;
                 report.TotalInput += cell.Input;
                 report.TotalCompleted += cell.Completed;
                 report.TotalPassed += cell.Passed;
                 report.TotalNg += cell.Ng;
             }
-            return report;
         }
     }
 }
