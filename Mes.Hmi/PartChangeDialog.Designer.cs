@@ -317,7 +317,7 @@
             this.reasonBox.Location = new System.Drawing.Point(115, 382);
             this.reasonBox.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.reasonBox.Name = "reasonBox";
-            this.reasonBox.Size = new System.Drawing.Size(406, 25);
+            this.reasonBox.Size = new System.Drawing.Size(406, 27);
             this.reasonBox.TabIndex = 17;
             // 
             // buttons
@@ -340,11 +340,11 @@
             // 
             // btnOk
             // 
-            this.btnOk.Font = new System.Drawing.Font("微软雅黑", 10F);
             this.btnOk.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnOk.Location = new System.Drawing.Point(137, 15);
+            this.btnOk.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.btnOk.Location = new System.Drawing.Point(134, 15);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(126, 29);
+            this.btnOk.Size = new System.Drawing.Size(126, 26);
             this.btnOk.TabIndex = 0;
             this.btnOk.Text = "确定";
             this.btnOk.UseVisualStyleBackColor = true;
@@ -353,11 +353,11 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Font = new System.Drawing.Font("微软雅黑", 10F);
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCancel.Location = new System.Drawing.Point(271, 15);
+            this.btnCancel.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.btnCancel.Location = new System.Drawing.Point(266, 15);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(126, 29);
+            this.btnCancel.Size = new System.Drawing.Size(126, 26);
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "取消";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -365,7 +365,7 @@
             // PartChangeDialog
             // 
             this.AcceptButton = this.btnOk;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(560, 520);
@@ -382,7 +382,6 @@
             this.detail.ResumeLayout(false);
             this.detail.PerformLayout();
             this.buttons.ResumeLayout(false);
-            this.buttons.PerformLayout();
             this.ResumeLayout(false);
 
         }
