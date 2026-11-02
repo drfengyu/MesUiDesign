@@ -1,5 +1,6 @@
 ﻿using Mes.Common;
 using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace Mes.Data
@@ -44,6 +45,40 @@ namespace Mes.Data
             if (error == null) return;
             Write("系统", "异常", source, error.GetType().Name,
                 error.Message.Replace("\r", " ").Replace("\n", " "));
+        }
+
+        /// <summary>
+        /// 按时间段读日志：一天一个文件，跨天就把中间几天都读一遍（操作日志页 P35 用它）。
+        /// action 传 null 表示全部动作都要，传具体动作名（例如"机台报警"）只留那一类。
+        /// </summary>
+        public List<LogEntry> Read(DateTime from, DateTime to, string action)
+        {
+            var rows = new List<LogEntry>();
+            for (var day = from.Date; day <= to.Date; day = day.AddDays(1))
+            {
+                var file = Path.Combine(Folder, "记录 " + day.ToString("yyyyMMdd") + ".csv");
+                if (!TextFile.Exists(file)) continue;
+                var lines = TextFile.ReadAllLines(file, CodePages.Utf8WithBom());
+                for (var i = 1; i < lines.Length; i++)      // 第 0 行是表头
+                {
+                    var cols = lines[i].Split('\t');
+                    if (cols.Length < 6) continue;
+                    DateTime at;
+                    if (!DateTime.TryParse(cols[0], out at)) continue;
+                    if (at < from || at > to) continue;
+                    if (action != null && cols[2] != action) continue;
+                    rows.Add(new LogEntry
+                    {
+                        At = at,
+                        Who = cols[1],
+                        Action = cols[2],
+                        Target = cols[3],
+                        Before = cols[4],
+                        After = cols[5],
+                    });
+                }
+            }
+            return rows;
         }
     }
 }

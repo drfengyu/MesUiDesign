@@ -41,6 +41,7 @@
     <Compile Include="AlarmCatalog.cs" />
     <Compile Include="AlarmEntry.cs" />
     <Compile Include="AlarmInfo.cs" />
+    <Compile Include="AlarmReport.cs" />
     <Compile Include="AxisCatalog.cs" />
     <Compile Include="BatchSummary.cs" />
     <Compile Include="CpkCalculator.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="TimingBoard.cs" />
     <Compile Include="UploadSettings.cs" />
     <Compile Include="UptimeTracker.cs" />
+    <Compile Include="ZoneCatalog.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mes.Common\Mes.Common.csproj">

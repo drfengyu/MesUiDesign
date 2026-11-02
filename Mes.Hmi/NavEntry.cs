@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Mes.Business;
+using System.Collections.Generic;
 
 namespace Mes.Hmi
 {
@@ -32,7 +33,7 @@ namespace Mes.Hmi
             new NavEntry("IO监视", "IO监视/", "io"),
             new NavEntry("手动操作", "手动操作/", "manual"),
             new NavEntry("参数设置", "参数设置/", "setting"),
-            new NavEntry("异常报警", "报警/", "alarm"),
+            new NavEntry("异常报警", StationPage.AlarmPrefix, "alarm"),
             new NavEntry("用户登陆", "用户登录/", "user"),
             new NavEntry("帮助信息", "帮助/", "help"),
         };

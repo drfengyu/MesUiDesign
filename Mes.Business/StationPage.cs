@@ -41,11 +41,12 @@
         public const string UploadSetting = "参数设置/上传设置";
 
         // 报警
-        public const string ActiveAlarm = "报警/当前报警";
-        public const string AlarmHistory = "报警/报警历史";
-        public const string AlarmTop5 = "报警/报警TOP5";
-        public const string FaultAnalysis = "报警/异常分析";
-        public const string OperationLogPage = "报警/操作日志";
+        public const string AlarmPrefix = "报警/";
+        public const string ActiveAlarm = AlarmPrefix + "当前报警";
+        public const string AlarmHistory = AlarmPrefix + "报警历史";
+        public const string AlarmTop5 = AlarmPrefix + "报警TOP5";
+        public const string FaultAnalysis = AlarmPrefix + "异常分析";
+        public const string OperationLogPage = AlarmPrefix + "操作日志";
 
         // 用户与帮助
         public const string Login = "用户登录/用户登录";

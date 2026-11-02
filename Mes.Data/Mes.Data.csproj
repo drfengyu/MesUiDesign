@@ -40,6 +40,7 @@
     <Compile Include="EnergyDailyTable.cs" />
     <Compile Include="FixtureBlockTable.cs" />
     <Compile Include="FixtureCareTable.cs" />
+    <Compile Include="LogEntry.cs" />
     <Compile Include="OperationLog.cs" />
     <Compile Include="PartChangeTable.cs" />
     <Compile Include="PartStateTable.cs" />

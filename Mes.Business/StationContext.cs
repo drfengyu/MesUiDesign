@@ -16,6 +16,12 @@ namespace Mes.Business
     /// </summary>
     public class StationContext
     {
+        /// <summary>
+        /// 机台名称：状态条上那行绿底字、操作日志（P35）的机台筛选都用这一个值。
+        /// 一处定义，避免标题写一个、筛选条件写另一个，查日志时"机台名称"永远对不上。
+        /// </summary>
+        public const string MachineName = "MES 数据上传追溯";
+
         public SimulatedPlc Plc { get; private set; }
         public MachineSimulator Machine { get; private set; }
         public AlarmCatalog Alarms { get; private set; }
@@ -53,6 +59,9 @@ namespace Mes.Business
 
         /// <summary>治具保养超期仍上机时的卡控记录</summary>
         public FixtureBlockTable FixtureBlocks { get; private set; }
+
+        /// <summary>整机视图的部位表（当前报警 P31 / 异常分析 P34 右边那张图）</summary>
+        public ZoneCatalog Zones { get; private set; }
 
         /// <summary>过站链路（报站/送码/判定）的轮询线程，界面只读它的结果。</summary>
         public StationFlow Flow { get; private set; }
@@ -107,6 +116,8 @@ namespace Mes.Business
             context.Axes.Load(Path.Combine(context.DataFolder, "轴卡分组.csv"));
             context.Upload = new UploadSettings();
             context.Upload.Load(Path.Combine(context.DataFolder, "上传设置.csv"));
+            context.Zones = new ZoneCatalog();
+            context.Zones.Load(Path.Combine(context.DataFolder, "机台区域.csv"));
             context.ActiveAlarms = new AlarmBoard();
             // 登录要用的密码表。现场这五个值在 setting.ini 的 [PassWord] 段（主项目 MainFrm.cs:386
             // 开机读进 Global），那是现场配置不外拷，本机另存一张 csv。

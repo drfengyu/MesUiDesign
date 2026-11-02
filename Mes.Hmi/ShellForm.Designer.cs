@@ -51,6 +51,7 @@
             this.contentHost = new System.Windows.Forms.Panel();
             this.navPanel = new System.Windows.Forms.Panel();
             this.navPages = new System.Windows.Forms.FlowLayoutPanel();
+            this.navAlarmClear = new System.Windows.Forms.Button();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.userLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.plcLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -301,6 +302,7 @@
             // 
             this.navPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
             this.navPanel.Controls.Add(this.navPages);
+            this.navPanel.Controls.Add(this.navAlarmClear);
             this.navPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.navPanel.Location = new System.Drawing.Point(0, 0);
             this.navPanel.Name = "navPanel";
@@ -318,6 +320,19 @@
             this.navPages.Size = new System.Drawing.Size(176, 698);
             this.navPages.TabIndex = 0;
             this.navPages.WrapContents = false;
+            // 
+            // navAlarmClear
+            // 
+            this.navAlarmClear.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.navAlarmClear.Font = new System.Drawing.Font("微软雅黑", 10F, System.Drawing.FontStyle.Bold);
+            this.navAlarmClear.Margin = new System.Windows.Forms.Padding(4, 0, 4, 6);
+            this.navAlarmClear.Name = "navAlarmClear";
+            this.navAlarmClear.Size = new System.Drawing.Size(168, 50);
+            this.navAlarmClear.TabIndex = 1;
+            this.navAlarmClear.Text = "清除报警";
+            this.navAlarmClear.UseVisualStyleBackColor = true;
+            this.navAlarmClear.Visible = false;
+            this.navAlarmClear.Click += new System.EventHandler(this.navAlarmClear_Click);
             // 
             // statusBar
             // 
@@ -436,6 +451,7 @@
         private System.Windows.Forms.Panel contentHost;
         private System.Windows.Forms.Panel navPanel;
         private System.Windows.Forms.FlowLayoutPanel navPages;
+        private System.Windows.Forms.Button navAlarmClear;
         private System.Windows.Forms.StatusStrip statusBar;
         private System.Windows.Forms.ToolStripStatusLabel userLabel;
         private System.Windows.Forms.ToolStripStatusLabel plcLabel;

@@ -61,6 +61,12 @@ namespace Mes.Hmi
                 { StationPage.TimeSetting, station => new PageSettingList(station, PageSettingList.Kind.Time) },
                 { StationPage.CommunicationSetting, station => new PageSettingList(station, PageSettingList.Kind.Comm) },
                 { StationPage.UploadSetting, station => new PageUploadSetting(station) },
+
+                { StationPage.ActiveAlarm, station => new PageAlarmActive(station) },
+                { StationPage.AlarmHistory, station => new PageAlarmHistory(station) },
+                { StationPage.AlarmTop5, station => new PageAlarmTop5(station) },
+                { StationPage.FaultAnalysis, station => new PageFaultAnalysis(station) },
+                { StationPage.OperationLogPage, station => new PageOperationLog(station) },
                 { StationPage.Login, station => new PageLogin(station) },
                 { StationPage.IoInput, station => new PageIoMonitor(station, 'I') },
                 { StationPage.IoOutput, station => new PageIoMonitor(station, 'Q') },
@@ -83,6 +89,7 @@ namespace Mes.Hmi
             InitializeComponent();
             this.station = station;
             this.station.Activity += OnActivity;
+            machineLabel.Text = StationContext.MachineName;
 
             BindNavButtons();
             ShowStartupState();
@@ -152,6 +159,7 @@ namespace Mes.Hmi
         {
             pageButtons.Clear();
             navPages.Controls.Clear();
+            navAlarmClear.Visible = entry.Prefix == StationPage.AlarmPrefix;
 
             foreach (var rule in AccessPolicy.Rules)
             {
@@ -177,6 +185,28 @@ namespace Mes.Hmi
             var first = FirstAllowedPage(entry);
             if (first != null) ShowPage(first);
             else ShowNotice(entry.Title + "：当前等级下没有可进的页面");
+        }
+
+        /// <summary>
+        /// 文档 P31~P35 都在二级页签下面挂一颗"清除报警"：它不属于某一页，是整个报警入口共用的，
+        /// 所以放在外壳的页签条上而不是每个页面里各摆一颗。
+        /// </summary>
+        private void navAlarmClear_Click(object sender, EventArgs e)
+        {
+            if (station.Level < LoginLevel.Technician)
+            {
+                station.Say("需要技术员以上权限才能清除报警");
+                return;
+            }
+            var count = station.ActiveAlarms.Snapshot().Count;
+            if (count == 0)
+            {
+                station.Say("当前没有挂着的报警");
+                return;
+            }
+            station.Flow.ResetAlarms();
+            station.Log.Write(station.User, "清除报警",
+                count.ToString(System.Globalization.CultureInfo.InvariantCulture), string.Empty, string.Empty);
         }
 
         // ── 页面宿主 ──────────────────────────────────────────────────────
