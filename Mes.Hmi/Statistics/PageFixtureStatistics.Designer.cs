@@ -15,13 +15,13 @@ namespace Mes.Hmi.Statistics
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle ngHeaderStyle = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle ngCellStyle = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea quantityArea = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series quantitySeries = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title quantityTitle = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea ngArea = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series ngSeries = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.root = new System.Windows.Forms.TableLayoutPanel();
             this.toolbar = new System.Windows.Forms.TableLayoutPanel();
             this.radioQuantity = new System.Windows.Forms.RadioButton();
@@ -276,47 +276,44 @@ namespace Mes.Hmi.Statistics
             // 
             // plotQuantity
             // 
-            quantityArea.AxisX.LabelStyle.Angle = -45;
-            quantityArea.AxisX.LabelStyle.Font = new System.Drawing.Font("微软雅黑", 8.5F);
-            quantityArea.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(96)))), ((int)(((byte)(105)))));
-            quantityArea.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
-            quantityArea.AxisX.MajorGrid.Enabled = false;
-            quantityArea.AxisX.MajorTickMark.Enabled = false;
-            quantityArea.AxisY.Interval = 10D;
-            quantityArea.AxisY.LabelStyle.Font = new System.Drawing.Font("微软雅黑", 9F);
-            quantityArea.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
-            quantityArea.AxisY.LabelStyle.Format = "0";
-            quantityArea.AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
-            quantityArea.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(235)))), ((int)(((byte)(239)))));
-            quantityArea.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            quantityArea.AxisY.MajorTickMark.Enabled = false;
-            quantityArea.AxisY.Minimum = 0D;
-            quantityArea.BackColor = System.Drawing.Color.White;
-            quantityArea.Name = "main";
-            this.plotQuantity.ChartAreas.Add(quantityArea);
-            this.plotQuantity.BackColor = System.Drawing.Color.White;
             this.plotQuantity.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(233)))), ((int)(((byte)(238)))));
             this.plotQuantity.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea1.AxisX.LabelStyle.Angle = -45;
+            chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("微软雅黑", 8.5F);
+            chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(96)))), ((int)(((byte)(105)))));
+            chartArea1.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
+            chartArea1.AxisX.MajorGrid.Enabled = false;
+            chartArea1.AxisX.MajorTickMark.Enabled = false;
+            chartArea1.AxisY.Interval = 10D;
+            chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font("微软雅黑", 9F);
+            chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
+            chartArea1.AxisY.LabelStyle.Format = "0";
+            chartArea1.AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(235)))), ((int)(((byte)(239)))));
+            chartArea1.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea1.AxisY.MajorTickMark.Enabled = false;
+            chartArea1.AxisY.Minimum = 0D;
+            chartArea1.BackColor = System.Drawing.Color.White;
+            chartArea1.Name = "main";
+            this.plotQuantity.ChartAreas.Add(chartArea1);
             this.plotQuantity.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plotQuantity.Location = new System.Drawing.Point(0, 40);
             this.plotQuantity.Margin = new System.Windows.Forms.Padding(0);
             this.plotQuantity.Name = "plotQuantity";
-            quantitySeries.ChartArea = "main";
-            quantitySeries.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
-            quantitySeries.Color = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(120)))), ((int)(((byte)(210)))));
-            quantitySeries.Font = new System.Drawing.Font("微软雅黑", 8F);
-            quantitySeries.IsValueShownAsLabel = true;
-            quantitySeries.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
-            quantitySeries.Name = "治具数量";
-            this.plotQuantity.Series.Add(quantitySeries);
+            series1.ChartArea = "main";
+            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(120)))), ((int)(((byte)(210)))));
+            series1.Font = new System.Drawing.Font("微软雅黑", 8F);
+            series1.IsValueShownAsLabel = true;
+            series1.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
+            series1.Name = "治具数量";
+            this.plotQuantity.Series.Add(series1);
             this.plotQuantity.Size = new System.Drawing.Size(1172, 510);
             this.plotQuantity.TabIndex = 1;
-            quantityTitle.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
-            quantityTitle.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold);
-            quantityTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(70)))), ((int)(((byte)(140)))));
-            quantityTitle.Name = "titleQuantity";
-            quantityTitle.Text = "治具数量";
-            this.plotQuantity.Titles.Add(quantityTitle);
+            title1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold);
+            title1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(70)))), ((int)(((byte)(140)))));
+            title1.Name = "titleQuantity";
+            title1.Text = "治具数量";
+            this.plotQuantity.Titles.Add(title1);
             // 
             // ngPanel
             // 
@@ -337,38 +334,36 @@ namespace Mes.Hmi.Statistics
             // 
             // plotNg
             // 
-            ngArea.AxisX.LabelStyle.Font = new System.Drawing.Font("微软雅黑", 9F);
-            ngArea.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(96)))), ((int)(((byte)(105)))));
-            ngArea.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
-            ngArea.AxisX.MajorGrid.Enabled = false;
-            ngArea.AxisX.MajorTickMark.Enabled = false;
-            ngArea.AxisY.Interval = 1D;
-            ngArea.AxisY.LabelStyle.Font = new System.Drawing.Font("微软雅黑", 9F);
-            ngArea.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
-            ngArea.AxisY.LabelStyle.Format = "0";
-            ngArea.AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
-            ngArea.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(235)))), ((int)(((byte)(239)))));
-            ngArea.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            ngArea.AxisY.MajorTickMark.Enabled = false;
-            ngArea.AxisY.Minimum = 0D;
-            ngArea.BackColor = System.Drawing.Color.White;
-            ngArea.Name = "main";
-            this.plotNg.ChartAreas.Add(ngArea);
-            this.plotNg.BackColor = System.Drawing.Color.White;
             this.plotNg.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(233)))), ((int)(((byte)(238)))));
             this.plotNg.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea2.AxisX.LabelStyle.Font = new System.Drawing.Font("微软雅黑", 9F);
+            chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(96)))), ((int)(((byte)(105)))));
+            chartArea2.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
+            chartArea2.AxisX.MajorGrid.Enabled = false;
+            chartArea2.AxisX.MajorTickMark.Enabled = false;
+            chartArea2.AxisY.Interval = 1D;
+            chartArea2.AxisY.LabelStyle.Font = new System.Drawing.Font("微软雅黑", 9F);
+            chartArea2.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
+            chartArea2.AxisY.LabelStyle.Format = "0";
+            chartArea2.AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
+            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(235)))), ((int)(((byte)(239)))));
+            chartArea2.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea2.AxisY.MajorTickMark.Enabled = false;
+            chartArea2.AxisY.Minimum = 0D;
+            chartArea2.BackColor = System.Drawing.Color.White;
+            chartArea2.Name = "main";
+            this.plotNg.ChartAreas.Add(chartArea2);
             this.plotNg.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plotNg.Location = new System.Drawing.Point(0, 0);
             this.plotNg.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
             this.plotNg.Name = "plotNg";
-            ngSeries.ChartArea = "main";
-            ngSeries.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
-            ngSeries.Color = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(120)))), ((int)(((byte)(210)))));
-            ngSeries.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold);
-            ngSeries.IsValueShownAsLabel = true;
-            ngSeries.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
-            ngSeries.Name = "NG数量";
-            this.plotNg.Series.Add(ngSeries);
+            series2.ChartArea = "main";
+            series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(120)))), ((int)(((byte)(210)))));
+            series2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold);
+            series2.IsValueShownAsLabel = true;
+            series2.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
+            series2.Name = "NG数量";
+            this.plotNg.Series.Add(series2);
             this.plotNg.Size = new System.Drawing.Size(1172, 304);
             this.plotNg.TabIndex = 0;
             // 
@@ -397,26 +392,26 @@ namespace Mes.Hmi.Statistics
             this.gridNg.BackgroundColor = System.Drawing.Color.White;
             this.gridNg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridNg.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            ngHeaderStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            ngHeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            ngHeaderStyle.Font = new System.Drawing.Font("微软雅黑", 9.5F, System.Drawing.FontStyle.Bold);
-            ngHeaderStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(66)))), ((int)(((byte)(72)))));
-            ngHeaderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            ngHeaderStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(66)))), ((int)(((byte)(72)))));
-            this.gridNg.ColumnHeadersDefaultCellStyle = ngHeaderStyle;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("微软雅黑", 9.5F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(66)))), ((int)(((byte)(72)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(66)))), ((int)(((byte)(72)))));
+            this.gridNg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gridNg.ColumnHeadersHeight = 30;
             this.gridNg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridNg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colNgCode,
             this.colNgCount});
-            ngCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            ngCellStyle.BackColor = System.Drawing.SystemColors.Window;
-            ngCellStyle.Font = new System.Drawing.Font("微软雅黑", 9F);
-            ngCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
-            ngCellStyle.SelectionBackColor = System.Drawing.Color.White;
-            ngCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
-            ngCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridNg.DefaultCellStyle = ngCellStyle;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 9F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridNg.DefaultCellStyle = dataGridViewCellStyle2;
             this.gridNg.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridNg.EnableHeadersVisualStyles = false;
             this.gridNg.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(243)))));
@@ -428,7 +423,7 @@ namespace Mes.Hmi.Statistics
             this.gridNg.RowHeadersVisible = false;
             this.gridNg.RowTemplate.Height = 30;
             this.gridNg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridNg.Size = new System.Drawing.Size(704, 242);
+            this.gridNg.Size = new System.Drawing.Size(703, 242);
             this.gridNg.TabIndex = 0;
             // 
             // colNgCode
@@ -528,7 +523,7 @@ namespace Mes.Hmi.Statistics
             this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExport.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold);
             this.btnExport.ForeColor = System.Drawing.Color.White;
-            this.btnExport.Location = new System.Drawing.Point(972, 12);
+            this.btnExport.Location = new System.Drawing.Point(980, 12);
             this.btnExport.Margin = new System.Windows.Forms.Padding(8, 12, 8, 12);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(184, 34);

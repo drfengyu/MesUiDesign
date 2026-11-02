@@ -1,5 +1,16 @@
 # 更新日志
 
+## 1.6.4 (2026-11-02)
+
+### 修复
+- 饼图/环图的自定义属性不再用索引器写法：`seriesPie["DoughnutRadius"] = "45"` 这种只能运行、进不了设计器——设计器把中括号当集合下标去 `ToInt32()`，打开就抛"输入字符串的格式不正确"（堆栈停在 `CodeDomSerializerBase.DeserializeAssignStatement`）。改成等价的单行 `CustomProperties = "DoughnutRadius=45,PieDrawingStyle=SoftEdge,PieLabelStyle=Disabled"`，共 11 组：PageUptime 1、PageEnergy 6、PagePerformance 3、PageScrap 1。分隔符必须是逗号，写分号 Chart 自己就报"自定义属性格式无效"；改完实测两种写法产生的自定义属性串逐字节相同，画法、起始角、隐藏饼图标签都不变。
+- 设备信息页删掉 `hwRows.RowCount = 0` / `swRows.RowCount = 0`：运行时设 0 没问题（新建 TableLayoutPanel 默认就是 0，行是 Add()/Pad() 一条条加上去的），但设计器的属性校验不收 0，打开报"RowCount 必须大于零"。
+- 顶部导航图标全部消失修掉：`ShellForm.resx` 在设计器没加载成功的状态下被保存成了空壳，22 个图标资源只剩 Name1/Color1/Bitmap1/Icon1 四条模板项，`resources.GetObject("btnHome.Image")` 返回 null，按钮退化成 23px 空白（8×23 正好是量到的 192px 导航宽）。从上一个提交还原 resx，并逐个核对 19 个被设计器回写过的 Designer 文件——控件数、Controls.Add、BeginInit/EndInit、事件绑定、resources.GetObject 都没少，只有本次有意改的那几处。
+
+### 变更
+- 顶部条的机台名挪到右边：`navLayout` 里空白列与 340px 定宽列对调，现在是 图标 → 空白 → 机台名 → 运行/暂停/停止，与 UI 文档 P4 的 ②③ 标注一致（原来图标和机台名挨着、按钮被甩到最右，中间一大段空白）。`spacerPanel` 的作用就是那条吃掉剩余宽度的空白列，留着没删。
+- 报警四页、PageHome、位置速度/上传设置、CPK/治具统计/产能/时间统计、密码登录/刷卡登录等设计器回写入库（VS 补了 Location/Size、统一了注释格式），版面不变；VS 为这些页生成的 11 个空 resx 与 csproj 的 EmbeddedResource 条目一并入库。
+
 ## 1.6.3 (2026-11-02)
 
 ### 修复

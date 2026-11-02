@@ -47,15 +47,16 @@ namespace Mes.Hmi.User
             this.leftCard.SuspendLayout();
             this.rightCard.SuspendLayout();
             this.SuspendLayout();
-            //
+            // 
             // root
-            //
+            // 
             this.root.ColumnCount = 1;
             this.root.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.root.Controls.Add(this.titleLabel, 0, 0);
             this.root.Controls.Add(this.cards, 0, 1);
             this.root.Controls.Add(this.hintLabel, 0, 2);
             this.root.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.root.Location = new System.Drawing.Point(0, 0);
             this.root.Name = "root";
             this.root.Padding = new System.Windows.Forms.Padding(8, 6, 8, 4);
             this.root.RowCount = 3;
@@ -64,32 +65,36 @@ namespace Mes.Hmi.User
             this.root.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.root.Size = new System.Drawing.Size(1180, 660);
             this.root.TabIndex = 0;
-            //
+            // 
             // titleLabel
-            //
+            // 
             this.titleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.titleLabel.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline);
-            this.titleLabel.ForeColor = System.Drawing.Color.FromArgb(40, 45, 50);
+            this.titleLabel.Font = new System.Drawing.Font("微软雅黑", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.titleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
+            this.titleLabel.Location = new System.Drawing.Point(11, 6);
             this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(1158, 46);
             this.titleLabel.TabIndex = 0;
             this.titleLabel.Text = "用户权限管理";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            //
+            // 
             // cards
-            //
+            // 
             this.cards.ColumnCount = 2;
             this.cards.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.cards.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.cards.Controls.Add(this.leftCard, 0, 0);
             this.cards.Controls.Add(this.rightCard, 1, 0);
             this.cards.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cards.Location = new System.Drawing.Point(11, 55);
             this.cards.Name = "cards";
             this.cards.RowCount = 1;
             this.cards.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.cards.Size = new System.Drawing.Size(1158, 568);
             this.cards.TabIndex = 1;
-            //
+            // 
             // leftCard
-            //
+            // 
             this.leftCard.BackColor = System.Drawing.Color.White;
             this.leftCard.ColumnCount = 2;
             this.leftCard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 104F));
@@ -106,6 +111,7 @@ namespace Mes.Hmi.User
             this.leftCard.Controls.Add(this.buttonLogin, 0, 5);
             this.leftCard.Controls.Add(this.resultLabel, 0, 6);
             this.leftCard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.leftCard.Location = new System.Drawing.Point(0, 0);
             this.leftCard.Margin = new System.Windows.Forms.Padding(0, 0, 6, 0);
             this.leftCard.Name = "leftCard";
             this.leftCard.Padding = new System.Windows.Forms.Padding(10, 6, 12, 6);
@@ -117,116 +123,138 @@ namespace Mes.Hmi.User
             this.leftCard.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.leftCard.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
             this.leftCard.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.leftCard.Size = new System.Drawing.Size(573, 568);
             this.leftCard.TabIndex = 0;
-            //
+            // 
             // permCaption
-            //
+            // 
+            this.leftCard.SetColumnSpan(this.permCaption, 2);
             this.permCaption.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.permCaption.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic);
-            this.permCaption.ForeColor = System.Drawing.Color.FromArgb(40, 45, 50);
+            this.permCaption.Font = new System.Drawing.Font("微软雅黑", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.permCaption.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
+            this.permCaption.Location = new System.Drawing.Point(13, 6);
             this.permCaption.Name = "permCaption";
+            this.permCaption.Size = new System.Drawing.Size(545, 36);
             this.permCaption.TabIndex = 0;
             this.permCaption.Text = "用 户 权 限";
             this.permCaption.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.leftCard.SetColumnSpan(this.permCaption, 2);
-            //
+            // 
             // levelLabel
-            //
+            // 
             this.levelLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.levelLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.levelLabel.Location = new System.Drawing.Point(13, 42);
             this.levelLabel.Name = "levelLabel";
+            this.levelLabel.Size = new System.Drawing.Size(98, 36);
             this.levelLabel.TabIndex = 1;
             this.levelLabel.Text = "当前权限";
             this.levelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            //
+            // 
             // currentLabel
-            //
+            // 
             this.currentLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.currentLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F, System.Drawing.FontStyle.Bold);
-            this.currentLabel.ForeColor = System.Drawing.Color.FromArgb(40, 120, 60);
+            this.currentLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(120)))), ((int)(((byte)(60)))));
+            this.currentLabel.Location = new System.Drawing.Point(117, 42);
             this.currentLabel.Name = "currentLabel";
+            this.currentLabel.Size = new System.Drawing.Size(441, 36);
             this.currentLabel.TabIndex = 2;
             this.currentLabel.Text = "无";
             this.currentLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            //
+            // 
             // userLabel
-            //
+            // 
             this.userLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.userLabel.Location = new System.Drawing.Point(13, 78);
             this.userLabel.Name = "userLabel";
+            this.userLabel.Size = new System.Drawing.Size(98, 36);
             this.userLabel.TabIndex = 3;
             this.userLabel.Text = "用户名";
             this.userLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            //
+            // 
             // comboUser
-            //
+            // 
             this.comboUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboUser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboUser.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.comboUser.Location = new System.Drawing.Point(120, 82);
             this.comboUser.Margin = new System.Windows.Forms.Padding(6, 4, 4, 4);
             this.comboUser.Name = "comboUser";
+            this.comboUser.Size = new System.Drawing.Size(437, 27);
             this.comboUser.TabIndex = 4;
-            //
+            // 
             // passwordLabel
-            //
+            // 
             this.passwordLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.passwordLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.passwordLabel.Location = new System.Drawing.Point(13, 114);
             this.passwordLabel.Name = "passwordLabel";
+            this.passwordLabel.Size = new System.Drawing.Size(98, 36);
             this.passwordLabel.TabIndex = 5;
             this.passwordLabel.Text = "密码";
             this.passwordLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            //
+            // 
             // textPassword
-            //
+            // 
             this.textPassword.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textPassword.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.textPassword.Location = new System.Drawing.Point(120, 118);
             this.textPassword.Margin = new System.Windows.Forms.Padding(6, 4, 4, 4);
             this.textPassword.Name = "textPassword";
+            this.textPassword.Size = new System.Drawing.Size(437, 24);
             this.textPassword.TabIndex = 6;
             this.textPassword.UseSystemPasswordChar = true;
-            //
+            // 
             // registerLabel
-            //
+            // 
             this.registerLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.registerLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.registerLabel.Location = new System.Drawing.Point(13, 150);
             this.registerLabel.Name = "registerLabel";
+            this.registerLabel.Size = new System.Drawing.Size(98, 36);
             this.registerLabel.TabIndex = 7;
             this.registerLabel.Text = "设备注册";
             this.registerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            //
+            // 
             // registerBox
-            //
-            this.registerBox.BackColor = System.Drawing.Color.FromArgb(240, 242, 245);
+            // 
+            this.registerBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
             this.registerBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.registerBox.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.registerBox.Location = new System.Drawing.Point(120, 154);
             this.registerBox.Margin = new System.Windows.Forms.Padding(6, 4, 4, 4);
             this.registerBox.Name = "registerBox";
             this.registerBox.ReadOnly = true;
+            this.registerBox.Size = new System.Drawing.Size(437, 24);
             this.registerBox.TabIndex = 8;
-            //
+            // 
             // buttonLogin
-            //
+            // 
+            this.leftCard.SetColumnSpan(this.buttonLogin, 2);
             this.buttonLogin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonLogin.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Bold);
+            this.buttonLogin.Location = new System.Drawing.Point(40, 194);
             this.buttonLogin.Margin = new System.Windows.Forms.Padding(30, 8, 30, 4);
             this.buttonLogin.Name = "buttonLogin";
+            this.buttonLogin.Size = new System.Drawing.Size(491, 40);
             this.buttonLogin.TabIndex = 9;
             this.buttonLogin.Text = "登入 / 登出";
             this.buttonLogin.UseVisualStyleBackColor = true;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
-            this.leftCard.SetColumnSpan(this.buttonLogin, 2);
-            //
+            // 
             // resultLabel
-            //
+            // 
             this.resultLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.resultLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.resultLabel.ForeColor = System.Drawing.Color.FromArgb(90, 96, 104);
+            this.resultLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(96)))), ((int)(((byte)(104)))));
+            this.resultLabel.Location = new System.Drawing.Point(13, 238);
             this.resultLabel.Name = "resultLabel";
+            this.resultLabel.Size = new System.Drawing.Size(98, 324);
             this.resultLabel.TabIndex = 10;
-            this.resultLabel.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            //
+            // 
             // rightCard
-            //
+            // 
             this.rightCard.BackColor = System.Drawing.Color.White;
             this.rightCard.ColumnCount = 2;
             this.rightCard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 104F));
@@ -243,6 +271,7 @@ namespace Mes.Hmi.User
             this.rightCard.Controls.Add(this.buttonChange, 0, 5);
             this.rightCard.Controls.Add(this.pwdResultLabel, 0, 6);
             this.rightCard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rightCard.Location = new System.Drawing.Point(585, 0);
             this.rightCard.Margin = new System.Windows.Forms.Padding(6, 0, 0, 0);
             this.rightCard.Name = "rightCard";
             this.rightCard.Padding = new System.Windows.Forms.Padding(10, 6, 12, 6);
@@ -254,136 +283,162 @@ namespace Mes.Hmi.User
             this.rightCard.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.rightCard.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
             this.rightCard.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.rightCard.Size = new System.Drawing.Size(573, 568);
             this.rightCard.TabIndex = 1;
-            //
+            // 
             // pwdCaption
-            //
+            // 
+            this.rightCard.SetColumnSpan(this.pwdCaption, 2);
             this.pwdCaption.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pwdCaption.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic);
-            this.pwdCaption.ForeColor = System.Drawing.Color.FromArgb(40, 45, 50);
+            this.pwdCaption.Font = new System.Drawing.Font("微软雅黑", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.pwdCaption.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
+            this.pwdCaption.Location = new System.Drawing.Point(13, 6);
             this.pwdCaption.Name = "pwdCaption";
+            this.pwdCaption.Size = new System.Drawing.Size(545, 36);
             this.pwdCaption.TabIndex = 0;
             this.pwdCaption.Text = "密 码 修 改";
             this.pwdCaption.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rightCard.SetColumnSpan(this.pwdCaption, 2);
-            //
+            // 
             // pwdUserLabel
-            //
+            // 
             this.pwdUserLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pwdUserLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.pwdUserLabel.Location = new System.Drawing.Point(13, 42);
             this.pwdUserLabel.Name = "pwdUserLabel";
+            this.pwdUserLabel.Size = new System.Drawing.Size(98, 36);
             this.pwdUserLabel.TabIndex = 1;
             this.pwdUserLabel.Text = "用户名";
             this.pwdUserLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            //
+            // 
             // comboPwdUser
-            //
+            // 
             this.comboPwdUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboPwdUser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboPwdUser.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.comboPwdUser.Location = new System.Drawing.Point(120, 46);
             this.comboPwdUser.Margin = new System.Windows.Forms.Padding(6, 4, 4, 4);
             this.comboPwdUser.Name = "comboPwdUser";
+            this.comboPwdUser.Size = new System.Drawing.Size(437, 27);
             this.comboPwdUser.TabIndex = 2;
-            //
+            // 
             // oldPwdLabel
-            //
+            // 
             this.oldPwdLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.oldPwdLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.oldPwdLabel.Location = new System.Drawing.Point(13, 78);
             this.oldPwdLabel.Name = "oldPwdLabel";
+            this.oldPwdLabel.Size = new System.Drawing.Size(98, 36);
             this.oldPwdLabel.TabIndex = 3;
             this.oldPwdLabel.Text = "当前密码";
             this.oldPwdLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            //
+            // 
             // textOldPwd
-            //
+            // 
             this.textOldPwd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textOldPwd.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.textOldPwd.Location = new System.Drawing.Point(120, 82);
             this.textOldPwd.Margin = new System.Windows.Forms.Padding(6, 4, 4, 4);
             this.textOldPwd.Name = "textOldPwd";
+            this.textOldPwd.Size = new System.Drawing.Size(437, 24);
             this.textOldPwd.TabIndex = 4;
             this.textOldPwd.UseSystemPasswordChar = true;
-            //
+            // 
             // newPwdLabel
-            //
+            // 
             this.newPwdLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.newPwdLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.newPwdLabel.Location = new System.Drawing.Point(13, 114);
             this.newPwdLabel.Name = "newPwdLabel";
+            this.newPwdLabel.Size = new System.Drawing.Size(98, 36);
             this.newPwdLabel.TabIndex = 5;
             this.newPwdLabel.Text = "新密码";
             this.newPwdLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            //
+            // 
             // textNewPwd
-            //
+            // 
             this.textNewPwd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textNewPwd.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.textNewPwd.Location = new System.Drawing.Point(120, 118);
             this.textNewPwd.Margin = new System.Windows.Forms.Padding(6, 4, 4, 4);
             this.textNewPwd.Name = "textNewPwd";
+            this.textNewPwd.Size = new System.Drawing.Size(437, 24);
             this.textNewPwd.TabIndex = 6;
             this.textNewPwd.UseSystemPasswordChar = true;
-            //
+            // 
             // confirmPwdLabel
-            //
+            // 
             this.confirmPwdLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.confirmPwdLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.confirmPwdLabel.Location = new System.Drawing.Point(13, 150);
             this.confirmPwdLabel.Name = "confirmPwdLabel";
+            this.confirmPwdLabel.Size = new System.Drawing.Size(98, 36);
             this.confirmPwdLabel.TabIndex = 7;
             this.confirmPwdLabel.Text = "确认密码";
             this.confirmPwdLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            //
+            // 
             // textConfirmPwd
-            //
+            // 
             this.textConfirmPwd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textConfirmPwd.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.textConfirmPwd.Location = new System.Drawing.Point(120, 154);
             this.textConfirmPwd.Margin = new System.Windows.Forms.Padding(6, 4, 4, 4);
             this.textConfirmPwd.Name = "textConfirmPwd";
+            this.textConfirmPwd.Size = new System.Drawing.Size(437, 24);
             this.textConfirmPwd.TabIndex = 8;
             this.textConfirmPwd.UseSystemPasswordChar = true;
-            //
+            // 
             // buttonChange
-            //
+            // 
+            this.rightCard.SetColumnSpan(this.buttonChange, 2);
             this.buttonChange.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonChange.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Bold);
+            this.buttonChange.Location = new System.Drawing.Point(40, 194);
             this.buttonChange.Margin = new System.Windows.Forms.Padding(30, 8, 30, 4);
             this.buttonChange.Name = "buttonChange";
+            this.buttonChange.Size = new System.Drawing.Size(491, 40);
             this.buttonChange.TabIndex = 9;
             this.buttonChange.Text = "确认修改密码";
             this.buttonChange.UseVisualStyleBackColor = true;
             this.buttonChange.Click += new System.EventHandler(this.buttonChange_Click);
-            this.rightCard.SetColumnSpan(this.buttonChange, 2);
-            //
+            // 
             // pwdResultLabel
-            //
+            // 
             this.pwdResultLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pwdResultLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.pwdResultLabel.ForeColor = System.Drawing.Color.FromArgb(90, 96, 104);
+            this.pwdResultLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(96)))), ((int)(((byte)(104)))));
+            this.pwdResultLabel.Location = new System.Drawing.Point(13, 238);
             this.pwdResultLabel.Name = "pwdResultLabel";
+            this.pwdResultLabel.Size = new System.Drawing.Size(98, 324);
             this.pwdResultLabel.TabIndex = 10;
-            this.pwdResultLabel.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            //
+            // 
             // hintLabel
-            //
+            // 
             this.hintLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.hintLabel.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.hintLabel.ForeColor = System.Drawing.Color.FromArgb(120, 126, 135);
+            this.hintLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(126)))), ((int)(((byte)(135)))));
+            this.hintLabel.Location = new System.Drawing.Point(11, 626);
             this.hintLabel.Name = "hintLabel";
+            this.hintLabel.Size = new System.Drawing.Size(1158, 30);
             this.hintLabel.TabIndex = 2;
             this.hintLabel.Text = "密码取自 数据\\权限密码.csv（现场在 setting.ini 的 [PassWord] 段），改密码不用重新编译；修改密码要管理员以上。";
             this.hintLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            //
+            // 
             // PageLogin
-            //
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(246, 248, 250);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
             this.Controls.Add(this.root);
             this.Name = "PageLogin";
             this.Size = new System.Drawing.Size(1180, 660);
             this.root.ResumeLayout(false);
             this.cards.ResumeLayout(false);
             this.leftCard.ResumeLayout(false);
+            this.leftCard.PerformLayout();
             this.rightCard.ResumeLayout(false);
             this.rightCard.PerformLayout();
             this.ResumeLayout(false);
+
         }
 
         #endregion

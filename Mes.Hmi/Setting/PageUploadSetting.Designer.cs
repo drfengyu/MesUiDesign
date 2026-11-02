@@ -14,10 +14,9 @@ namespace Mes.Hmi.Setting
 
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle keyHeaderStyle = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle keyCellStyle = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle valueCellStyle = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.root = new System.Windows.Forms.TableLayoutPanel();
             this.pageTitle = new System.Windows.Forms.Label();
             this.tabs = new System.Windows.Forms.TabControl();
@@ -35,6 +34,7 @@ namespace Mes.Hmi.Setting
             this.buttonBar = new System.Windows.Forms.TableLayoutPanel();
             this.btnModify = new System.Windows.Forms.Button();
             this.root.SuspendLayout();
+            this.tabs.SuspendLayout();
             this.projectBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.buttonBar.SuspendLayout();
@@ -66,7 +66,7 @@ namespace Mes.Hmi.Setting
             // 
             this.pageTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pageTitle.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold);
-            this.pageTitle.ForeColor = System.Drawing.Color.FromArgb(45, 50, 55);
+            this.pageTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
             this.pageTitle.Location = new System.Drawing.Point(8, 6);
             this.pageTitle.Margin = new System.Windows.Forms.Padding(0);
             this.pageTitle.Name = "pageTitle";
@@ -94,17 +94,26 @@ namespace Mes.Hmi.Setting
             // 
             // tabTrace
             // 
+            this.tabTrace.Location = new System.Drawing.Point(4, 34);
             this.tabTrace.Name = "tabTrace";
+            this.tabTrace.Size = new System.Drawing.Size(1156, 4);
+            this.tabTrace.TabIndex = 0;
             this.tabTrace.Text = "Trace";
             // 
             // tabPdca
             // 
+            this.tabPdca.Location = new System.Drawing.Point(4, 34);
             this.tabPdca.Name = "tabPdca";
+            this.tabPdca.Size = new System.Drawing.Size(1156, 4);
+            this.tabPdca.TabIndex = 1;
             this.tabPdca.Text = "PDCA";
             // 
             // tabOee
             // 
+            this.tabOee.Location = new System.Drawing.Point(4, 34);
             this.tabOee.Name = "tabOee";
+            this.tabOee.Size = new System.Drawing.Size(1156, 4);
+            this.tabOee.TabIndex = 2;
             this.tabOee.Text = "OEE";
             // 
             // projectBar
@@ -131,7 +140,7 @@ namespace Mes.Hmi.Setting
             // 
             this.projectLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.projectLabel.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.projectLabel.ForeColor = System.Drawing.Color.FromArgb(60, 66, 72);
+            this.projectLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(66)))), ((int)(((byte)(72)))));
             this.projectLabel.Location = new System.Drawing.Point(0, 0);
             this.projectLabel.Margin = new System.Windows.Forms.Padding(0);
             this.projectLabel.Name = "projectLabel";
@@ -149,18 +158,19 @@ namespace Mes.Hmi.Setting
             this.comboProject.Location = new System.Drawing.Point(166, 8);
             this.comboProject.Margin = new System.Windows.Forms.Padding(4, 8, 20, 8);
             this.comboProject.Name = "comboProject";
-            this.comboProject.Size = new System.Drawing.Size(283, 28);
+            this.comboProject.Size = new System.Drawing.Size(278, 27);
             this.comboProject.TabIndex = 1;
             this.comboProject.SelectedIndexChanged += new System.EventHandler(this.comboProject_SelectedIndexChanged);
             // 
             // btnLoad
             // 
-            this.btnLoad.BackColor = System.Drawing.Color.FromArgb(120, 200, 90);
+            this.btnLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(200)))), ((int)(((byte)(90)))));
             this.btnLoad.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnLoad.FlatAppearance.BorderSize = 0;
             this.btnLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoad.Font = new System.Drawing.Font("微软雅黑", 10F, System.Drawing.FontStyle.Bold);
             this.btnLoad.ForeColor = System.Drawing.Color.White;
+            this.btnLoad.Location = new System.Drawing.Point(464, 6);
             this.btnLoad.Margin = new System.Windows.Forms.Padding(0, 6, 0, 6);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(162, 32);
@@ -172,40 +182,43 @@ namespace Mes.Hmi.Setting
             // barSpacer
             // 
             this.barSpacer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.barSpacer.Location = new System.Drawing.Point(612, 0);
+            this.barSpacer.Location = new System.Drawing.Point(626, 0);
             this.barSpacer.Margin = new System.Windows.Forms.Padding(0);
             this.barSpacer.Name = "barSpacer";
-            this.barSpacer.Size = new System.Drawing.Size(552, 44);
+            this.barSpacer.Size = new System.Drawing.Size(538, 44);
             this.barSpacer.TabIndex = 3;
             // 
             // grid
             // 
-            this.grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grid.AllowUserToAddRows = false;
             this.grid.AllowUserToDeleteRows = false;
             this.grid.AllowUserToResizeRows = false;
+            this.grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grid.BackgroundColor = System.Drawing.Color.White;
             this.grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Single;
-            keyHeaderStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            keyHeaderStyle.BackColor = System.Drawing.Color.FromArgb(240, 242, 245);
-            keyHeaderStyle.Font = new System.Drawing.Font("微软雅黑", 9.5F, System.Drawing.FontStyle.Bold);
-            keyHeaderStyle.ForeColor = System.Drawing.Color.FromArgb(60, 66, 72);
-            keyHeaderStyle.Padding = new System.Windows.Forms.Padding(0, 0, 12, 0);
-            this.grid.ColumnHeadersDefaultCellStyle = keyHeaderStyle;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("微软雅黑", 9.5F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(66)))), ((int)(((byte)(72)))));
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 0, 12, 0);
+            this.grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.grid.ColumnHeadersHeight = 34;
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colKey,
             this.colValue});
-            keyCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            keyCellStyle.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            keyCellStyle.ForeColor = System.Drawing.Color.FromArgb(40, 80, 150);
-            keyCellStyle.Padding = new System.Windows.Forms.Padding(0, 0, 12, 0);
-            this.grid.DefaultCellStyle = keyCellStyle;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(80)))), ((int)(((byte)(150)))));
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 0, 12, 0);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grid.DefaultCellStyle = dataGridViewCellStyle3;
             this.grid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grid.EnableHeadersVisualStyles = false;
-            this.grid.GridColor = System.Drawing.Color.FromArgb(226, 230, 236);
+            this.grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(230)))), ((int)(((byte)(236)))));
             this.grid.Location = new System.Drawing.Point(8, 124);
             this.grid.Margin = new System.Windows.Forms.Padding(0);
             this.grid.MultiSelect = false;
@@ -214,7 +227,7 @@ namespace Mes.Hmi.Setting
             this.grid.RowHeadersVisible = false;
             this.grid.RowTemplate.Height = 34;
             this.grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grid.Size = new System.Drawing.Size(1164, 372);
+            this.grid.Size = new System.Drawing.Size(1164, 468);
             this.grid.TabIndex = 3;
             // 
             // colKey
@@ -228,15 +241,16 @@ namespace Mes.Hmi.Setting
             // 
             // colValue
             // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.colValue.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colValue.FillWeight = 70F;
             this.colValue.HeaderText = "";
             this.colValue.Name = "colValue";
-            valueCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            valueCellStyle.BackColor = System.Drawing.Color.FromArgb(246, 248, 250);
-            valueCellStyle.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            valueCellStyle.ForeColor = System.Drawing.Color.FromArgb(45, 50, 55);
-            valueCellStyle.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.colValue.DefaultCellStyle = valueCellStyle;
-            this.colValue.FillWeight = 70F;
+            this.colValue.ReadOnly = true;
             this.colValue.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.colValue.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
@@ -248,7 +262,7 @@ namespace Mes.Hmi.Setting
             this.buttonBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.buttonBar.Controls.Add(this.btnModify, 1, 0);
             this.buttonBar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonBar.Location = new System.Drawing.Point(8, 496);
+            this.buttonBar.Location = new System.Drawing.Point(8, 592);
             this.buttonBar.Margin = new System.Windows.Forms.Padding(0);
             this.buttonBar.Name = "buttonBar";
             this.buttonBar.RowCount = 1;
@@ -258,12 +272,13 @@ namespace Mes.Hmi.Setting
             // 
             // btnModify
             // 
-            this.btnModify.BackColor = System.Drawing.Color.FromArgb(250, 220, 60);
+            this.btnModify.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(220)))), ((int)(((byte)(60)))));
             this.btnModify.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnModify.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(200, 175, 30);
+            this.btnModify.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(175)))), ((int)(((byte)(30)))));
             this.btnModify.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModify.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold);
-            this.btnModify.ForeColor = System.Drawing.Color.FromArgb(60, 50, 0);
+            this.btnModify.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(50)))), ((int)(((byte)(0)))));
+            this.btnModify.Location = new System.Drawing.Point(349, 8);
             this.btnModify.Margin = new System.Windows.Forms.Padding(0, 8, 0, 8);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(465, 44);
@@ -281,10 +296,12 @@ namespace Mes.Hmi.Setting
             this.Name = "PageUploadSetting";
             this.Size = new System.Drawing.Size(1180, 660);
             this.root.ResumeLayout(false);
+            this.tabs.ResumeLayout(false);
             this.projectBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.buttonBar.ResumeLayout(false);
             this.ResumeLayout(false);
+
         }
 
         #endregion

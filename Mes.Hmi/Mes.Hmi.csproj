@@ -264,11 +264,41 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Alarm\PageAlarmHistory.resx">
+      <DependentUpon>PageAlarmHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alarm\PageAlarmTop5.resx">
+      <DependentUpon>PageAlarmTop5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alarm\PageFaultAnalysis.resx">
+      <DependentUpon>PageFaultAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alarm\PageOperationLog.resx">
+      <DependentUpon>PageOperationLog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FaultCodeDialog.resx">
       <DependentUpon>FaultCodeDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home\PageHome.resx">
       <DependentUpon>PageHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\PagePositionSpeed.resx">
+      <DependentUpon>PagePositionSpeed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\PageUploadSetting.resx">
+      <DependentUpon>PageUploadSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Statistics\PageCpk.resx">
+      <DependentUpon>PageCpk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Statistics\PageFixtureStatistics.resx">
+      <DependentUpon>PageFixtureStatistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Statistics\PageScrap.resx">
+      <DependentUpon>PageScrap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Statistics\PageThroughput.resx">
+      <DependentUpon>PageThroughput.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Statistics\PageTimeStatistics.resx">
       <DependentUpon>PageTimeStatistics.cs</DependentUpon>
@@ -281,6 +311,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ShellForm.resx">
       <DependentUpon>ShellForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\PageCardLogin.resx">
+      <DependentUpon>PageCardLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\PageLogin.resx">
+      <DependentUpon>PageLogin.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

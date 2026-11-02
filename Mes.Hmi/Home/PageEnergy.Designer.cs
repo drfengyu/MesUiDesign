@@ -344,9 +344,7 @@ namespace Mes.Hmi.Home
             this.gaugeVoltage.Name = "gaugeVoltage";
             gSeriesVolt.ChartArea = "gauge";
             gSeriesVolt.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            gSeriesVolt["DoughnutRadius"] = "58";
-            gSeriesVolt["PieLabelStyle"] = "Disabled";
-            gSeriesVolt["PieStartAngle"] = "150";
+            gSeriesVolt.CustomProperties = "DoughnutRadius=58,PieLabelStyle=Disabled,PieStartAngle=150";
             gSeriesVolt.IsVisibleInLegend = false;
             gSeriesVolt.Name = "zones";
             gSeriesVolt.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 114D) { Color = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(55)))), ((int)(((byte)(55))))) });
@@ -432,9 +430,7 @@ namespace Mes.Hmi.Home
             this.gaugeCurrent.Name = "gaugeCurrent";
             gSeriesCur.ChartArea = "gauge";
             gSeriesCur.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            gSeriesCur["DoughnutRadius"] = "58";
-            gSeriesCur["PieLabelStyle"] = "Disabled";
-            gSeriesCur["PieStartAngle"] = "150";
+            gSeriesCur.CustomProperties = "DoughnutRadius=58,PieLabelStyle=Disabled,PieStartAngle=150";
             gSeriesCur.IsVisibleInLegend = false;
             gSeriesCur.Name = "zones";
             gSeriesCur.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 96D) { Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(70))))) });
@@ -800,9 +796,7 @@ namespace Mes.Hmi.Home
             this.airGaugePressure.Name = "airGaugePressure";
             gSeriesAirP.ChartArea = "gauge";
             gSeriesAirP.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            gSeriesAirP["DoughnutRadius"] = "58";
-            gSeriesAirP["PieLabelStyle"] = "Disabled";
-            gSeriesAirP["PieStartAngle"] = "150";
+            gSeriesAirP.CustomProperties = "DoughnutRadius=58,PieLabelStyle=Disabled,PieStartAngle=150";
             gSeriesAirP.IsVisibleInLegend = false;
             gSeriesAirP.Name = "zones";
             gSeriesAirP.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 180D) { Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(70))))) });
@@ -886,9 +880,7 @@ namespace Mes.Hmi.Home
             this.airGaugeFlow.Name = "airGaugeFlow";
             gSeriesAirF.ChartArea = "gauge";
             gSeriesAirF.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            gSeriesAirF["DoughnutRadius"] = "58";
-            gSeriesAirF["PieLabelStyle"] = "Disabled";
-            gSeriesAirF["PieStartAngle"] = "150";
+            gSeriesAirF.CustomProperties = "DoughnutRadius=58,PieLabelStyle=Disabled,PieStartAngle=150";
             gSeriesAirF.IsVisibleInLegend = false;
             gSeriesAirF.Name = "zones";
             gSeriesAirF.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 144D) { Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(70))))) });
@@ -1192,9 +1184,7 @@ namespace Mes.Hmi.Home
             this.waterGaugePressure.Name = "waterGaugePressure";
             gSeriesWatP.ChartArea = "gauge";
             gSeriesWatP.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            gSeriesWatP["DoughnutRadius"] = "58";
-            gSeriesWatP["PieLabelStyle"] = "Disabled";
-            gSeriesWatP["PieStartAngle"] = "150";
+            gSeriesWatP.CustomProperties = "DoughnutRadius=58,PieLabelStyle=Disabled,PieStartAngle=150";
             gSeriesWatP.IsVisibleInLegend = false;
             gSeriesWatP.Name = "zones";
             gSeriesWatP.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 150D) { Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(70))))) });
@@ -1278,9 +1268,7 @@ namespace Mes.Hmi.Home
             this.waterGaugeFlow.Name = "waterGaugeFlow";
             gSeriesWatF.ChartArea = "gauge";
             gSeriesWatF.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            gSeriesWatF["DoughnutRadius"] = "58";
-            gSeriesWatF["PieLabelStyle"] = "Disabled";
-            gSeriesWatF["PieStartAngle"] = "150";
+            gSeriesWatF.CustomProperties = "DoughnutRadius=58,PieLabelStyle=Disabled,PieStartAngle=150";
             gSeriesWatF.IsVisibleInLegend = false;
             gSeriesWatF.Name = "zones";
             gSeriesWatF.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 144D) { Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(70))))) });

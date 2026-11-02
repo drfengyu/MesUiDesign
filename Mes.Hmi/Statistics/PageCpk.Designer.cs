@@ -14,24 +14,23 @@ namespace Mes.Hmi.Statistics
 
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea normalArea = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series normalSeries = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea sampleArea = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series sampleNow = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series sampleTarget = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series sampleMax = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series sampleMin = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea histArea = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series histSeries = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea recentArea = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend recentLegend = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series legendMedian = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series legendTarget = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series legendCount = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series recentMedian = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series recentTarget = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series recentCount = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.root = new System.Windows.Forms.TableLayoutPanel();
             this.contentPanel = new System.Windows.Forms.TableLayoutPanel();
             this.chartGrid = new System.Windows.Forms.TableLayoutPanel();
@@ -175,32 +174,31 @@ namespace Mes.Hmi.Statistics
             // 
             // plotNormal
             // 
-            normalArea.AxisX.LabelStyle.Font = new System.Drawing.Font("微软雅黑", 8F);
-            normalArea.AxisX.LabelStyle.Format = "0.###";
-            normalArea.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
-            normalArea.AxisX.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(235)))), ((int)(((byte)(239)))));
-            normalArea.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            normalArea.AxisX.MajorTickMark.Enabled = false;
-            normalArea.AxisY.LabelStyle.Font = new System.Drawing.Font("微软雅黑", 8F);
-            normalArea.AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
-            normalArea.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(235)))), ((int)(((byte)(239)))));
-            normalArea.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            normalArea.AxisY.MajorTickMark.Enabled = false;
-            normalArea.BackColor = System.Drawing.Color.White;
-            normalArea.Name = "main";
-            this.plotNormal.ChartAreas.Add(normalArea);
-            this.plotNormal.BackColor = System.Drawing.Color.White;
             this.plotNormal.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(233)))), ((int)(((byte)(238)))));
             this.plotNormal.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("微软雅黑", 8F);
+            chartArea1.AxisX.LabelStyle.Format = "0.###";
+            chartArea1.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(235)))), ((int)(((byte)(239)))));
+            chartArea1.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea1.AxisX.MajorTickMark.Enabled = false;
+            chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font("微软雅黑", 8F);
+            chartArea1.AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(235)))), ((int)(((byte)(239)))));
+            chartArea1.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea1.AxisY.MajorTickMark.Enabled = false;
+            chartArea1.BackColor = System.Drawing.Color.White;
+            chartArea1.Name = "main";
+            this.plotNormal.ChartAreas.Add(chartArea1);
             this.plotNormal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plotNormal.Location = new System.Drawing.Point(0, 28);
             this.plotNormal.Margin = new System.Windows.Forms.Padding(0);
             this.plotNormal.Name = "plotNormal";
-            normalSeries.ChartArea = "main";
-            normalSeries.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            normalSeries.Color = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(90)))), ((int)(((byte)(220)))));
-            normalSeries.Name = "正态分布";
-            this.plotNormal.Series.Add(normalSeries);
+            series1.ChartArea = "main";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(90)))), ((int)(((byte)(220)))));
+            series1.Name = "正态分布";
+            this.plotNormal.Series.Add(series1);
             this.plotNormal.Size = new System.Drawing.Size(441, 296);
             this.plotNormal.TabIndex = 1;
             // 
@@ -213,14 +211,14 @@ namespace Mes.Hmi.Statistics
             this.cardSample.Controls.Add(this.sampleBar, 0, 1);
             this.cardSample.Controls.Add(this.plotSample, 0, 2);
             this.cardSample.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cardSample.Location = new System.Drawing.Point(443, 0);
+            this.cardSample.Location = new System.Drawing.Point(445, 0);
             this.cardSample.Margin = new System.Windows.Forms.Padding(2, 0, 0, 2);
             this.cardSample.Name = "cardSample";
             this.cardSample.RowCount = 3;
             this.cardSample.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.cardSample.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.cardSample.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.cardSample.Size = new System.Drawing.Size(443, 324);
+            this.cardSample.Size = new System.Drawing.Size(441, 324);
             this.cardSample.TabIndex = 1;
             // 
             // sampleTitle
@@ -231,7 +229,7 @@ namespace Mes.Hmi.Statistics
             this.sampleTitle.Location = new System.Drawing.Point(0, 0);
             this.sampleTitle.Margin = new System.Windows.Forms.Padding(0);
             this.sampleTitle.Name = "sampleTitle";
-            this.sampleTitle.Size = new System.Drawing.Size(443, 28);
+            this.sampleTitle.Size = new System.Drawing.Size(441, 28);
             this.sampleTitle.TabIndex = 0;
             this.sampleTitle.Text = "样品数据分布";
             this.sampleTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -253,7 +251,7 @@ namespace Mes.Hmi.Statistics
             this.sampleBar.Name = "sampleBar";
             this.sampleBar.RowCount = 1;
             this.sampleBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.sampleBar.Size = new System.Drawing.Size(443, 28);
+            this.sampleBar.Size = new System.Drawing.Size(441, 28);
             this.sampleBar.TabIndex = 0;
             // 
             // checkTarget
@@ -317,7 +315,7 @@ namespace Mes.Hmi.Statistics
             this.checkMin.Location = new System.Drawing.Point(330, 0);
             this.checkMin.Margin = new System.Windows.Forms.Padding(0);
             this.checkMin.Name = "checkMin";
-            this.checkMin.Size = new System.Drawing.Size(113, 28);
+            this.checkMin.Size = new System.Drawing.Size(111, 28);
             this.checkMin.TabIndex = 3;
             this.checkMin.Text = "最小值";
             this.checkMin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -326,57 +324,56 @@ namespace Mes.Hmi.Statistics
             // 
             // plotSample
             // 
-            sampleArea.AxisX.LabelStyle.Font = new System.Drawing.Font("微软雅黑", 8F);
-            sampleArea.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
-            sampleArea.AxisX.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(235)))), ((int)(((byte)(239)))));
-            sampleArea.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            sampleArea.AxisX.MajorTickMark.Enabled = false;
-            sampleArea.AxisY.LabelStyle.Font = new System.Drawing.Font("微软雅黑", 8F);
-            sampleArea.AxisY.LabelStyle.Format = "0.###";
-            sampleArea.AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
-            sampleArea.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(235)))), ((int)(((byte)(239)))));
-            sampleArea.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            sampleArea.AxisY.MajorTickMark.Enabled = false;
-            sampleArea.BackColor = System.Drawing.Color.White;
-            sampleArea.Name = "main";
-            this.plotSample.ChartAreas.Add(sampleArea);
-            this.plotSample.BackColor = System.Drawing.Color.White;
             this.plotSample.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(233)))), ((int)(((byte)(238)))));
             this.plotSample.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea2.AxisX.LabelStyle.Font = new System.Drawing.Font("微软雅黑", 8F);
+            chartArea2.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
+            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(235)))), ((int)(((byte)(239)))));
+            chartArea2.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea2.AxisX.MajorTickMark.Enabled = false;
+            chartArea2.AxisY.LabelStyle.Font = new System.Drawing.Font("微软雅黑", 8F);
+            chartArea2.AxisY.LabelStyle.Format = "0.###";
+            chartArea2.AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
+            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(235)))), ((int)(((byte)(239)))));
+            chartArea2.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea2.AxisY.MajorTickMark.Enabled = false;
+            chartArea2.BackColor = System.Drawing.Color.White;
+            chartArea2.Name = "main";
+            this.plotSample.ChartAreas.Add(chartArea2);
             this.plotSample.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plotSample.Location = new System.Drawing.Point(0, 56);
             this.plotSample.Margin = new System.Windows.Forms.Padding(0);
             this.plotSample.Name = "plotSample";
-            sampleNow.BorderWidth = 2;
-            sampleNow.ChartArea = "main";
-            sampleNow.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            sampleNow.Color = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(120)))), ((int)(((byte)(210)))));
-            sampleNow.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            sampleNow.MarkerSize = 4;
-            sampleNow.Name = "当前值";
-            this.plotSample.Series.Add(sampleNow);
-            sampleTarget.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            sampleTarget.BorderWidth = 2;
-            sampleTarget.ChartArea = "main";
-            sampleTarget.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            sampleTarget.Color = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(140)))), ((int)(((byte)(0)))));
-            sampleTarget.Name = "标准值";
-            this.plotSample.Series.Add(sampleTarget);
-            sampleMax.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            sampleMax.BorderWidth = 2;
-            sampleMax.ChartArea = "main";
-            sampleMax.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            sampleMax.Color = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            sampleMax.Name = "最大值";
-            this.plotSample.Series.Add(sampleMax);
-            sampleMin.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            sampleMin.BorderWidth = 2;
-            sampleMin.ChartArea = "main";
-            sampleMin.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            sampleMin.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(80)))));
-            sampleMin.Name = "最小值";
-            this.plotSample.Series.Add(sampleMin);
-            this.plotSample.Size = new System.Drawing.Size(443, 296);
+            series2.BorderWidth = 2;
+            series2.ChartArea = "main";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(120)))), ((int)(((byte)(210)))));
+            series2.MarkerSize = 4;
+            series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series2.Name = "当前值";
+            series3.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            series3.BorderWidth = 2;
+            series3.ChartArea = "main";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(140)))), ((int)(((byte)(0)))));
+            series3.Name = "标准值";
+            series4.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            series4.BorderWidth = 2;
+            series4.ChartArea = "main";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Color = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            series4.Name = "最大值";
+            series5.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            series5.BorderWidth = 2;
+            series5.ChartArea = "main";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(80)))));
+            series5.Name = "最小值";
+            this.plotSample.Series.Add(series2);
+            this.plotSample.Series.Add(series3);
+            this.plotSample.Series.Add(series4);
+            this.plotSample.Series.Add(series5);
+            this.plotSample.Size = new System.Drawing.Size(441, 268);
             this.plotSample.TabIndex = 1;
             // 
             // cardHist
@@ -387,13 +384,13 @@ namespace Mes.Hmi.Statistics
             this.cardHist.Controls.Add(this.histTitle, 0, 0);
             this.cardHist.Controls.Add(this.plotHist, 0, 1);
             this.cardHist.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cardHist.Location = new System.Drawing.Point(0, 326);
+            this.cardHist.Location = new System.Drawing.Point(0, 328);
             this.cardHist.Margin = new System.Windows.Forms.Padding(0, 2, 2, 0);
             this.cardHist.Name = "cardHist";
             this.cardHist.RowCount = 2;
             this.cardHist.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.cardHist.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.cardHist.Size = new System.Drawing.Size(441, 326);
+            this.cardHist.Size = new System.Drawing.Size(441, 324);
             this.cardHist.TabIndex = 2;
             // 
             // histTitle
@@ -411,36 +408,35 @@ namespace Mes.Hmi.Statistics
             // 
             // plotHist
             // 
-            histArea.AxisX.LabelStyle.Angle = -30;
-            histArea.AxisX.LabelStyle.Font = new System.Drawing.Font("微软雅黑", 7.5F);
-            histArea.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(230)))), ((int)(((byte)(235)))));
-            histArea.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(116)))), ((int)(((byte)(122)))));
-            histArea.AxisX.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(60)))), ((int)(((byte)(65)))));
-            histArea.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            histArea.AxisX.MajorTickMark.Enabled = false;
-            histArea.AxisY.LabelStyle.Font = new System.Drawing.Font("微软雅黑", 8F);
-            histArea.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(230)))), ((int)(((byte)(235)))));
-            histArea.AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(116)))), ((int)(((byte)(122)))));
-            histArea.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(60)))), ((int)(((byte)(65)))));
-            histArea.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            histArea.AxisY.MajorTickMark.Enabled = false;
-            histArea.AxisY.Minimum = 0D;
-            histArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            histArea.Name = "main";
-            this.plotHist.ChartAreas.Add(histArea);
             this.plotHist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.plotHist.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.plotHist.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea3.AxisX.LabelStyle.Angle = -30;
+            chartArea3.AxisX.LabelStyle.Font = new System.Drawing.Font("微软雅黑", 7.5F);
+            chartArea3.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(230)))), ((int)(((byte)(235)))));
+            chartArea3.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(116)))), ((int)(((byte)(122)))));
+            chartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(60)))), ((int)(((byte)(65)))));
+            chartArea3.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea3.AxisX.MajorTickMark.Enabled = false;
+            chartArea3.AxisY.LabelStyle.Font = new System.Drawing.Font("微软雅黑", 8F);
+            chartArea3.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(230)))), ((int)(((byte)(235)))));
+            chartArea3.AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(116)))), ((int)(((byte)(122)))));
+            chartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(60)))), ((int)(((byte)(65)))));
+            chartArea3.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea3.AxisY.MajorTickMark.Enabled = false;
+            chartArea3.AxisY.Minimum = 0D;
+            chartArea3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            chartArea3.Name = "main";
+            this.plotHist.ChartAreas.Add(chartArea3);
             this.plotHist.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plotHist.Location = new System.Drawing.Point(0, 28);
             this.plotHist.Margin = new System.Windows.Forms.Padding(0);
             this.plotHist.Name = "plotHist";
-            histSeries.ChartArea = "main";
-            histSeries.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
-            histSeries.Color = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(70)))), ((int)(((byte)(220)))));
-            histSeries.Name = "分段计数";
-            this.plotHist.Series.Add(histSeries);
-            this.plotHist.Size = new System.Drawing.Size(441, 298);
+            series6.ChartArea = "main";
+            series6.Color = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(70)))), ((int)(((byte)(220)))));
+            series6.Name = "分段计数";
+            this.plotHist.Series.Add(series6);
+            this.plotHist.Size = new System.Drawing.Size(441, 296);
             this.plotHist.TabIndex = 1;
             // 
             // cardRecent
@@ -451,13 +447,13 @@ namespace Mes.Hmi.Statistics
             this.cardRecent.Controls.Add(this.recentTitle, 0, 0);
             this.cardRecent.Controls.Add(this.plotRecent, 0, 1);
             this.cardRecent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cardRecent.Location = new System.Drawing.Point(443, 326);
+            this.cardRecent.Location = new System.Drawing.Point(445, 328);
             this.cardRecent.Margin = new System.Windows.Forms.Padding(2, 2, 0, 0);
             this.cardRecent.Name = "cardRecent";
             this.cardRecent.RowCount = 2;
             this.cardRecent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.cardRecent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.cardRecent.Size = new System.Drawing.Size(443, 326);
+            this.cardRecent.Size = new System.Drawing.Size(441, 324);
             this.cardRecent.TabIndex = 3;
             // 
             // recentTitle
@@ -468,98 +464,97 @@ namespace Mes.Hmi.Statistics
             this.recentTitle.Location = new System.Drawing.Point(0, 0);
             this.recentTitle.Margin = new System.Windows.Forms.Padding(0);
             this.recentTitle.Name = "recentTitle";
-            this.recentTitle.Size = new System.Drawing.Size(443, 28);
+            this.recentTitle.Size = new System.Drawing.Size(441, 28);
             this.recentTitle.TabIndex = 0;
             this.recentTitle.Text = "最近8组CPK";
             this.recentTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // plotRecent
             // 
-            recentArea.AxisX.LabelStyle.Font = new System.Drawing.Font("微软雅黑", 8F);
-            recentArea.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
-            recentArea.AxisX.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(235)))), ((int)(((byte)(239)))));
-            recentArea.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            recentArea.AxisX.MajorTickMark.Enabled = false;
-            recentArea.AxisY.LabelStyle.Font = new System.Drawing.Font("微软雅黑", 8F);
-            recentArea.AxisY.LabelStyle.Format = "0.00";
-            recentArea.AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
-            recentArea.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(235)))), ((int)(((byte)(239)))));
-            recentArea.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            recentArea.AxisY.MajorTickMark.Enabled = false;
-            recentArea.AxisY.Minimum = 0D;
-            recentArea.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.Auto;
-            recentArea.AxisY2.LabelStyle.Font = new System.Drawing.Font("微软雅黑", 8F);
-            recentArea.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(140)))), ((int)(((byte)(90)))));
-            recentArea.AxisY2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(180)))), ((int)(((byte)(140)))));
-            recentArea.AxisY2.MajorGrid.Enabled = false;
-            recentArea.AxisY2.MajorTickMark.Enabled = false;
-            recentArea.AxisY2.Minimum = 0D;
-            recentArea.BackColor = System.Drawing.Color.White;
-            recentArea.Name = "main";
-            this.plotRecent.ChartAreas.Add(recentArea);
-            this.plotRecent.BackColor = System.Drawing.Color.White;
             this.plotRecent.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(233)))), ((int)(((byte)(238)))));
             this.plotRecent.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea4.AxisX.LabelStyle.Font = new System.Drawing.Font("微软雅黑", 8F);
+            chartArea4.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
+            chartArea4.AxisX.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(235)))), ((int)(((byte)(239)))));
+            chartArea4.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea4.AxisX.MajorTickMark.Enabled = false;
+            chartArea4.AxisY.LabelStyle.Font = new System.Drawing.Font("微软雅黑", 8F);
+            chartArea4.AxisY.LabelStyle.Format = "0.00";
+            chartArea4.AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
+            chartArea4.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(235)))), ((int)(((byte)(239)))));
+            chartArea4.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea4.AxisY.MajorTickMark.Enabled = false;
+            chartArea4.AxisY.Minimum = 0D;
+            chartArea4.AxisY2.LabelStyle.Font = new System.Drawing.Font("微软雅黑", 8F);
+            chartArea4.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(140)))), ((int)(((byte)(90)))));
+            chartArea4.AxisY2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(180)))), ((int)(((byte)(140)))));
+            chartArea4.AxisY2.MajorGrid.Enabled = false;
+            chartArea4.AxisY2.MajorTickMark.Enabled = false;
+            chartArea4.AxisY2.Minimum = 0D;
+            chartArea4.BackColor = System.Drawing.Color.White;
+            chartArea4.Name = "main";
+            this.plotRecent.ChartAreas.Add(chartArea4);
             this.plotRecent.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend1.Alignment = System.Drawing.StringAlignment.Center;
+            legend1.BackColor = System.Drawing.Color.Transparent;
+            legend1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(215)))), ((int)(((byte)(222)))));
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend1.Font = new System.Drawing.Font("微软雅黑", 8F);
+            legend1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
+            legend1.IsTextAutoFit = false;
+            legend1.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Row;
+            legend1.Name = "legend";
+            this.plotRecent.Legends.Add(legend1);
             this.plotRecent.Location = new System.Drawing.Point(0, 28);
             this.plotRecent.Margin = new System.Windows.Forms.Padding(0);
             this.plotRecent.Name = "plotRecent";
-            recentLegend.Alignment = System.Drawing.StringAlignment.Center;
-            recentLegend.BackColor = System.Drawing.Color.Transparent;
-            recentLegend.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(215)))), ((int)(((byte)(222)))));
-            recentLegend.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            recentLegend.Font = new System.Drawing.Font("微软雅黑", 8F);
-            recentLegend.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
-            recentLegend.IsTextAutoFit = false;
-            recentLegend.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Row;
-            recentLegend.Name = "legend";
-            this.plotRecent.Legends.Add(recentLegend);
-            legendMedian.ChartArea = "main";
-            legendMedian.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            legendMedian.Color = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(90)))), ((int)(((byte)(220)))));
-            legendMedian.IsVisibleInLegend = true;
-            legendMedian.LegendText = "中值";
-            legendMedian.Name = "图例中值";
-            this.plotRecent.Series.Add(legendMedian);
-            legendTarget.ChartArea = "main";
-            legendTarget.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            legendTarget.Color = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(150)))), ((int)(((byte)(40)))));
-            legendTarget.IsVisibleInLegend = true;
-            legendTarget.LegendText = "目标值";
-            legendTarget.Name = "图例目标值";
-            this.plotRecent.Series.Add(legendTarget);
-            legendCount.ChartArea = "main";
-            legendCount.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
-            legendCount.Color = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(180)))), ((int)(((byte)(140)))));
-            legendCount.IsVisibleInLegend = true;
-            legendCount.LegendText = "数据区间数量";
-            legendCount.Name = "图例数据区间数量";
-            this.plotRecent.Series.Add(legendCount);
-            recentMedian.BorderWidth = 2;
-            recentMedian.ChartArea = "main";
-            recentMedian.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            recentMedian.Color = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(90)))), ((int)(((byte)(220)))));
-            recentMedian.IsVisibleInLegend = false;
-            recentMedian.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            recentMedian.MarkerSize = 6;
-            recentMedian.Name = "中值";
-            this.plotRecent.Series.Add(recentMedian);
-            recentTarget.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            recentTarget.BorderWidth = 2;
-            recentTarget.ChartArea = "main";
-            recentTarget.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            recentTarget.Color = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(150)))), ((int)(((byte)(40)))));
-            recentTarget.IsVisibleInLegend = false;
-            recentTarget.Name = "目标值";
-            this.plotRecent.Series.Add(recentTarget);
-            recentCount.ChartArea = "main";
-            recentCount.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
-            recentCount.Color = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(205)))), ((int)(((byte)(175)))));
-            recentCount.IsVisibleInLegend = false;
-            recentCount.Name = "数据区间数量";
-            recentCount.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            this.plotRecent.Series.Add(recentCount);
-            this.plotRecent.Size = new System.Drawing.Size(443, 298);
+            series7.ChartArea = "main";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series7.Color = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(90)))), ((int)(((byte)(220)))));
+            series7.Legend = "legend";
+            series7.LegendText = "中值";
+            series7.Name = "图例中值";
+            series8.ChartArea = "main";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series8.Color = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(150)))), ((int)(((byte)(40)))));
+            series8.Legend = "legend";
+            series8.LegendText = "目标值";
+            series8.Name = "图例目标值";
+            series9.ChartArea = "main";
+            series9.Color = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(180)))), ((int)(((byte)(140)))));
+            series9.Legend = "legend";
+            series9.LegendText = "数据区间数量";
+            series9.Name = "图例数据区间数量";
+            series10.BorderWidth = 2;
+            series10.ChartArea = "main";
+            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series10.Color = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(90)))), ((int)(((byte)(220)))));
+            series10.IsVisibleInLegend = false;
+            series10.Legend = "legend";
+            series10.MarkerSize = 6;
+            series10.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series10.Name = "中值";
+            series11.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            series11.BorderWidth = 2;
+            series11.ChartArea = "main";
+            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series11.Color = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(150)))), ((int)(((byte)(40)))));
+            series11.IsVisibleInLegend = false;
+            series11.Legend = "legend";
+            series11.Name = "目标值";
+            series12.ChartArea = "main";
+            series12.Color = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(205)))), ((int)(((byte)(175)))));
+            series12.IsVisibleInLegend = false;
+            series12.Legend = "legend";
+            series12.Name = "数据区间数量";
+            series12.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            this.plotRecent.Series.Add(series7);
+            this.plotRecent.Series.Add(series8);
+            this.plotRecent.Series.Add(series9);
+            this.plotRecent.Series.Add(series10);
+            this.plotRecent.Series.Add(series11);
+            this.plotRecent.Series.Add(series12);
+            this.plotRecent.Size = new System.Drawing.Size(441, 296);
             this.plotRecent.TabIndex = 1;
             // 
             // settingsPanel
@@ -609,12 +604,7 @@ namespace Mes.Hmi.Statistics
             this.settingsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
             this.settingsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 64F));
             this.settingsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.settingsPanel.SetColumnSpan(this.btnUpdate, 2);
-            this.settingsPanel.SetColumnSpan(this.readoutPanel, 2);
-            this.settingsPanel.SetColumnSpan(this.btnCompensate, 2);
-            this.settingsPanel.SetColumnSpan(this.checkAuto, 2);
-            this.settingsPanel.SetColumnSpan(this.noteLabel, 2);
-            this.settingsPanel.Size = new System.Drawing.Size(274, 652);
+            this.settingsPanel.Size = new System.Drawing.Size(278, 652);
             this.settingsPanel.TabIndex = 1;
             // 
             // groupLabel
@@ -639,7 +629,7 @@ namespace Mes.Hmi.Statistics
             this.comboGroup.Location = new System.Drawing.Point(94, 18);
             this.comboGroup.Margin = new System.Windows.Forms.Padding(4, 4, 0, 4);
             this.comboGroup.Name = "comboGroup";
-            this.comboGroup.Size = new System.Drawing.Size(176, 25);
+            this.comboGroup.Size = new System.Drawing.Size(180, 25);
             this.comboGroup.TabIndex = 1;
             this.comboGroup.SelectedIndexChanged += new System.EventHandler(this.comboGroup_SelectedIndexChanged);
             // 
@@ -665,7 +655,7 @@ namespace Mes.Hmi.Statistics
             this.comboItem.Location = new System.Drawing.Point(94, 52);
             this.comboItem.Margin = new System.Windows.Forms.Padding(4, 4, 0, 4);
             this.comboItem.Name = "comboItem";
-            this.comboItem.Size = new System.Drawing.Size(176, 25);
+            this.comboItem.Size = new System.Drawing.Size(180, 25);
             this.comboItem.TabIndex = 3;
             this.comboItem.SelectedIndexChanged += new System.EventHandler(this.comboItem_SelectedIndexChanged);
             // 
@@ -689,7 +679,7 @@ namespace Mes.Hmi.Statistics
             this.textTarget.Location = new System.Drawing.Point(94, 86);
             this.textTarget.Margin = new System.Windows.Forms.Padding(4, 4, 0, 4);
             this.textTarget.Name = "textTarget";
-            this.textTarget.Size = new System.Drawing.Size(176, 23);
+            this.textTarget.Size = new System.Drawing.Size(180, 23);
             this.textTarget.TabIndex = 5;
             // 
             // upperLabel
@@ -712,7 +702,7 @@ namespace Mes.Hmi.Statistics
             this.textUpper.Location = new System.Drawing.Point(94, 120);
             this.textUpper.Margin = new System.Windows.Forms.Padding(4, 4, 0, 4);
             this.textUpper.Name = "textUpper";
-            this.textUpper.Size = new System.Drawing.Size(176, 23);
+            this.textUpper.Size = new System.Drawing.Size(180, 23);
             this.textUpper.TabIndex = 7;
             // 
             // lowerLabel
@@ -735,7 +725,7 @@ namespace Mes.Hmi.Statistics
             this.textLower.Location = new System.Drawing.Point(94, 154);
             this.textLower.Margin = new System.Windows.Forms.Padding(4, 4, 0, 4);
             this.textLower.Name = "textLower";
-            this.textLower.Size = new System.Drawing.Size(176, 23);
+            this.textLower.Size = new System.Drawing.Size(180, 23);
             this.textLower.TabIndex = 9;
             // 
             // countLabel
@@ -758,7 +748,7 @@ namespace Mes.Hmi.Statistics
             this.textCount.Location = new System.Drawing.Point(94, 188);
             this.textCount.Margin = new System.Windows.Forms.Padding(4, 4, 0, 4);
             this.textCount.Name = "textCount";
-            this.textCount.Size = new System.Drawing.Size(176, 23);
+            this.textCount.Size = new System.Drawing.Size(180, 23);
             this.textCount.TabIndex = 11;
             this.textCount.Text = "32";
             // 
@@ -784,7 +774,7 @@ namespace Mes.Hmi.Statistics
             this.pickFrom.Location = new System.Drawing.Point(94, 222);
             this.pickFrom.Margin = new System.Windows.Forms.Padding(4, 4, 0, 4);
             this.pickFrom.Name = "pickFrom";
-            this.pickFrom.Size = new System.Drawing.Size(176, 23);
+            this.pickFrom.Size = new System.Drawing.Size(180, 22);
             this.pickFrom.TabIndex = 13;
             // 
             // toLabel
@@ -809,12 +799,13 @@ namespace Mes.Hmi.Statistics
             this.pickTo.Location = new System.Drawing.Point(94, 260);
             this.pickTo.Margin = new System.Windows.Forms.Padding(4, 4, 0, 4);
             this.pickTo.Name = "pickTo";
-            this.pickTo.Size = new System.Drawing.Size(176, 23);
+            this.pickTo.Size = new System.Drawing.Size(180, 22);
             this.pickTo.TabIndex = 15;
             // 
             // btnUpdate
             // 
             this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(200)))), ((int)(((byte)(90)))));
+            this.settingsPanel.SetColumnSpan(this.btnUpdate, 2);
             this.btnUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnUpdate.FlatAppearance.BorderSize = 0;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -823,7 +814,7 @@ namespace Mes.Hmi.Statistics
             this.btnUpdate.Location = new System.Drawing.Point(6, 300);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(0, 6, 0, 6);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(264, 34);
+            this.btnUpdate.Size = new System.Drawing.Size(268, 34);
             this.btnUpdate.TabIndex = 16;
             this.btnUpdate.Text = "更新数据";
             this.btnUpdate.UseVisualStyleBackColor = false;
@@ -834,6 +825,7 @@ namespace Mes.Hmi.Statistics
             this.readoutPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
             this.readoutPanel.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.readoutPanel.ColumnCount = 2;
+            this.settingsPanel.SetColumnSpan(this.readoutPanel, 2);
             this.readoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48F));
             this.readoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52F));
             this.readoutPanel.Controls.Add(this.cpkLabel, 0, 0);
@@ -841,13 +833,13 @@ namespace Mes.Hmi.Statistics
             this.readoutPanel.Controls.Add(this.deviationLabel, 0, 1);
             this.readoutPanel.Controls.Add(this.deviationValue, 1, 1);
             this.readoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.readoutPanel.Location = new System.Drawing.Point(6, 346);
+            this.readoutPanel.Location = new System.Drawing.Point(6, 344);
             this.readoutPanel.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
             this.readoutPanel.Name = "readoutPanel";
             this.readoutPanel.RowCount = 2;
             this.readoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.readoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.readoutPanel.Size = new System.Drawing.Size(264, 78);
+            this.readoutPanel.Size = new System.Drawing.Size(268, 78);
             this.readoutPanel.TabIndex = 17;
             // 
             // cpkLabel
@@ -858,7 +850,7 @@ namespace Mes.Hmi.Statistics
             this.cpkLabel.Location = new System.Drawing.Point(1, 1);
             this.cpkLabel.Margin = new System.Windows.Forms.Padding(0);
             this.cpkLabel.Name = "cpkLabel";
-            this.cpkLabel.Size = new System.Drawing.Size(125, 37);
+            this.cpkLabel.Size = new System.Drawing.Size(127, 37);
             this.cpkLabel.TabIndex = 0;
             this.cpkLabel.Text = "CPK";
             this.cpkLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -868,10 +860,10 @@ namespace Mes.Hmi.Statistics
             this.cpkValue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cpkValue.Font = new System.Drawing.Font("微软雅黑", 14F, System.Drawing.FontStyle.Bold);
             this.cpkValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(70)))), ((int)(((byte)(140)))));
-            this.cpkValue.Location = new System.Drawing.Point(127, 1);
+            this.cpkValue.Location = new System.Drawing.Point(129, 1);
             this.cpkValue.Margin = new System.Windows.Forms.Padding(0);
             this.cpkValue.Name = "cpkValue";
-            this.cpkValue.Size = new System.Drawing.Size(136, 37);
+            this.cpkValue.Size = new System.Drawing.Size(138, 37);
             this.cpkValue.TabIndex = 1;
             this.cpkValue.Text = "--";
             this.cpkValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -884,7 +876,7 @@ namespace Mes.Hmi.Statistics
             this.deviationLabel.Location = new System.Drawing.Point(1, 39);
             this.deviationLabel.Margin = new System.Windows.Forms.Padding(0);
             this.deviationLabel.Name = "deviationLabel";
-            this.deviationLabel.Size = new System.Drawing.Size(125, 38);
+            this.deviationLabel.Size = new System.Drawing.Size(127, 38);
             this.deviationLabel.TabIndex = 2;
             this.deviationLabel.Text = "数据组偏差";
             this.deviationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -894,10 +886,10 @@ namespace Mes.Hmi.Statistics
             this.deviationValue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.deviationValue.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold);
             this.deviationValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(110)))), ((int)(((byte)(20)))));
-            this.deviationValue.Location = new System.Drawing.Point(127, 39);
+            this.deviationValue.Location = new System.Drawing.Point(129, 39);
             this.deviationValue.Margin = new System.Windows.Forms.Padding(0);
             this.deviationValue.Name = "deviationValue";
-            this.deviationValue.Size = new System.Drawing.Size(136, 38);
+            this.deviationValue.Size = new System.Drawing.Size(138, 38);
             this.deviationValue.TabIndex = 3;
             this.deviationValue.Text = "--";
             this.deviationValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -905,15 +897,16 @@ namespace Mes.Hmi.Statistics
             // btnCompensate
             // 
             this.btnCompensate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(238)))), ((int)(((byte)(246)))));
+            this.settingsPanel.SetColumnSpan(this.btnCompensate, 2);
             this.btnCompensate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnCompensate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(185)))), ((int)(((byte)(215)))));
             this.btnCompensate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCompensate.Font = new System.Drawing.Font("微软雅黑", 9.5F, System.Drawing.FontStyle.Bold);
             this.btnCompensate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(80)))), ((int)(((byte)(150)))));
-            this.btnCompensate.Location = new System.Drawing.Point(6, 434);
+            this.btnCompensate.Location = new System.Drawing.Point(6, 432);
             this.btnCompensate.Margin = new System.Windows.Forms.Padding(0, 6, 0, 6);
             this.btnCompensate.Name = "btnCompensate";
-            this.btnCompensate.Size = new System.Drawing.Size(264, 34);
+            this.btnCompensate.Size = new System.Drawing.Size(268, 34);
             this.btnCompensate.TabIndex = 18;
             this.btnCompensate.Text = "确认补偿偏差";
             this.btnCompensate.UseVisualStyleBackColor = false;
@@ -923,15 +916,16 @@ namespace Mes.Hmi.Statistics
             // 
             this.checkAuto.Appearance = System.Windows.Forms.Appearance.Button;
             this.checkAuto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(116)))), ((int)(((byte)(124)))));
+            this.settingsPanel.SetColumnSpan(this.checkAuto, 2);
             this.checkAuto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.checkAuto.FlatAppearance.BorderSize = 0;
             this.checkAuto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkAuto.Font = new System.Drawing.Font("微软雅黑", 9.5F, System.Drawing.FontStyle.Bold);
             this.checkAuto.ForeColor = System.Drawing.Color.White;
-            this.checkAuto.Location = new System.Drawing.Point(6, 480);
+            this.checkAuto.Location = new System.Drawing.Point(6, 478);
             this.checkAuto.Margin = new System.Windows.Forms.Padding(0, 6, 0, 6);
             this.checkAuto.Name = "checkAuto";
-            this.checkAuto.Size = new System.Drawing.Size(264, 34);
+            this.checkAuto.Size = new System.Drawing.Size(268, 34);
             this.checkAuto.TabIndex = 19;
             this.checkAuto.Text = "自动补偿：关";
             this.checkAuto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -940,16 +934,16 @@ namespace Mes.Hmi.Statistics
             // 
             // noteLabel
             // 
+            this.settingsPanel.SetColumnSpan(this.noteLabel, 2);
             this.noteLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.noteLabel.Font = new System.Drawing.Font("微软雅黑", 8.5F);
             this.noteLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(126)))), ((int)(((byte)(134)))));
-            this.noteLabel.Location = new System.Drawing.Point(6, 530);
+            this.noteLabel.Location = new System.Drawing.Point(6, 518);
             this.noteLabel.Margin = new System.Windows.Forms.Padding(0);
             this.noteLabel.Name = "noteLabel";
-            this.noteLabel.Size = new System.Drawing.Size(264, 64);
+            this.noteLabel.Size = new System.Drawing.Size(268, 64);
             this.noteLabel.TabIndex = 20;
             this.noteLabel.Text = "补偿条件：CPK 位于规格范围内（≥1.33）\r\n补偿值 = 平均值 - 标准值";
-            this.noteLabel.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             // 
             // PageCpk
             // 

@@ -18,13 +18,12 @@ namespace Mes.Hmi.Statistics
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series seriesOk = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series seriesNg = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series seriesTarget = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title titleUph = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.root = new System.Windows.Forms.TableLayoutPanel();
             this.toolbar = new System.Windows.Forms.TableLayoutPanel();
             this.radioList = new System.Windows.Forms.RadioButton();
@@ -128,7 +127,7 @@ namespace Mes.Hmi.Statistics
             // 
             this.radioChart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radioChart.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.radioChart.Location = new System.Drawing.Point(112, 0);
+            this.radioChart.Location = new System.Drawing.Point(104, 0);
             this.radioChart.Margin = new System.Windows.Forms.Padding(0);
             this.radioChart.Name = "radioChart";
             this.radioChart.Size = new System.Drawing.Size(104, 46);
@@ -143,7 +142,7 @@ namespace Mes.Hmi.Statistics
             this.fromPicker.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fromPicker.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.fromPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.fromPicker.Location = new System.Drawing.Point(224, 11);
+            this.fromPicker.Location = new System.Drawing.Point(216, 11);
             this.fromPicker.Margin = new System.Windows.Forms.Padding(8, 11, 8, 11);
             this.fromPicker.Name = "fromPicker";
             this.fromPicker.Size = new System.Drawing.Size(180, 24);
@@ -156,7 +155,7 @@ namespace Mes.Hmi.Statistics
             this.toPicker.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toPicker.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.toPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.toPicker.Location = new System.Drawing.Point(420, 11);
+            this.toPicker.Location = new System.Drawing.Point(412, 11);
             this.toPicker.Margin = new System.Windows.Forms.Padding(8, 11, 8, 11);
             this.toPicker.Name = "toPicker";
             this.toPicker.Size = new System.Drawing.Size(180, 24);
@@ -172,10 +171,10 @@ namespace Mes.Hmi.Statistics
             this.modeCombo.Items.AddRange(new object[] {
             "生产模式",
             "非生产模式"});
-            this.modeCombo.Location = new System.Drawing.Point(624, 11);
+            this.modeCombo.Location = new System.Drawing.Point(608, 11);
             this.modeCombo.Margin = new System.Windows.Forms.Padding(8, 11, 8, 11);
             this.modeCombo.Name = "modeCombo";
-            this.modeCombo.Size = new System.Drawing.Size(120, 25);
+            this.modeCombo.Size = new System.Drawing.Size(120, 27);
             this.modeCombo.TabIndex = 4;
             this.modeCombo.SelectedIndexChanged += new System.EventHandler(this.modeCombo_SelectedIndexChanged);
             // 
@@ -185,7 +184,7 @@ namespace Mes.Hmi.Statistics
             this.autoRefresh.CheckState = System.Windows.Forms.CheckState.Checked;
             this.autoRefresh.Dock = System.Windows.Forms.DockStyle.Fill;
             this.autoRefresh.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.autoRefresh.Location = new System.Drawing.Point(752, 0);
+            this.autoRefresh.Location = new System.Drawing.Point(744, 0);
             this.autoRefresh.Margin = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.autoRefresh.Name = "autoRefresh";
             this.autoRefresh.Size = new System.Drawing.Size(108, 46);
@@ -225,10 +224,10 @@ namespace Mes.Hmi.Statistics
             this.noteLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.noteLabel.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.noteLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(100)))), ((int)(((byte)(20)))));
-            this.noteLabel.Location = new System.Drawing.Point(0, 0);
+            this.noteLabel.Location = new System.Drawing.Point(8, 0);
             this.noteLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.noteLabel.Name = "noteLabel";
-            this.noteLabel.Size = new System.Drawing.Size(1172, 1);
+            this.noteLabel.Size = new System.Drawing.Size(1156, 1);
             this.noteLabel.TabIndex = 0;
             this.noteLabel.Text = "非生产模式（调机/空跑）没有单独的记录来源，表格显示为 —；该时段不属于运行时间，产能移动固定 NA。";
             this.noteLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -392,6 +391,8 @@ namespace Mes.Hmi.Statistics
             // 
             // plotUph
             // 
+            this.plotUph.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(233)))), ((int)(((byte)(238)))));
+            this.plotUph.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
             chartArea1.AxisX.LabelStyle.Angle = -45;
             chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("微软雅黑", 9F);
             chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
@@ -409,13 +410,7 @@ namespace Mes.Hmi.Statistics
             chartArea1.BackColor = System.Drawing.Color.White;
             chartArea1.Name = "main";
             this.plotUph.ChartAreas.Add(chartArea1);
-            this.plotUph.BackColor = System.Drawing.Color.White;
-            this.plotUph.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(233)))), ((int)(((byte)(238)))));
-            this.plotUph.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
             this.plotUph.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plotUph.Location = new System.Drawing.Point(0, 0);
-            this.plotUph.Margin = new System.Windows.Forms.Padding(0);
-            this.plotUph.Name = "plotUph";
             legend1.Alignment = System.Drawing.StringAlignment.Far;
             legend1.BackColor = System.Drawing.Color.Transparent;
             legend1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(215)))), ((int)(((byte)(222)))));
@@ -426,37 +421,38 @@ namespace Mes.Hmi.Statistics
             legend1.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
             legend1.Name = "legend";
             this.plotUph.Legends.Add(legend1);
-            seriesTarget.ChartArea = "main";
-            seriesTarget.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            seriesTarget.Color = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(120)))), ((int)(((byte)(200)))));
-            seriesTarget.IsVisibleInLegend = true;
-            seriesTarget.LegendText = "标准UPH";
-            seriesTarget.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.None;
-            seriesTarget.Name = "标准UPH";
-            this.plotUph.Series.Add(seriesTarget);
-            seriesNg.ChartArea = "main";
-            seriesNg.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
-            seriesNg.Color = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            seriesNg.IsVisibleInLegend = true;
-            seriesNg.LegendText = "NG数量";
-            seriesNg.Name = "NG数量";
-            this.plotUph.Series.Add(seriesNg);
-            seriesOk.ChartArea = "main";
-            seriesOk.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
-            seriesOk.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(170)))), ((int)(((byte)(120)))));
-            seriesOk.IsVisibleInLegend = true;
-            seriesOk.LegendText = "OK数量";
-            seriesOk.Name = "OK数量";
-            this.plotUph.Series.Add(seriesOk);
+            this.plotUph.Location = new System.Drawing.Point(0, 0);
+            this.plotUph.Margin = new System.Windows.Forms.Padding(0);
+            this.plotUph.Name = "plotUph";
+            series1.ChartArea = "main";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(120)))), ((int)(((byte)(200)))));
+            series1.Legend = "legend";
+            series1.LegendText = "标准UPH";
+            series1.Name = "标准UPH";
+            series2.ChartArea = "main";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
+            series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            series2.Legend = "legend";
+            series2.LegendText = "NG数量";
+            series2.Name = "NG数量";
+            series3.ChartArea = "main";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
+            series3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(170)))), ((int)(((byte)(120)))));
+            series3.Legend = "legend";
+            series3.LegendText = "OK数量";
+            series3.Name = "OK数量";
+            this.plotUph.Series.Add(series1);
+            this.plotUph.Series.Add(series2);
+            this.plotUph.Series.Add(series3);
             this.plotUph.Size = new System.Drawing.Size(1172, 548);
             this.plotUph.TabIndex = 1;
+            title1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold);
+            title1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
+            title1.Name = "titleUph";
+            title1.Text = "UPH统计";
+            this.plotUph.Titles.Add(title1);
             this.plotUph.Visible = false;
-            titleUph.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
-            titleUph.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold);
-            titleUph.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
-            titleUph.Name = "titleUph";
-            titleUph.Text = "UPH统计";
-            this.plotUph.Titles.Add(titleUph);
             // 
             // bottomPanel
             // 
@@ -541,7 +537,7 @@ namespace Mes.Hmi.Statistics
             this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExport.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold);
             this.btnExport.ForeColor = System.Drawing.Color.White;
-            this.btnExport.Location = new System.Drawing.Point(972, 12);
+            this.btnExport.Location = new System.Drawing.Point(980, 12);
             this.btnExport.Margin = new System.Windows.Forms.Padding(8, 12, 8, 12);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(184, 34);

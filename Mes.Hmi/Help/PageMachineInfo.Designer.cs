@@ -93,7 +93,6 @@ namespace Mes.Hmi.Help
             this.hwRows.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.hwRows.Dock = System.Windows.Forms.DockStyle.Fill;
             this.hwRows.Name = "hwRows";
-            this.hwRows.RowCount = 0;
             this.hwRows.TabIndex = 1;
             //
             // swCard
@@ -129,7 +128,6 @@ namespace Mes.Hmi.Help
             this.swRows.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.swRows.Dock = System.Windows.Forms.DockStyle.Fill;
             this.swRows.Name = "swRows";
-            this.swRows.RowCount = 0;
             this.swRows.TabIndex = 1;
             //
             // logCaption

@@ -192,9 +192,7 @@
             this.gaugeUptime.Name = "gaugeUptime";
             upZones.ChartArea = "gauge";
             upZones.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            upZones["DoughnutRadius"] = "58";
-            upZones["PieLabelStyle"] = "Disabled";
-            upZones["PieStartAngle"] = "150";
+            upZones.CustomProperties = "DoughnutRadius=58,PieLabelStyle=Disabled,PieStartAngle=150";
             upZones.IsVisibleInLegend = false;
             upZones.Name = "zones";
             upZones.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 192D) { Color = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(55)))), ((int)(((byte)(55))))) });
@@ -278,9 +276,7 @@
             this.gaugeUph.Name = "gaugeUph";
             uphZones.ChartArea = "gauge";
             uphZones.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            uphZones["DoughnutRadius"] = "58";
-            uphZones["PieLabelStyle"] = "Disabled";
-            uphZones["PieStartAngle"] = "150";
+            uphZones.CustomProperties = "DoughnutRadius=58,PieLabelStyle=Disabled,PieStartAngle=150";
             uphZones.IsVisibleInLegend = false;
             uphZones.Name = "zones";
             uphZones.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 192D) { Color = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(55)))), ((int)(((byte)(55))))) });
@@ -364,9 +360,7 @@
             this.gaugeYield.Name = "gaugeYield";
             yZones.ChartArea = "gauge";
             yZones.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            yZones["DoughnutRadius"] = "58";
-            yZones["PieLabelStyle"] = "Disabled";
-            yZones["PieStartAngle"] = "150";
+            yZones.CustomProperties = "DoughnutRadius=58,PieLabelStyle=Disabled,PieStartAngle=150";
             yZones.IsVisibleInLegend = false;
             yZones.Name = "zones";
             yZones.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 216D) { Color = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(55)))), ((int)(((byte)(55))))) });

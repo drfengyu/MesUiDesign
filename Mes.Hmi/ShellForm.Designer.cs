@@ -82,15 +82,15 @@
             // 
             // navLayout
             // 
-            // 区域2 的绿块只给固定 340px，中间留白单独占一列把操作按钮推到最右；
+            // 文档 P4 的 ②③：绿块固定 340px 紧贴右侧操作按钮，空白列排在图标和绿块之间；
             // 绿块要是 Percent 100 会铺满整条顶栏，看起来像一整行都是机台名。
             this.navLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.AutoSize));
-            this.navLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 340F));
             this.navLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.navLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 340F));
             this.navLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.AutoSize));
             this.navLayout.Controls.Add(this.navStrip, 0, 0);
-            this.navLayout.Controls.Add(this.machineLabel, 1, 0);
-            this.navLayout.Controls.Add(this.spacerPanel, 2, 0);
+            this.navLayout.Controls.Add(this.spacerPanel, 1, 0);
+            this.navLayout.Controls.Add(this.machineLabel, 2, 0);
             this.navLayout.Controls.Add(this.controlStrip, 3, 0);
             this.navLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navLayout.Location = new System.Drawing.Point(0, 0);

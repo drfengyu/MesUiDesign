@@ -29,9 +29,9 @@ namespace Mes.Hmi.User
             this.root.SuspendLayout();
             this.scanBar.SuspendLayout();
             this.SuspendLayout();
-            //
+            // 
             // root
-            //
+            // 
             this.root.ColumnCount = 1;
             this.root.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.root.Controls.Add(this.titleLabel, 0, 0);
@@ -39,6 +39,7 @@ namespace Mes.Hmi.User
             this.root.Controls.Add(this.listCaption, 0, 2);
             this.root.Controls.Add(this.list, 0, 3);
             this.root.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.root.Location = new System.Drawing.Point(0, 0);
             this.root.Name = "root";
             this.root.Padding = new System.Windows.Forms.Padding(8, 6, 8, 4);
             this.root.RowCount = 4;
@@ -48,19 +49,21 @@ namespace Mes.Hmi.User
             this.root.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.root.Size = new System.Drawing.Size(1180, 660);
             this.root.TabIndex = 0;
-            //
+            // 
             // titleLabel
-            //
+            // 
             this.titleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.titleLabel.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline);
-            this.titleLabel.ForeColor = System.Drawing.Color.FromArgb(40, 45, 50);
+            this.titleLabel.Font = new System.Drawing.Font("微软雅黑", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.titleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
+            this.titleLabel.Location = new System.Drawing.Point(11, 6);
             this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(1158, 46);
             this.titleLabel.TabIndex = 0;
             this.titleLabel.Text = "用户权限管理";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            //
+            // 
             // scanBar
-            //
+            // 
             this.scanBar.BackColor = System.Drawing.Color.White;
             this.scanBar.ColumnCount = 5;
             this.scanBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 76F));
@@ -74,93 +77,109 @@ namespace Mes.Hmi.User
             this.scanBar.Controls.Add(this.btnCardOut, 3, 0);
             this.scanBar.Controls.Add(this.statusLabel, 4, 0);
             this.scanBar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scanBar.Location = new System.Drawing.Point(11, 55);
             this.scanBar.Name = "scanBar";
             this.scanBar.RowCount = 1;
             this.scanBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.scanBar.Size = new System.Drawing.Size(1158, 46);
             this.scanBar.TabIndex = 1;
-            //
+            // 
             // cardLabel
-            //
+            // 
             this.cardLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cardLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.cardLabel.Location = new System.Drawing.Point(3, 0);
             this.cardLabel.Name = "cardLabel";
+            this.cardLabel.Size = new System.Drawing.Size(70, 46);
             this.cardLabel.TabIndex = 0;
             this.cardLabel.Text = "请刷卡";
             this.cardLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            //
+            // 
             // cardBox
-            //
+            // 
             this.cardBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cardBox.Font = new System.Drawing.Font("微软雅黑", 11F);
+            this.cardBox.Location = new System.Drawing.Point(82, 10);
             this.cardBox.Margin = new System.Windows.Forms.Padding(6, 10, 6, 10);
             this.cardBox.Name = "cardBox";
+            this.cardBox.Size = new System.Drawing.Size(470, 27);
             this.cardBox.TabIndex = 1;
             this.cardBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cardBox_KeyDown);
-            //
+            // 
             // btnCardIn
-            //
+            // 
             this.btnCardIn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnCardIn.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.btnCardIn.Location = new System.Drawing.Point(562, 8);
             this.btnCardIn.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
             this.btnCardIn.Name = "btnCardIn";
+            this.btnCardIn.Size = new System.Drawing.Size(122, 30);
             this.btnCardIn.TabIndex = 2;
             this.btnCardIn.Text = "刷卡登录";
             this.btnCardIn.UseVisualStyleBackColor = true;
             this.btnCardIn.Click += new System.EventHandler(this.btnCardIn_Click);
-            //
+            // 
             // btnCardOut
-            //
+            // 
             this.btnCardOut.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnCardOut.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.btnCardOut.Location = new System.Drawing.Point(692, 8);
             this.btnCardOut.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
             this.btnCardOut.Name = "btnCardOut";
+            this.btnCardOut.Size = new System.Drawing.Size(122, 30);
             this.btnCardOut.TabIndex = 3;
             this.btnCardOut.Text = "刷卡登出";
             this.btnCardOut.UseVisualStyleBackColor = true;
             this.btnCardOut.Click += new System.EventHandler(this.btnCardOut_Click);
-            //
+            // 
             // statusLabel
-            //
+            // 
             this.statusLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.statusLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.statusLabel.ForeColor = System.Drawing.Color.FromArgb(90, 96, 104);
+            this.statusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(96)))), ((int)(((byte)(104)))));
+            this.statusLabel.Location = new System.Drawing.Point(821, 0);
             this.statusLabel.Name = "statusLabel";
             this.statusLabel.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.statusLabel.Size = new System.Drawing.Size(334, 46);
             this.statusLabel.TabIndex = 4;
             this.statusLabel.Text = "刷卡后按回车即登录";
             this.statusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            //
+            // 
             // listCaption
-            //
+            // 
             this.listCaption.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listCaption.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.listCaption.ForeColor = System.Drawing.Color.FromArgb(90, 96, 104);
+            this.listCaption.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(96)))), ((int)(((byte)(104)))));
+            this.listCaption.Location = new System.Drawing.Point(11, 104);
             this.listCaption.Name = "listCaption";
+            this.listCaption.Size = new System.Drawing.Size(1158, 28);
             this.listCaption.TabIndex = 5;
             this.listCaption.Text = "登陆 / 登出记录";
             this.listCaption.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            //
+            // 
             // list
-            //
+            // 
             this.list.BackColor = System.Drawing.Color.White;
             this.list.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.list.Dock = System.Windows.Forms.DockStyle.Fill;
             this.list.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.list.IntegralHeight = false;
-            this.list.ItemHeight = 24;
+            this.list.ItemHeight = 19;
+            this.list.Location = new System.Drawing.Point(11, 135);
             this.list.Name = "list";
+            this.list.Size = new System.Drawing.Size(1158, 518);
             this.list.TabIndex = 3;
-            //
+            // 
             // refresh
-            //
+            // 
             this.refresh.Interval = 1000;
             this.refresh.Tick += new System.EventHandler(this.refresh_Tick);
-            //
+            // 
             // PageCardLogin
-            //
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(246, 248, 250);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
             this.Controls.Add(this.root);
             this.Name = "PageCardLogin";
             this.Size = new System.Drawing.Size(1180, 660);
@@ -168,6 +187,7 @@ namespace Mes.Hmi.User
             this.scanBar.ResumeLayout(false);
             this.scanBar.PerformLayout();
             this.ResumeLayout(false);
+
         }
 
         #endregion

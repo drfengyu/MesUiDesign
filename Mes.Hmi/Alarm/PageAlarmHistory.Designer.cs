@@ -26,14 +26,15 @@ namespace Mes.Hmi.Alarm
             this.root.SuspendLayout();
             this.queryBar.SuspendLayout();
             this.SuspendLayout();
-            //
+            // 
             // root
-            //
+            // 
             this.root.ColumnCount = 1;
             this.root.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.root.Controls.Add(this.queryBar, 0, 0);
             this.root.Controls.Add(this.list, 0, 1);
             this.root.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.root.Location = new System.Drawing.Point(0, 0);
             this.root.Name = "root";
             this.root.Padding = new System.Windows.Forms.Padding(4);
             this.root.RowCount = 2;
@@ -41,9 +42,9 @@ namespace Mes.Hmi.Alarm
             this.root.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.root.Size = new System.Drawing.Size(1180, 660);
             this.root.TabIndex = 0;
-            //
+            // 
             // queryBar
-            //
+            // 
             this.queryBar.BackColor = System.Drawing.Color.White;
             this.queryBar.ColumnCount = 6;
             this.queryBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
@@ -59,89 +60,106 @@ namespace Mes.Hmi.Alarm
             this.queryBar.Controls.Add(this.btnQuery, 4, 0);
             this.queryBar.Controls.Add(this.querySpacer, 5, 0);
             this.queryBar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.queryBar.Location = new System.Drawing.Point(7, 7);
             this.queryBar.Name = "queryBar";
             this.queryBar.RowCount = 1;
             this.queryBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.queryBar.Size = new System.Drawing.Size(1166, 40);
             this.queryBar.TabIndex = 0;
-            //
+            // 
             // fromLabel
-            //
+            // 
             this.fromLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fromLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.fromLabel.Location = new System.Drawing.Point(3, 0);
             this.fromLabel.Name = "fromLabel";
+            this.fromLabel.Size = new System.Drawing.Size(64, 40);
             this.fromLabel.TabIndex = 0;
             this.fromLabel.Text = "起始";
             this.fromLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            //
+            // 
             // fromPicker
-            //
+            // 
             this.fromPicker.CustomFormat = "yyyy/MM/dd HH:mm:ss";
             this.fromPicker.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fromPicker.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.fromPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.fromPicker.Location = new System.Drawing.Point(74, 9);
             this.fromPicker.Margin = new System.Windows.Forms.Padding(4, 9, 4, 9);
             this.fromPicker.Name = "fromPicker";
+            this.fromPicker.Size = new System.Drawing.Size(192, 23);
             this.fromPicker.TabIndex = 1;
-            //
+            // 
             // toLabel
-            //
+            // 
             this.toLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.toLabel.Location = new System.Drawing.Point(273, 0);
             this.toLabel.Name = "toLabel";
+            this.toLabel.Size = new System.Drawing.Size(214, 40);
             this.toLabel.TabIndex = 2;
             this.toLabel.Text = "至 结束";
             this.toLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            //
+            // 
             // toPicker
-            //
+            // 
             this.toPicker.CustomFormat = "yyyy/MM/dd HH:mm:ss";
             this.toPicker.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toPicker.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.toPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.toPicker.Location = new System.Drawing.Point(494, 9);
             this.toPicker.Margin = new System.Windows.Forms.Padding(4, 9, 4, 9);
             this.toPicker.Name = "toPicker";
+            this.toPicker.Size = new System.Drawing.Size(192, 23);
             this.toPicker.TabIndex = 3;
-            //
+            // 
             // btnQuery
-            //
+            // 
             this.btnQuery.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnQuery.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.btnQuery.Location = new System.Drawing.Point(694, 7);
             this.btnQuery.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
             this.btnQuery.Name = "btnQuery";
+            this.btnQuery.Size = new System.Drawing.Size(102, 26);
             this.btnQuery.TabIndex = 4;
             this.btnQuery.Text = "查询";
             this.btnQuery.UseVisualStyleBackColor = true;
             this.btnQuery.Click += new System.EventHandler(this.btnQuery_Click);
-            //
+            // 
             // querySpacer
-            //
+            // 
             this.querySpacer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.querySpacer.Location = new System.Drawing.Point(803, 3);
             this.querySpacer.Name = "querySpacer";
+            this.querySpacer.Size = new System.Drawing.Size(360, 34);
             this.querySpacer.TabIndex = 5;
-            //
+            // 
             // list
-            //
+            // 
             this.list.BackColor = System.Drawing.Color.White;
             this.list.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.list.Dock = System.Windows.Forms.DockStyle.Fill;
             this.list.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.list.IntegralHeight = false;
-            this.list.ItemHeight = 24;
+            this.list.ItemHeight = 19;
+            this.list.Location = new System.Drawing.Point(4, 54);
             this.list.Margin = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.list.Name = "list";
+            this.list.Size = new System.Drawing.Size(1172, 602);
             this.list.TabIndex = 1;
-            //
+            // 
             // PageAlarmHistory
-            //
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(246, 248, 250);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
             this.Controls.Add(this.root);
             this.Name = "PageAlarmHistory";
             this.Size = new System.Drawing.Size(1180, 660);
             this.root.ResumeLayout(false);
             this.queryBar.ResumeLayout(false);
             this.ResumeLayout(false);
+
         }
 
         #endregion

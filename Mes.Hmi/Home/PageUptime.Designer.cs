@@ -19,7 +19,7 @@ namespace Mes.Hmi.Home
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series seriesPie = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.root = new System.Windows.Forms.TableLayoutPanel();
             this.leftPanel = new System.Windows.Forms.TableLayoutPanel();
             this.faultTitle = new System.Windows.Forms.Label();
@@ -479,6 +479,8 @@ namespace Mes.Hmi.Home
             // 
             // plotPie
             // 
+            this.plotPie.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(233)))), ((int)(((byte)(238)))));
+            this.plotPie.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
             chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("微软雅黑", 9F);
             chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
             chartArea1.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
@@ -494,9 +496,6 @@ namespace Mes.Hmi.Home
             chartArea1.BackColor = System.Drawing.Color.White;
             chartArea1.Name = "main";
             this.plotPie.ChartAreas.Add(chartArea1);
-            this.plotPie.BackColor = System.Drawing.Color.White;
-            this.plotPie.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(233)))), ((int)(((byte)(238)))));
-            this.plotPie.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
             this.plotPie.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plotPie.IsSoftShadows = false;
             legend1.Alignment = System.Drawing.StringAlignment.Center;
@@ -510,16 +509,14 @@ namespace Mes.Hmi.Home
             this.plotPie.Location = new System.Drawing.Point(0, 0);
             this.plotPie.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
             this.plotPie.Name = "plotPie";
-            seriesPie.ChartArea = "main";
-            seriesPie.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            seriesPie.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(120)))));
-            seriesPie["DoughnutRadius"] = "45";
-            seriesPie.IsVisibleInLegend = true;
-            seriesPie.LegendText = "停机";
-            seriesPie.Name = "停机";
-            seriesPie["PieDrawingStyle"] = "SoftEdge";
-            seriesPie["PieLabelStyle"] = "Disabled";
-            this.plotPie.Series.Add(seriesPie);
+            series1.ChartArea = "main";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(120)))));
+            series1.CustomProperties = "DoughnutRadius=45, PieLabelStyle=Disabled, PieDrawingStyle=SoftEdge";
+            series1.Legend = "legend";
+            series1.LegendText = "停机";
+            series1.Name = "停机";
+            this.plotPie.Series.Add(series1);
             this.plotPie.Size = new System.Drawing.Size(698, 438);
             this.plotPie.TabIndex = 0;
             // 
