@@ -63,6 +63,7 @@ namespace Mes.Business
             new AccessRule { Page = StationPage.OperationLogPage, Minimum = LoginLevel.Engineer },
 
             new AccessRule { Page = StationPage.Login, Minimum = LoginLevel.Operator },
+            new AccessRule { Page = StationPage.CardLogin, Minimum = LoginLevel.Operator },
             new AccessRule { Page = StationPage.UserPermission, Minimum = LoginLevel.Operator },
             new AccessRule { Page = StationPage.Troubleshooting, Minimum = LoginLevel.Operator },
             new AccessRule { Page = StationPage.Maintenance, Minimum = LoginLevel.Operator },

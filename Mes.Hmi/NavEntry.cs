@@ -34,7 +34,7 @@ namespace Mes.Hmi
             new NavEntry("手动操作", "手动操作/", "manual"),
             new NavEntry("参数设置", "参数设置/", "setting"),
             new NavEntry("异常报警", StationPage.AlarmPrefix, "alarm"),
-            new NavEntry("用户登陆", "用户登录/", "user"),
+            new NavEntry("用户登陆", StationPage.UserPrefix, "user"),
             new NavEntry("帮助信息", "帮助/", "help"),
         };
     }

@@ -44,9 +44,11 @@
     <Compile Include="AlarmReport.cs" />
     <Compile Include="AxisCatalog.cs" />
     <Compile Include="BatchSummary.cs" />
+    <Compile Include="CardUserCatalog.cs" />
     <Compile Include="CpkCalculator.cs" />
     <Compile Include="Cylinder.cs" />
     <Compile Include="CylinderCounter.cs" />
+    <Compile Include="DeviceInfoCatalog.cs" />
     <Compile Include="EnergyMeter.cs" />
     <Compile Include="FixtureLifeRow.cs" />
     <Compile Include="FixtureReport.cs" />
@@ -55,6 +57,7 @@
     <Compile Include="IoPoint.cs" />
     <Compile Include="LifeLedger.cs" />
     <Compile Include="MachineSimulator.cs" />
+    <Compile Include="MaintenanceCatalog.cs" />
     <Compile Include="ManualOperations.cs" />
     <Compile Include="LoginLevel.cs" />
     <Compile Include="ParamCatalog.cs" />

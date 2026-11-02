@@ -80,6 +80,12 @@
     <Compile Include="PageAlarmTop5.Designer.cs">
       <DependentUpon>PageAlarmTop5.cs</DependentUpon>
     </Compile>
+    <Compile Include="PageCardLogin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PageCardLogin.Designer.cs">
+      <DependentUpon>PageCardLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="PageCpk.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -116,6 +122,12 @@
     <Compile Include="PageFixtureStatistics.Designer.cs">
       <DependentUpon>PageFixtureStatistics.cs</DependentUpon>
     </Compile>
+    <Compile Include="PageHelpDoc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PageHelpDoc.Designer.cs">
+      <DependentUpon>PageHelpDoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="PageHome.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -133,6 +145,12 @@
     </Compile>
     <Compile Include="PageLogin.Designer.cs">
       <DependentUpon>PageLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PageMachineInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PageMachineInfo.Designer.cs">
+      <DependentUpon>PageMachineInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="PageMachineSimulator.cs">
       <SubType>UserControl</SubType>
@@ -175,6 +193,12 @@
     </Compile>
     <Compile Include="PagePerformance.Designer.cs">
       <DependentUpon>PagePerformance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PagePermissionMatrix.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PagePermissionMatrix.Designer.cs">
+      <DependentUpon>PagePermissionMatrix.cs</DependentUpon>
     </Compile>
     <Compile Include="PagePlaceholder.cs">
       <SubType>UserControl</SubType>
@@ -267,6 +291,11 @@
          现场换机台只改这一份 csv，不用重新编译。 -->
     <Content Include="..\数据\*.csv">
       <Link>数据\%(Filename)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <!-- 设备信息页（P41）第三块"程序更新记录"读的就是这一份：随程序拷到运行目录，现场看得到改了什么。 -->
+    <Content Include="..\CHANGELOG.md">
+      <Link>CHANGELOG.md</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

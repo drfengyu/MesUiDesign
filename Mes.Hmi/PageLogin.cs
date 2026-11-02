@@ -1,4 +1,4 @@
-﻿using Mes.Business;
+using Mes.Business;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -6,13 +6,19 @@ using System.Windows.Forms;
 namespace Mes.Hmi
 {
     /// <summary>
-    /// 用户登录页（RFP P4 区域 6：登陆用户信息）。
-    /// 等级从权限矩阵取，密码从 数据\权限密码.csv 取，都不写在代码里。
+    /// 密码登录页（《Automation UI V3.11》P36）：标题"用户权限管理"，
+    /// 左卡"用户权限"用用户名+密码登入登出，右卡"密码修改"改 数据\权限密码.csv。
+    ///
+    /// 用户名下拉就是密码表的第一列（现场按等级发密码，五档），
+    /// 所以选到哪个名字就等于以哪个等级登录。
     /// </summary>
     public partial class PageLogin : UserControl
     {
+        private static readonly Color Ok = Color.FromArgb(0, 150, 60);
+        private static readonly Color Bad = Color.FromArgb(190, 40, 40);
+        private static readonly Color Plain = Color.FromArgb(90, 96, 104);
+
         private readonly StationContext station;
-        private bool ready;
 
         /// <summary>登录态变了，外壳要重算入口灰不灰、页签列哪几页。</summary>
         public event Action AccessChanged;
@@ -20,49 +26,50 @@ namespace Mes.Hmi
         public PageLogin()
         {
             InitializeComponent();
-            buttonLogout.Enabled = false;
         }
 
         public PageLogin(StationContext station) : this()
         {
             this.station = station;
-            for (var i = 0; i < AccessPolicy.LevelTitles.Length; i++)
+            var names = station == null || station.Passwords.Count == 0
+                ? new System.Collections.Generic.List<string>(AccessPolicy.LevelTitles)
+                : station.Passwords.Names;
+            foreach (var name in names)
             {
-                comboLevel.Items.Add(AccessPolicy.LevelTitles[i]);
+                comboUser.Items.Add(name);
+                comboPwdUser.Items.Add(name);
             }
-            comboLevel.SelectedIndex = (int)LoginLevel.Operator;
-            ready = true;
+            if (comboUser.Items.Count > 0)
+            {
+                comboUser.SelectedIndex = 0;
+                comboPwdUser.SelectedIndex = 0;
+            }
+            var register = station == null ? string.Empty : station.Device.Value("设备注册");
+            registerBox.Text = string.IsNullOrEmpty(register) ? "未登记" : register;
+
             if (station != null && station.Passwords.Count == 0)
             {
-                resultLabel.ForeColor = Color.Firebrick;
+                resultLabel.ForeColor = Bad;
                 resultLabel.Text = "密码表没读到：检查输出目录下的 数据\\权限密码.csv";
             }
             ShowCurrent();
         }
 
-        private LoginLevel SelectedLevel
-        {
-            get { return (LoginLevel)Math.Max(0, comboLevel.SelectedIndex); }
-        }
-
-        private void comboLevel_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // 初始 SelectedIndex 赋值时不要写提示：那一行还没到用户手上，
-            // 页面上会凭空多出一句"密码取自…行"。
-            if (station == null || !ready) return;
-            resultLabel.ForeColor = SystemColors.ControlText;
-            resultLabel.Text = "该等级密码取自 权限密码.csv 的「" + comboLevel.Text + "」行";
-        }
+        // ── 登入 / 登出 ────────────────────────────────────────────────────
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             if (station == null) return;
-            var level = SelectedLevel;
-            var user = textUser.Text.Trim();
-            if (user.Length == 0) user = AccessPolicy.Title(level);
-            if (textPassword.Text != station.Passwords.Of(level))
+            if (IsLogged)
             {
-                resultLabel.ForeColor = Color.Firebrick;
+                Logout();
+                return;
+            }
+            var user = comboUser.Text;
+            var level = (LoginLevel)Math.Max(0, comboUser.SelectedIndex);
+            if (!station.Passwords.Matches(user, textPassword.Text))
+            {
+                resultLabel.ForeColor = Bad;
                 resultLabel.Text = "密码错误";
                 station.Log.Write(user, "登录失败", AccessPolicy.Title(level), string.Empty, string.Empty);
                 textPassword.SelectAll();
@@ -71,38 +78,86 @@ namespace Mes.Hmi
             }
             station.Login(user, level);
             textPassword.Clear();
-            resultLabel.ForeColor = Color.FromArgb(0, 150, 60);
-            resultLabel.Text = "登录成功";
+            resultLabel.ForeColor = Ok;
+            resultLabel.Text = "已登入：" + user;
             ShowCurrent();
-            RaiseAccessChanged();
+            Raise();
         }
 
-        private void buttonLogout_Click(object sender, EventArgs e)
+        private void Logout()
         {
-            if (station == null) return;
             station.Logout();
-            textUser.Clear();
             textPassword.Clear();
-            resultLabel.ForeColor = SystemColors.ControlText;
+            resultLabel.ForeColor = Plain;
             resultLabel.Text = "已登出，回到操作员可见范围";
             ShowCurrent();
-            RaiseAccessChanged();
+            Raise();
+        }
+
+        private bool IsLogged
+        {
+            get { return station != null && station.User != "NULL"; }
         }
 
         private void ShowCurrent()
         {
             if (station == null) return;
-            var logged = station.User != "NULL";
-            currentLabel.Text = logged
-                ? "当前用户：" + station.User + "（" + AccessPolicy.Title(station.Level) + "）"
-                : "当前用户：NULL（默认操作员可见范围）";
-            buttonLogout.Enabled = logged;
-            buttonLogin.Enabled = !logged;
-            textUser.Enabled = !logged;
+            var logged = IsLogged;
+            currentLabel.Text = logged ? AccessPolicy.Title(station.Level) : "无";
+            currentLabel.ForeColor = logged ? Ok : Plain;
+            comboUser.Enabled = !logged;
             textPassword.Enabled = !logged;
+            buttonLogin.Text = logged ? "登出" : "登入 / 登出";
         }
 
-        private void RaiseAccessChanged()
+        // ── 密码修改 ──────────────────────────────────────────────────────
+
+        private void buttonChange_Click(object sender, EventArgs e)
+        {
+            if (station == null) return;
+            if (station.Level < LoginLevel.Administrator)
+            {
+                pwdResultLabel.ForeColor = Bad;
+                pwdResultLabel.Text = "改密码要管理员以上等级";
+                return;
+            }
+            var user = comboPwdUser.Text;
+            if (!station.Passwords.Matches(user, textOldPwd.Text))
+            {
+                pwdResultLabel.ForeColor = Bad;
+                pwdResultLabel.Text = "当前密码不对";
+                return;
+            }
+            var fresh = textNewPwd.Text;
+            if (fresh.Length == 0)
+            {
+                pwdResultLabel.ForeColor = Bad;
+                pwdResultLabel.Text = "新密码不能为空";
+                return;
+            }
+            if (fresh != textConfirmPwd.Text)
+            {
+                pwdResultLabel.ForeColor = Bad;
+                pwdResultLabel.Text = "两次输入的新密码不一致";
+                return;
+            }
+            if (!station.Passwords.Change(user, fresh) || !station.Passwords.Save())
+            {
+                pwdResultLabel.ForeColor = Bad;
+                pwdResultLabel.Text = "写回 数据\\权限密码.csv 失败：文件是不是被 Excel 开着";
+                return;
+            }
+            textOldPwd.Clear();
+            textNewPwd.Clear();
+            textConfirmPwd.Clear();
+            pwdResultLabel.ForeColor = Ok;
+            // 日志只记"谁在什么时候改了哪个等级的密码"，新旧密码一个字都不落盘：
+            // 操作日志是 UTF-8 明文 csv，谁都能用 Excel 打开，把密码写进去等于把密码公开。
+            station.Log.Write(station.User, "密码修改", user, "已修改", "已修改");
+            station.Say(user + " 的密码已修改");
+        }
+
+        private void Raise()
         {
             var handler = AccessChanged;
             if (handler != null) handler();

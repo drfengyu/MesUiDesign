@@ -49,8 +49,10 @@
         public const string OperationLogPage = AlarmPrefix + "操作日志";
 
         // 用户与帮助
-        public const string Login = "用户登录/用户登录";
-        public const string UserPermission = "用户登录/用户权限";
+        public const string UserPrefix = "用户登录/";
+        public const string Login = UserPrefix + "密码登录";
+        public const string CardLogin = UserPrefix + "刷卡登录";
+        public const string UserPermission = UserPrefix + "权限说明";
         public const string Troubleshooting = "帮助/故障处理";
         public const string Maintenance = "帮助/维护保养";
         public const string MachineInfo = "帮助/设备信息";

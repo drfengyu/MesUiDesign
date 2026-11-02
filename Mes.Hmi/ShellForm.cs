@@ -68,6 +68,11 @@ namespace Mes.Hmi
                 { StationPage.FaultAnalysis, station => new PageFaultAnalysis(station) },
                 { StationPage.OperationLogPage, station => new PageOperationLog(station) },
                 { StationPage.Login, station => new PageLogin(station) },
+                { StationPage.CardLogin, station => new PageCardLogin(station) },
+                { StationPage.UserPermission, station => new PagePermissionMatrix(station) },
+                { StationPage.Troubleshooting, station => new PageHelpDoc(station, PageHelpDoc.Kind.Trouble) },
+                { StationPage.Maintenance, station => new PageHelpDoc(station, PageHelpDoc.Kind.Maintenance) },
+                { StationPage.MachineInfo, station => new PageMachineInfo(station) },
                 { StationPage.IoInput, station => new PageIoMonitor(station, 'I') },
                 { StationPage.IoOutput, station => new PageIoMonitor(station, 'Q') },
                 {
@@ -230,6 +235,7 @@ namespace Mes.Hmi
                 ? builder(station)
                 : new PagePlaceholder(PageTitle(page), Need(page), station.Level);
             if (content is PageLogin) ((PageLogin)content).AccessChanged += RefreshAccess;
+            if (content is PageCardLogin) ((PageCardLogin)content).AccessChanged += RefreshAccess;
             if (content is PageHome) ((PageHome)content).NavigateRequested += ShowPage;
             ReplaceContent(content);
             activityLabel.ForeColor = SystemColors.ControlText;

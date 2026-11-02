@@ -63,6 +63,15 @@ namespace Mes.Business
         /// <summary>整机视图的部位表（当前报警 P31 / 异常分析 P34 右边那张图）</summary>
         public ZoneCatalog Zones { get; private set; }
 
+        /// <summary>刷卡用户表（P37 刷卡登录：卡号 → 用户名 + 等级）</summary>
+        public CardUserCatalog Cards { get; private set; }
+
+        /// <summary>设备信息表（P41 的硬件与软件版本卡片）</summary>
+        public DeviceInfoCatalog Device { get; private set; }
+
+        /// <summary>保养项目表（P40 维护保养）</summary>
+        public MaintenanceCatalog Maintenance { get; private set; }
+
         /// <summary>过站链路（报站/送码/判定）的轮询线程，界面只读它的结果。</summary>
         public StationFlow Flow { get; private set; }
 
@@ -118,6 +127,12 @@ namespace Mes.Business
             context.Upload.Load(Path.Combine(context.DataFolder, "上传设置.csv"));
             context.Zones = new ZoneCatalog();
             context.Zones.Load(Path.Combine(context.DataFolder, "机台区域.csv"));
+            context.Cards = new CardUserCatalog();
+            context.Cards.Load(Path.Combine(context.DataFolder, "刷卡用户.csv"));
+            context.Device = new DeviceInfoCatalog();
+            context.Device.Load(Path.Combine(context.DataFolder, "设备信息.csv"));
+            context.Maintenance = new MaintenanceCatalog();
+            context.Maintenance.Load(Path.Combine(context.DataFolder, "维护保养.csv"));
             context.ActiveAlarms = new AlarmBoard();
             // 登录要用的密码表。现场这五个值在 setting.ini 的 [PassWord] 段（主项目 MainFrm.cs:386
             // 开机读进 Global），那是现场配置不外拷，本机另存一张 csv。
@@ -170,21 +185,35 @@ namespace Mes.Business
             if (handler != null) handler(text);
         }
 
-        /// <summary>登录/登出后统一走这里：状态条、权限、页签都要跟着变。</summary>
-        public void Login(string user, LoginLevel level)
+        /// <summary>
+        /// 登录/登出后统一走这里：状态条、权限、页签都要跟着变。
+        /// action 是给刷卡登录（P37）留的——日志里要分得清这次是密码登的还是刷卡登的，
+        /// 审核时"谁能进工程师"和"这个人今天进过几次"是两件事。
+        /// </summary>
+        public void Login(string user, LoginLevel level, string action)
         {
             User = user;
             Level = level;
-            Log.Write(user, "登录", AccessPolicy.Title(level), string.Empty, string.Empty);
+            Log.Write(user, action ?? "登录", AccessPolicy.Title(level), string.Empty, string.Empty);
             Say(user + " 以 " + AccessPolicy.Title(level) + " 登录");
+        }
+
+        public void Login(string user, LoginLevel level)
+        {
+            Login(user, level, "登录");
+        }
+
+        public void Logout(string action)
+        {
+            Log.Write(User, action ?? "登出", AccessPolicy.Title(Level), string.Empty, string.Empty);
+            Say(User + " 登出");
+            User = "NULL";
+            Level = LoginLevel.Operator;
         }
 
         public void Logout()
         {
-            Log.Write(User, "登出", AccessPolicy.Title(Level), string.Empty, string.Empty);
-            Say(User + " 登出");
-            User = "NULL";
-            Level = LoginLevel.Operator;
+            Logout("登出");
         }
 
         /// <summary>
