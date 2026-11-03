@@ -114,7 +114,7 @@ namespace Mes.Hmi
             this.btnHelp});
             this.navStrip.Location = new System.Drawing.Point(0, 0);
             this.navStrip.Name = "navStrip";
-            this.navStrip.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
+            this.navStrip.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.navStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.navStrip.Size = new System.Drawing.Size(335, 76);
             this.navStrip.TabIndex = 0;
@@ -124,7 +124,7 @@ namespace Mes.Hmi
             this.btnHome.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("home.Image")));
             this.btnHome.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnHome.Margin = new System.Windows.Forms.Padding(7, 3, 7, 3);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(11, 3, 11, 3);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(23, 70);
             this.btnHome.Text = "主界面";
@@ -136,7 +136,7 @@ namespace Mes.Hmi
             this.btnStatistics.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnStatistics.Image = ((System.Drawing.Image)(resources.GetObject("statistics.Image")));
             this.btnStatistics.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnStatistics.Margin = new System.Windows.Forms.Padding(7, 3, 7, 3);
+            this.btnStatistics.Margin = new System.Windows.Forms.Padding(11, 3, 11, 3);
             this.btnStatistics.Name = "btnStatistics";
             this.btnStatistics.Size = new System.Drawing.Size(23, 70);
             this.btnStatistics.Text = "数据统计";
@@ -148,7 +148,7 @@ namespace Mes.Hmi
             this.btnIo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnIo.Image = ((System.Drawing.Image)(resources.GetObject("io.Image")));
             this.btnIo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnIo.Margin = new System.Windows.Forms.Padding(7, 3, 7, 3);
+            this.btnIo.Margin = new System.Windows.Forms.Padding(11, 3, 11, 3);
             this.btnIo.Name = "btnIo";
             this.btnIo.Size = new System.Drawing.Size(23, 70);
             this.btnIo.Text = "IO监视";
@@ -160,7 +160,7 @@ namespace Mes.Hmi
             this.btnManual.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnManual.Image = ((System.Drawing.Image)(resources.GetObject("manual.Image")));
             this.btnManual.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnManual.Margin = new System.Windows.Forms.Padding(7, 3, 7, 3);
+            this.btnManual.Margin = new System.Windows.Forms.Padding(11, 3, 11, 3);
             this.btnManual.Name = "btnManual";
             this.btnManual.Size = new System.Drawing.Size(23, 70);
             this.btnManual.Text = "手动操作";
@@ -172,7 +172,7 @@ namespace Mes.Hmi
             this.btnSetting.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnSetting.Image = ((System.Drawing.Image)(resources.GetObject("setting.Image")));
             this.btnSetting.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSetting.Margin = new System.Windows.Forms.Padding(7, 3, 7, 3);
+            this.btnSetting.Margin = new System.Windows.Forms.Padding(11, 3, 11, 3);
             this.btnSetting.Name = "btnSetting";
             this.btnSetting.Size = new System.Drawing.Size(23, 70);
             this.btnSetting.Text = "参数设置";
@@ -184,7 +184,7 @@ namespace Mes.Hmi
             this.btnAlarm.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnAlarm.Image = ((System.Drawing.Image)(resources.GetObject("alarm.Image")));
             this.btnAlarm.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnAlarm.Margin = new System.Windows.Forms.Padding(7, 3, 7, 3);
+            this.btnAlarm.Margin = new System.Windows.Forms.Padding(11, 3, 11, 3);
             this.btnAlarm.Name = "btnAlarm";
             this.btnAlarm.Size = new System.Drawing.Size(23, 70);
             this.btnAlarm.Text = "异常报警";
@@ -196,7 +196,7 @@ namespace Mes.Hmi
             this.btnUser.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnUser.Image = ((System.Drawing.Image)(resources.GetObject("user.Image")));
             this.btnUser.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnUser.Margin = new System.Windows.Forms.Padding(7, 3, 7, 3);
+            this.btnUser.Margin = new System.Windows.Forms.Padding(11, 3, 11, 3);
             this.btnUser.Name = "btnUser";
             this.btnUser.Size = new System.Drawing.Size(23, 70);
             this.btnUser.Text = "用户登陆";
@@ -208,7 +208,7 @@ namespace Mes.Hmi
             this.btnHelp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnHelp.Image = ((System.Drawing.Image)(resources.GetObject("help.Image")));
             this.btnHelp.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnHelp.Margin = new System.Windows.Forms.Padding(7, 3, 7, 3);
+            this.btnHelp.Margin = new System.Windows.Forms.Padding(11, 3, 11, 3);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Size = new System.Drawing.Size(23, 70);
             this.btnHelp.Text = "帮助信息";
@@ -255,6 +255,7 @@ namespace Mes.Hmi
             this.btnRun.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnRun.Image = ((System.Drawing.Image)(resources.GetObject("run.Image")));
             this.btnRun.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnRun.Margin = new System.Windows.Forms.Padding(11, 3, 11, 3);
             this.btnRun.Name = "btnRun";
             this.btnRun.Size = new System.Drawing.Size(23, 73);
             this.btnRun.Text = "启动";
@@ -266,6 +267,7 @@ namespace Mes.Hmi
             this.btnPause.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnPause.Image = ((System.Drawing.Image)(resources.GetObject("pause.Image")));
             this.btnPause.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnPause.Margin = new System.Windows.Forms.Padding(11, 3, 11, 3);
             this.btnPause.Name = "btnPause";
             this.btnPause.Size = new System.Drawing.Size(23, 73);
             this.btnPause.Text = "暂停";
@@ -277,6 +279,7 @@ namespace Mes.Hmi
             this.btnStop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnStop.Image = ((System.Drawing.Image)(resources.GetObject("stop.Image")));
             this.btnStop.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnStop.Margin = new System.Windows.Forms.Padding(11, 3, 11, 3);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(23, 73);
             this.btnStop.Text = "停止";
