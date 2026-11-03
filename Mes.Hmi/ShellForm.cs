@@ -9,9 +9,9 @@ using Mes.Hmi.Statistics;
 using Mes.Hmi.User;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
 using System.IO;
+using System.Resources;
 using System.Windows.Forms;
 
 namespace Mes.Hmi
@@ -32,7 +32,7 @@ namespace Mes.Hmi
 
         private enum MachineState { Stopped, Running, Paused }
 
-        private readonly ComponentResourceManager resources = new ComponentResourceManager(typeof(ShellForm));
+        private readonly ResourceManager navIcons = new ResourceManager("Mes.Hmi.NavIcons", typeof(ShellForm).Assembly);
         private readonly Dictionary<string, Button> pageButtons = new Dictionary<string, Button>();
         private ToolStripButton[] navButtons;
         private NavEntry[] navEntries;
@@ -127,7 +127,7 @@ namespace Mes.Hmi
 
         private Image NavIcon(string key, bool pressed)
         {
-            return (Image)resources.GetObject((pressed ? key + "On" : key) + ".Image");
+            return (Image)navIcons.GetObject((pressed ? key + "On" : key) + ".Image");
         }
 
         // ── 一级入口 ──────────────────────────────────────────────────────

@@ -41,7 +41,6 @@ namespace Mes.Hmi
             this.btnAlarm = new System.Windows.Forms.ToolStripButton();
             this.btnUser = new System.Windows.Forms.ToolStripButton();
             this.btnHelp = new System.Windows.Forms.ToolStripButton();
-            this.spacerPanel = new System.Windows.Forms.Panel();
             this.machineLabel = new System.Windows.Forms.Label();
             this.controlStrip = new System.Windows.Forms.ToolStrip();
             this.btnRun = new System.Windows.Forms.ToolStripButton();
@@ -81,6 +80,8 @@ namespace Mes.Hmi
             // 
             // navLayout
             // 
+            // 第 1 列是没人占的 Percent 100 空列，吃掉导航条与机台名之间的剩余宽度，
+            // 原来 spacerPanel 干的就是这件事，删掉控件后这条列留着，机台名和右侧按钮才贴得住。
             this.navLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.navLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.navLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 340F));
@@ -88,7 +89,6 @@ namespace Mes.Hmi
             this.navLayout.Controls.Add(this.navStrip, 0, 0);
             this.navLayout.Controls.Add(this.machineLabel, 2, 0);
             this.navLayout.Controls.Add(this.controlStrip, 3, 0);
-            this.navLayout.Controls.Add(this.spacerPanel, 1, 0);
             this.navLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navLayout.Location = new System.Drawing.Point(0, 0);
             this.navLayout.Name = "navLayout";
@@ -116,17 +116,17 @@ namespace Mes.Hmi
             this.navStrip.Name = "navStrip";
             this.navStrip.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.navStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.navStrip.Size = new System.Drawing.Size(335, 76);
+            this.navStrip.Size = new System.Drawing.Size(630, 76);
             this.navStrip.TabIndex = 0;
             // 
             // btnHome
             // 
             this.btnHome.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("home.Image")));
+            this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
             this.btnHome.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnHome.Margin = new System.Windows.Forms.Padding(11, 3, 11, 3);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(23, 70);
+            this.btnHome.Size = new System.Drawing.Size(54, 70);
             this.btnHome.Text = "主界面";
             this.btnHome.ToolTipText = "主界面";
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
@@ -134,11 +134,11 @@ namespace Mes.Hmi
             // btnStatistics
             // 
             this.btnStatistics.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnStatistics.Image = ((System.Drawing.Image)(resources.GetObject("statistics.Image")));
+            this.btnStatistics.Image = ((System.Drawing.Image)(resources.GetObject("btnStatistics.Image")));
             this.btnStatistics.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnStatistics.Margin = new System.Windows.Forms.Padding(11, 3, 11, 3);
             this.btnStatistics.Name = "btnStatistics";
-            this.btnStatistics.Size = new System.Drawing.Size(23, 70);
+            this.btnStatistics.Size = new System.Drawing.Size(54, 70);
             this.btnStatistics.Text = "数据统计";
             this.btnStatistics.ToolTipText = "数据统计";
             this.btnStatistics.Click += new System.EventHandler(this.btnStatistics_Click);
@@ -146,11 +146,11 @@ namespace Mes.Hmi
             // btnIo
             // 
             this.btnIo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnIo.Image = ((System.Drawing.Image)(resources.GetObject("io.Image")));
+            this.btnIo.Image = ((System.Drawing.Image)(resources.GetObject("btnIo.Image")));
             this.btnIo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnIo.Margin = new System.Windows.Forms.Padding(11, 3, 11, 3);
             this.btnIo.Name = "btnIo";
-            this.btnIo.Size = new System.Drawing.Size(23, 70);
+            this.btnIo.Size = new System.Drawing.Size(54, 70);
             this.btnIo.Text = "IO监视";
             this.btnIo.ToolTipText = "IO监视";
             this.btnIo.Click += new System.EventHandler(this.btnIo_Click);
@@ -158,11 +158,11 @@ namespace Mes.Hmi
             // btnManual
             // 
             this.btnManual.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnManual.Image = ((System.Drawing.Image)(resources.GetObject("manual.Image")));
+            this.btnManual.Image = ((System.Drawing.Image)(resources.GetObject("btnManual.Image")));
             this.btnManual.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnManual.Margin = new System.Windows.Forms.Padding(11, 3, 11, 3);
             this.btnManual.Name = "btnManual";
-            this.btnManual.Size = new System.Drawing.Size(23, 70);
+            this.btnManual.Size = new System.Drawing.Size(54, 70);
             this.btnManual.Text = "手动操作";
             this.btnManual.ToolTipText = "手动操作";
             this.btnManual.Click += new System.EventHandler(this.btnManual_Click);
@@ -170,11 +170,11 @@ namespace Mes.Hmi
             // btnSetting
             // 
             this.btnSetting.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnSetting.Image = ((System.Drawing.Image)(resources.GetObject("setting.Image")));
+            this.btnSetting.Image = ((System.Drawing.Image)(resources.GetObject("btnSetting.Image")));
             this.btnSetting.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSetting.Margin = new System.Windows.Forms.Padding(11, 3, 11, 3);
             this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Size = new System.Drawing.Size(23, 70);
+            this.btnSetting.Size = new System.Drawing.Size(54, 70);
             this.btnSetting.Text = "参数设置";
             this.btnSetting.ToolTipText = "参数设置";
             this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
@@ -182,11 +182,11 @@ namespace Mes.Hmi
             // btnAlarm
             // 
             this.btnAlarm.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnAlarm.Image = ((System.Drawing.Image)(resources.GetObject("alarm.Image")));
+            this.btnAlarm.Image = ((System.Drawing.Image)(resources.GetObject("btnAlarm.Image")));
             this.btnAlarm.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAlarm.Margin = new System.Windows.Forms.Padding(11, 3, 11, 3);
             this.btnAlarm.Name = "btnAlarm";
-            this.btnAlarm.Size = new System.Drawing.Size(23, 70);
+            this.btnAlarm.Size = new System.Drawing.Size(54, 70);
             this.btnAlarm.Text = "异常报警";
             this.btnAlarm.ToolTipText = "异常报警";
             this.btnAlarm.Click += new System.EventHandler(this.btnAlarm_Click);
@@ -194,11 +194,11 @@ namespace Mes.Hmi
             // btnUser
             // 
             this.btnUser.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnUser.Image = ((System.Drawing.Image)(resources.GetObject("user.Image")));
+            this.btnUser.Image = ((System.Drawing.Image)(resources.GetObject("btnUser.Image")));
             this.btnUser.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnUser.Margin = new System.Windows.Forms.Padding(11, 3, 11, 3);
             this.btnUser.Name = "btnUser";
-            this.btnUser.Size = new System.Drawing.Size(23, 70);
+            this.btnUser.Size = new System.Drawing.Size(54, 70);
             this.btnUser.Text = "用户登陆";
             this.btnUser.ToolTipText = "用户登陆";
             this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
@@ -206,28 +206,21 @@ namespace Mes.Hmi
             // btnHelp
             // 
             this.btnHelp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnHelp.Image = ((System.Drawing.Image)(resources.GetObject("help.Image")));
+            this.btnHelp.Image = ((System.Drawing.Image)(resources.GetObject("btnHelp.Image")));
             this.btnHelp.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnHelp.Margin = new System.Windows.Forms.Padding(11, 3, 11, 3);
             this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Size = new System.Drawing.Size(23, 70);
+            this.btnHelp.Size = new System.Drawing.Size(54, 70);
             this.btnHelp.Text = "帮助信息";
             this.btnHelp.ToolTipText = "帮助信息";
             this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
-            // 
-            // spacerPanel
-            // 
-            this.spacerPanel.Location = new System.Drawing.Point(338, 3);
-            this.spacerPanel.Name = "spacerPanel";
-            this.spacerPanel.Size = new System.Drawing.Size(361, 70);
-            this.spacerPanel.TabIndex = 2;
             // 
             // machineLabel
             // 
             this.machineLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(200)))), ((int)(((byte)(60)))));
             this.machineLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.machineLabel.Font = new System.Drawing.Font("微软雅黑", 16F, System.Drawing.FontStyle.Bold);
-            this.machineLabel.Location = new System.Drawing.Point(975, 0);
+            this.machineLabel.Location = new System.Drawing.Point(816, 0);
             this.machineLabel.Name = "machineLabel";
             this.machineLabel.Size = new System.Drawing.Size(334, 76);
             this.machineLabel.TabIndex = 1;
@@ -244,20 +237,20 @@ namespace Mes.Hmi
             this.btnRun,
             this.btnPause,
             this.btnStop});
-            this.controlStrip.Location = new System.Drawing.Point(1312, 0);
+            this.controlStrip.Location = new System.Drawing.Point(1153, 0);
             this.controlStrip.Name = "controlStrip";
             this.controlStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.controlStrip.Size = new System.Drawing.Size(72, 76);
+            this.controlStrip.Size = new System.Drawing.Size(231, 76);
             this.controlStrip.TabIndex = 2;
             // 
             // btnRun
             // 
             this.btnRun.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnRun.Image = ((System.Drawing.Image)(resources.GetObject("run.Image")));
+            this.btnRun.Image = ((System.Drawing.Image)(resources.GetObject("btnRun.Image")));
             this.btnRun.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnRun.Margin = new System.Windows.Forms.Padding(11, 3, 11, 3);
             this.btnRun.Name = "btnRun";
-            this.btnRun.Size = new System.Drawing.Size(23, 73);
+            this.btnRun.Size = new System.Drawing.Size(54, 70);
             this.btnRun.Text = "启动";
             this.btnRun.ToolTipText = "启动";
             this.btnRun.Click += new System.EventHandler(this.btnRun_Click);
@@ -265,11 +258,11 @@ namespace Mes.Hmi
             // btnPause
             // 
             this.btnPause.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnPause.Image = ((System.Drawing.Image)(resources.GetObject("pause.Image")));
+            this.btnPause.Image = ((System.Drawing.Image)(resources.GetObject("btnPause.Image")));
             this.btnPause.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnPause.Margin = new System.Windows.Forms.Padding(11, 3, 11, 3);
             this.btnPause.Name = "btnPause";
-            this.btnPause.Size = new System.Drawing.Size(23, 73);
+            this.btnPause.Size = new System.Drawing.Size(54, 70);
             this.btnPause.Text = "暂停";
             this.btnPause.ToolTipText = "暂停";
             this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
@@ -277,11 +270,11 @@ namespace Mes.Hmi
             // btnStop
             // 
             this.btnStop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnStop.Image = ((System.Drawing.Image)(resources.GetObject("stop.Image")));
+            this.btnStop.Image = ((System.Drawing.Image)(resources.GetObject("btnStop.Image")));
             this.btnStop.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnStop.Margin = new System.Windows.Forms.Padding(11, 3, 11, 3);
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(23, 73);
+            this.btnStop.Size = new System.Drawing.Size(54, 70);
             this.btnStop.Text = "停止";
             this.btnStop.ToolTipText = "停止";
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
@@ -450,7 +443,6 @@ namespace Mes.Hmi
         private System.Windows.Forms.ToolStripButton btnUser;
         private System.Windows.Forms.ToolStripButton btnHelp;
         private System.Windows.Forms.Label machineLabel;
-    private System.Windows.Forms.Panel spacerPanel;
         private System.Windows.Forms.ToolStrip controlStrip;
         private System.Windows.Forms.ToolStripButton btnRun;
         private System.Windows.Forms.ToolStripButton btnPause;

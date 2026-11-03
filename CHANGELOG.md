@@ -1,5 +1,20 @@
 # 更新日志
 
+## 1.6.7 (2026-11-03)
+
+### 修复
+- 顶部导航图标第三次消失，这次根因不在布局、也不在我改的代码：设计器回写 ShellForm.resx 时按它自己的"<组件名>.<属性名>"规则把 11 张常态图标重命名成 `btnHome.Image`…，同时把没人引用的 11 张按下态 `homeOn.Image`… 一并裁掉。`ShellForm.cs` 的 `NavIcon()` 仍按 `NavEntry.IconKey` 拼 `home.Image` / `homeOn.Image`，取到 null 就把设计器给的图覆盖掉，八颗按钮退化成 23px 空白、AutoSize 的导航列跟着塌——正好发生在删 spacerPanel 之后，看着就像"删了控件布局才变"。
+- 图标资源搬出设计器托管：工程根新建 `NavIcons.resx`，22 条（home/homeOn、statistics/statisticsOn、io/ioOn、manual/manualOn、setting/settingOn、alarm/alarmOn、user/userOn、help/helpOn、run/runOn、pause/pauseOn、stop/stopOn 的 `.Image`）从上一个提交的 ShellForm.resx 原样搬过来；`ShellForm.cs` 改成读 `new ResourceManager("Mes.Hmi.NavIcons", typeof(ShellForm).Assembly)`，键名与 `NavIcon()` 的拼法一致、代码逻辑不动。ShellForm.resx 从此归设计器自己管，它怎么重命名、怎么裁剪都影响不到运行时的两态图标——这是这个坑第三次踩，前面两次（1.6.4、1.6.5）都是"把图标放在设计器会重写的文件里"这一条引起的。
+- 设计器里那 11 行 `btnXxx.Image` 保留不动，设计面仍看得到图标；运行时由代码用同一批图覆盖，按下态高亮照常。
+
+### 变更
+- `spacerPanel` 保持删除：它原本只是那条吃掉剩余宽度的空白列，删掉控件后 `navLayout` 第 1 列的 `Percent 100` 空列干同样的活，机台名绿块（340px 定宽列）与右侧启动/暂停/停止仍贴右；在 Designer 里留了一行说明这条空列不能一起删。
+- 五个工程版本号升至 1.6.7。
+
+### 验证
+- Mes.Hmi 单独 Rebuild 到 `bin\verify`（VS 开着，不碰 `obj\Debug`），0 警告 0 错误；反射确认嵌入名就是 `Mes.Hmi.NavIcons.resources`，`home.Image` 69×72、`homeOn.Image` 74×72、`stopOn.Image` 75×76 都能取到 Bitmap。
+- 实跑截图核对：八张导航图标齐全、home 是按下态绿底、右侧三颗按钮与机台名绿块位置对，左侧二级页签、主界面四腔体视图、底部状态条无回归。
+
 ## 1.6.6 (2026-11-03)
 
 ### 变更

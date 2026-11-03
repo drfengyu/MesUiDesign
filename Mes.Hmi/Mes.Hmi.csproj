@@ -306,6 +306,7 @@
     <EmbeddedResource Include="Home\PageUptime.resx">
       <DependentUpon>PageUptime.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NavIcons.resx" />
     <EmbeddedResource Include="PartChangeDialog.resx">
       <DependentUpon>PartChangeDialog.cs</DependentUpon>
     </EmbeddedResource>
