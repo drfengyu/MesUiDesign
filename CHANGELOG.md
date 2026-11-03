@@ -1,5 +1,14 @@
 # 更新日志
 
+## 1.6.5 (2026-11-03)
+
+### 修复
+- 导航图标再次消失、顶栏布局变乱，是 1.6.4 我改出来的问题：当时把 ShellForm.Designer.cs 里 11 行 `resources.GetObject("btnHome.Image")` 当死引用删掉了，连 `ComponentResourceManager resources` 的声明一起删。设计器因此不再把 ShellForm.resx 认成自己的资源包，一保存就把 22 个图标重写成 Name1/Color1/Bitmap1/Icon1 四条模板项（编译产物 `obj\Debug\Mes.Hmi.ShellForm.resources` 从 81040 字节掉到 180 字节），代码里 `NavIcon()` 取 `home.Image` 拿到 null，八个按钮退化成 23px 空白，整条导航看着就是空的、宽度也塌了。
+- 现在按 resx 里**真实存在的键名**把 11 行补回来：`home / statistics / io / manual / setting / alarm / user / help / run / pause / stop` 的 `.Image`（原来那套 `btnXxx.Image` 键根本不存在，是早期把图标交给设计器管、后来改成按两态代码加载时留下的错名）。顺带好处是设计器表面也能看到图标，不再是一片空白按钮；按下态的高亮仍由 `ShellForm.cs` 的 `NavIcon(key, pressed)` 覆盖。
+
+### 变更
+- 导航按钮的间距保留你调的值：每个按钮 `Margin = 7,3,7,3`、`navStrip.Padding = 6,0,0,0`，图标之间实际空 14px；`navLayout` 第 0 列是 AutoSize，多出来的宽度由 spacerPanel 那条百分比列吸收，机台名绿块和运行/暂停/停止仍贴右侧。实测截图核对过八张图标与两态高亮都正常。
+
 ## 1.6.4 (2026-11-02)
 
 ### 修复
