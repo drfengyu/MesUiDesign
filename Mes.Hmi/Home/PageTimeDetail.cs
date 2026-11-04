@@ -1,4 +1,4 @@
-using Mes.Business;
+﻿using Mes.Business;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -8,7 +8,7 @@ namespace Mes.Hmi.Home
 {
     /// <summary>
     /// 时间明细（《Automation UI V3.11》P10）：上方一行分组标题栏，点一组，下方列出这一组的各细项
-    /// （动作单元、一次通讯操作）耗时占比。颜色按"实际 / 规划"分绿黄红，标准来自 数据\时间明细标准.csv。
+    /// （动作单元、一次通讯操作）的实测耗时，单位秒。颜色按"实际 / 规划"分绿黄红，标准来自 数据\时间明细标准.csv。
     /// </summary>
     public partial class PageTimeDetail : UserControl
     {
@@ -73,10 +73,10 @@ namespace Mes.Hmi.Home
                 var group = cardPanels[i].Tag.ToString();
                 var average = station.Timing.Average(group);
                 var standard = station.Timing.Standard(group);
-                SetText(cardValueLabels[i], PercentText(average, standard));
+                SetText(cardValueLabels[i], DurationText(average));
                 cardValueLabels[i].BackColor = ColorFor(average, standard);
 
-                // 文档 P10 只把选中分组的名字块涂蓝，百分比块始终按绿黄红走
+                // 文档 P10 只把选中分组的名字块涂蓝，时长块始终按绿黄红走
                 var isSelected = group == selected;
                 cardPanels[i].BackColor = CardBorder;
                 cardPanels[i].Padding = new Padding(1);
@@ -96,7 +96,7 @@ namespace Mes.Hmi.Home
             {
                 var average = station.Timing.ItemAverage(selected, items[i]);
                 var standard = station.Timing.ItemStandard(selected, items[i]);
-                SetText(chipValues[i], PercentText(average, standard));
+                SetText(chipValues[i], DurationText(average));
                 chipValues[i].BackColor = ColorFor(average, standard);
             }
         }
@@ -155,7 +155,7 @@ namespace Mes.Hmi.Home
                 ForeColor = Color.White,
                 BackColor = Gray,
             };
-            // 后 Add 的先布局：标题条先贴顶占掉 22px，百分比再填满剩下的地方；
+            // 后 Add 的先布局：标题条先贴顶占掉 22px，时长块再填满剩下的地方；
             // 反过来加会让 Fill 先吃掉整块，细项名直接被挤没
             panel.Controls.Add(value);
             panel.Controls.Add(new Label
@@ -175,11 +175,9 @@ namespace Mes.Hmi.Home
             if (label.Text != text) label.Text = text;
         }
 
-        private static string PercentText(double milliseconds, double standardSeconds)
+        private static string DurationText(double milliseconds)
         {
-            if (double.IsNaN(milliseconds)) return "--";
-            if (standardSeconds <= 0) return (milliseconds / 1000).ToString("0.00") + "s";
-            return (milliseconds / 1000 / standardSeconds * 100).ToString("0.00") + "%";
+            return double.IsNaN(milliseconds) ? "--" : (milliseconds / 1000).ToString("0.000") + "s";
         }
 
         private static Color ColorFor(double milliseconds, double standardSeconds)

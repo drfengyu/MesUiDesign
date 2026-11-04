@@ -174,7 +174,7 @@ namespace Mes.Hmi.Home
             this.faultLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(126)))), ((int)(((byte)(134)))));
             this.faultLabel.Location = new System.Drawing.Point(81, 0);
             this.faultLabel.Name = "faultLabel";
-            this.faultLabel.Size = new System.Drawing.Size(147, 30);
+            this.faultLabel.Size = new System.Drawing.Size(124, 30);
             this.faultLabel.TabIndex = 1;
             this.faultLabel.Text = "当前无故障";
             this.faultLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -198,22 +198,22 @@ namespace Mes.Hmi.Home
             this.faultCodeBox.Location = new System.Drawing.Point(81, 33);
             this.faultCodeBox.Name = "faultCodeBox";
             this.faultCodeBox.ReadOnly = true;
-            this.faultCodeBox.Size = new System.Drawing.Size(147, 24);
+            this.faultCodeBox.Size = new System.Drawing.Size(124, 24);
             this.faultCodeBox.TabIndex = 3;
             this.faultCodeBox.TabStop = false;
             // 
             // btnManualFault
             // 
+            this.faultBody.SetColumnSpan(this.btnManualFault, 2);
             this.btnManualFault.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnManualFault.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnManualFault.Location = new System.Drawing.Point(234, 32);
+            this.btnManualFault.Location = new System.Drawing.Point(211, 32);
             this.btnManualFault.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnManualFault.Name = "btnManualFault";
-            this.btnManualFault.Size = new System.Drawing.Size(128, 34);
+            this.btnManualFault.Size = new System.Drawing.Size(248, 34);
             this.btnManualFault.TabIndex = 4;
             this.btnManualFault.Text = "手动选择故障代码";
             this.btnManualFault.UseVisualStyleBackColor = true;
-            this.faultBody.SetColumnSpan(this.btnManualFault, 2);
             this.btnManualFault.Click += new System.EventHandler(this.btnManualFault_Click);
             // 
             // startLabel
@@ -235,45 +235,45 @@ namespace Mes.Hmi.Home
             this.faultStartLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(66)))), ((int)(((byte)(72)))));
             this.faultStartLabel.Location = new System.Drawing.Point(81, 68);
             this.faultStartLabel.Name = "faultStartLabel";
-            this.faultStartLabel.Size = new System.Drawing.Size(147, 34);
+            this.faultStartLabel.Size = new System.Drawing.Size(124, 34);
             this.faultStartLabel.TabIndex = 6;
             this.faultStartLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnEndFault
             // 
+            this.faultBody.SetColumnSpan(this.btnEndFault, 2);
             this.btnEndFault.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnEndFault.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnEndFault.Location = new System.Drawing.Point(234, 70);
+            this.btnEndFault.Location = new System.Drawing.Point(211, 70);
             this.btnEndFault.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEndFault.Name = "btnEndFault";
-            this.btnEndFault.Size = new System.Drawing.Size(128, 30);
+            this.btnEndFault.Size = new System.Drawing.Size(248, 30);
             this.btnEndFault.TabIndex = 7;
             this.btnEndFault.Text = "结束当前故障";
             this.btnEndFault.UseVisualStyleBackColor = true;
-            this.faultBody.SetColumnSpan(this.btnEndFault, 2);
             this.btnEndFault.Click += new System.EventHandler(this.btnEndFault_Click);
             // 
             // debugLabel
             // 
+            this.faultBody.SetColumnSpan(this.debugLabel, 3);
             this.debugLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.debugLabel.Font = new System.Drawing.Font("微软雅黑", 8.5F);
             this.debugLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(146)))), ((int)(((byte)(154)))));
-            this.debugLabel.Location = new System.Drawing.Point(3, 102);
+            this.debugLabel.Location = new System.Drawing.Point(81, 102);
             this.debugLabel.Name = "debugLabel";
-            this.debugLabel.Size = new System.Drawing.Size(72, 22);
+            this.debugLabel.Size = new System.Drawing.Size(378, 22);
             this.debugLabel.TabIndex = 8;
             this.debugLabel.Text = "点位调试(M)[3031001]";
             this.debugLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.faultBody.SetColumnSpan(this.debugLabel, 3);
             // 
             // btnPlannedStart
             // 
             this.btnPlannedStart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnPlannedStart.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnPlannedStart.Location = new System.Drawing.Point(2, 126);
+            this.btnPlannedStart.Location = new System.Drawing.Point(80, 126);
             this.btnPlannedStart.Margin = new System.Windows.Forms.Padding(2);
             this.btnPlannedStart.Name = "btnPlannedStart";
-            this.btnPlannedStart.Size = new System.Drawing.Size(74, 44);
+            this.btnPlannedStart.Size = new System.Drawing.Size(126, 44);
             this.btnPlannedStart.TabIndex = 9;
             this.btnPlannedStart.Text = "计划停机开始";
             this.btnPlannedStart.UseVisualStyleBackColor = true;
@@ -283,10 +283,10 @@ namespace Mes.Hmi.Home
             // 
             this.btnFirstStart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnFirstStart.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnFirstStart.Location = new System.Drawing.Point(80, 126);
+            this.btnFirstStart.Location = new System.Drawing.Point(210, 126);
             this.btnFirstStart.Margin = new System.Windows.Forms.Padding(2);
             this.btnFirstStart.Name = "btnFirstStart";
-            this.btnFirstStart.Size = new System.Drawing.Size(149, 44);
+            this.btnFirstStart.Size = new System.Drawing.Size(122, 44);
             this.btnFirstStart.TabIndex = 10;
             this.btnFirstStart.Text = "首件计时开始";
             this.btnFirstStart.UseVisualStyleBackColor = true;
@@ -296,10 +296,10 @@ namespace Mes.Hmi.Home
             // 
             this.btnChangeStart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnChangeStart.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnChangeStart.Location = new System.Drawing.Point(233, 126);
+            this.btnChangeStart.Location = new System.Drawing.Point(336, 126);
             this.btnChangeStart.Margin = new System.Windows.Forms.Padding(2);
             this.btnChangeStart.Name = "btnChangeStart";
-            this.btnChangeStart.Size = new System.Drawing.Size(130, 44);
+            this.btnChangeStart.Size = new System.Drawing.Size(124, 44);
             this.btnChangeStart.TabIndex = 11;
             this.btnChangeStart.Text = "切线计时开始";
             this.btnChangeStart.UseVisualStyleBackColor = true;
@@ -309,10 +309,10 @@ namespace Mes.Hmi.Home
             // 
             this.btnPlannedEnd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnPlannedEnd.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnPlannedEnd.Location = new System.Drawing.Point(2, 174);
+            this.btnPlannedEnd.Location = new System.Drawing.Point(80, 174);
             this.btnPlannedEnd.Margin = new System.Windows.Forms.Padding(2);
             this.btnPlannedEnd.Name = "btnPlannedEnd";
-            this.btnPlannedEnd.Size = new System.Drawing.Size(74, 44);
+            this.btnPlannedEnd.Size = new System.Drawing.Size(126, 44);
             this.btnPlannedEnd.TabIndex = 12;
             this.btnPlannedEnd.Text = "计划停机结束";
             this.btnPlannedEnd.UseVisualStyleBackColor = true;
@@ -322,10 +322,10 @@ namespace Mes.Hmi.Home
             // 
             this.btnFirstEnd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnFirstEnd.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnFirstEnd.Location = new System.Drawing.Point(80, 174);
+            this.btnFirstEnd.Location = new System.Drawing.Point(210, 174);
             this.btnFirstEnd.Margin = new System.Windows.Forms.Padding(2);
             this.btnFirstEnd.Name = "btnFirstEnd";
-            this.btnFirstEnd.Size = new System.Drawing.Size(149, 44);
+            this.btnFirstEnd.Size = new System.Drawing.Size(122, 44);
             this.btnFirstEnd.TabIndex = 13;
             this.btnFirstEnd.Text = "首件计时结束";
             this.btnFirstEnd.UseVisualStyleBackColor = true;
@@ -335,10 +335,10 @@ namespace Mes.Hmi.Home
             // 
             this.btnChangeEnd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnChangeEnd.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnChangeEnd.Location = new System.Drawing.Point(233, 174);
+            this.btnChangeEnd.Location = new System.Drawing.Point(336, 174);
             this.btnChangeEnd.Margin = new System.Windows.Forms.Padding(2);
             this.btnChangeEnd.Name = "btnChangeEnd";
-            this.btnChangeEnd.Size = new System.Drawing.Size(130, 44);
+            this.btnChangeEnd.Size = new System.Drawing.Size(124, 44);
             this.btnChangeEnd.TabIndex = 14;
             this.btnChangeEnd.Text = "切线计时结束";
             this.btnChangeEnd.UseVisualStyleBackColor = true;
@@ -349,10 +349,10 @@ namespace Mes.Hmi.Home
             this.plannedElapsed.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plannedElapsed.Font = new System.Drawing.Font("微软雅黑", 8.5F);
             this.plannedElapsed.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(126)))), ((int)(((byte)(134)))));
-            this.plannedElapsed.Location = new System.Drawing.Point(2, 221);
+            this.plannedElapsed.Location = new System.Drawing.Point(80, 221);
             this.plannedElapsed.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.plannedElapsed.Name = "plannedElapsed";
-            this.plannedElapsed.Size = new System.Drawing.Size(74, 24);
+            this.plannedElapsed.Size = new System.Drawing.Size(126, 24);
             this.plannedElapsed.TabIndex = 15;
             this.plannedElapsed.Text = "未计时";
             this.plannedElapsed.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -362,10 +362,10 @@ namespace Mes.Hmi.Home
             this.firstElapsed.Dock = System.Windows.Forms.DockStyle.Fill;
             this.firstElapsed.Font = new System.Drawing.Font("微软雅黑", 8.5F);
             this.firstElapsed.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(126)))), ((int)(((byte)(134)))));
-            this.firstElapsed.Location = new System.Drawing.Point(80, 221);
+            this.firstElapsed.Location = new System.Drawing.Point(210, 221);
             this.firstElapsed.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.firstElapsed.Name = "firstElapsed";
-            this.firstElapsed.Size = new System.Drawing.Size(149, 24);
+            this.firstElapsed.Size = new System.Drawing.Size(122, 24);
             this.firstElapsed.TabIndex = 16;
             this.firstElapsed.Text = "未计时";
             this.firstElapsed.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -375,10 +375,10 @@ namespace Mes.Hmi.Home
             this.changeElapsed.Dock = System.Windows.Forms.DockStyle.Fill;
             this.changeElapsed.Font = new System.Drawing.Font("微软雅黑", 8.5F);
             this.changeElapsed.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(126)))), ((int)(((byte)(134)))));
-            this.changeElapsed.Location = new System.Drawing.Point(233, 221);
+            this.changeElapsed.Location = new System.Drawing.Point(336, 221);
             this.changeElapsed.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.changeElapsed.Name = "changeElapsed";
-            this.changeElapsed.Size = new System.Drawing.Size(130, 24);
+            this.changeElapsed.Size = new System.Drawing.Size(124, 24);
             this.changeElapsed.TabIndex = 17;
             this.changeElapsed.Text = "未计时";
             this.changeElapsed.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
