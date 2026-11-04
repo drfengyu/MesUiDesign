@@ -24,7 +24,7 @@ namespace Mes.Hmi.Alarm
             this.station = station;
             var now = DateTime.Now;
             fromPicker.Value = now.AddHours(-24);
-            toPicker.Value = now;
+            toPicker.Value = DateTime.Today.AddDays(1).AddMilliseconds(-1);
             Query();
         }
 

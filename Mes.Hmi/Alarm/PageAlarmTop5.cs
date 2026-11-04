@@ -47,7 +47,7 @@ namespace Mes.Hmi.Alarm
             ChartKit.Empty(plotMinutes, "暂无数据");
             var now = DateTime.Now;
             fromPicker.Value = now.AddHours(-24);
-            toPicker.Value = now;
+            toPicker.Value = DateTime.Today.AddDays(1).AddMilliseconds(-1);
             Query();
         }
 

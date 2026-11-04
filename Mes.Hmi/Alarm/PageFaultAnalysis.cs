@@ -49,7 +49,7 @@ namespace Mes.Hmi.Alarm
 
             var now = DateTime.Now;
             fromPicker.Value = now.AddDays(-1);
-            toPicker.Value = now;
+            toPicker.Value = DateTime.Today.AddDays(1).AddMilliseconds(-1);
             blinkTimer.Enabled = true;
             Query();
         }

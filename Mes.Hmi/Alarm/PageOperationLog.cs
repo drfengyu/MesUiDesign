@@ -44,7 +44,7 @@ namespace Mes.Hmi.Alarm
 
             var now = DateTime.Now;
             fromPicker.Value = now.Date;
-            toPicker.Value = now;
+            toPicker.Value = DateTime.Today.AddDays(1).AddMilliseconds(-1);
             Query();
         }
 
