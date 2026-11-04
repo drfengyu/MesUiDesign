@@ -131,17 +131,31 @@ namespace Mes.Business
             for (var station = 1; station <= 4; station++)
             {
                 var trigger = PlcAddresses.Mw(PlcAddresses.SendBarcodeTrigger + station - 1);
+                var watch = Stopwatch.StartNew();
                 if (plc.Read(trigger, 1)[0] != 1) continue;
                 plc.WriteChecked(trigger, 0);
+                TimedCommunication("送码触发读", watch.Elapsed.TotalMilliseconds);
+
+                // 取料这一段算在贴合工位自己头上：1/4 没有独立分组，回到各自的过站组
+                var group = station == 2 ? TimingBoard.Fit2
+                    : station == 3 ? TimingBoard.Fit3 : CycleGroup(station);
+                watch = Stopwatch.StartNew();
                 var code = Clean(WordCodec.WordsToAscii(plc.Read(
                     PlcAddresses.Mw(PlcAddresses.StationBarcodeAreas[station - 1]),
                     PlcAddresses.BarcodeWords)));
+                owner.Timing.Add(group, "读条码", watch.Elapsed.TotalMilliseconds);
+
+                watch.Restart();
                 var index = plc.Read(PlcAddresses.Mw(PlcAddresses.StationFixtureIndexes[station - 1]), 1)[0];
                 var fixture = index >= 0 && index < owner.Ledger.Fixtures.Count
                     ? owner.Ledger.Fixtures[index].FixtureCode
                     : string.Empty;
+                owner.Timing.Add(group, "读治具索引", watch.Elapsed.TotalMilliseconds);
+
+                watch.Restart();
                 owner.ProductLog.AttachFixture(code, fixture);
                 owner.Ledger.OnFixtureUsed(fixture);
+                owner.Timing.Add(group, "挂治具记录", watch.Elapsed.TotalMilliseconds);
                 sendAt[station - 1] = DateTime.Now;
                 owner.Say("工位 " + station + " 取料 " + code + " 治具 " + (fixture.Length == 0 ? "无" : fixture));
             }
@@ -159,22 +173,35 @@ namespace Mes.Business
 
         private void CheckOutOnce(int station)
         {
+            var group = CycleGroup(station);
             var trigger = PlcAddresses.Mw(PlcAddresses.CheckOutTrigger(station));
+            var triggerWatch = Stopwatch.StartNew();
             if (plc.Read(trigger, 1)[0] != 1) return;
             plc.WriteChecked(trigger, 0);
+            TimedCommunication("过站触发读", triggerWatch.Elapsed.TotalMilliseconds);
 
+            var watch = Stopwatch.StartNew();
             var code = Clean(WordCodec.WordsToAscii(plc.Read(
                 PlcAddresses.Mw(PlcAddresses.StationBarcodeAreas[station - 1]),
                 PlcAddresses.BarcodeWords)));
+            owner.Timing.Add(group, "读条码", watch.Elapsed.TotalMilliseconds);
+
+            watch = Stopwatch.StartNew();
             var fixtureIndex = plc.Read(PlcAddresses.Mw(PlcAddresses.StationFixtureIndexes[station - 1]), 1)[0];
             var fixtureCode = fixtureIndex >= 0 && fixtureIndex < owner.Ledger.Fixtures.Count
                 ? owner.Ledger.Fixtures[fixtureIndex].FixtureCode
                 : string.Empty;
+            owner.Timing.Add(group, "读治具索引", watch.Elapsed.TotalMilliseconds);
+
+            watch = Stopwatch.StartNew();
             var mc = plc.ReadFloatArray(PlcAddresses.Mw(PlcAddresses.McArea(station)), 12);
             var boss = plc.ReadFloatArray(PlcAddresses.Mw(PlcAddresses.BossArea(station)), 12);
             var wd = plc.ReadFloatArray(PlcAddresses.Mw(PlcAddresses.WdArea(station)), 8);
             // 主项目读回来要除以 2：PLC 存的是 0.5s 一个单位。
             var ct = plc.ReadFloatArray(PlcAddresses.Mw(PlcAddresses.CtArea(station)), 2)[0] / 2D;
+            owner.Timing.Add(group, "读测量值", watch.Elapsed.TotalMilliseconds);
+
+            watch.Restart();
 
             var now = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             var measured = new List<KeyValuePair<string, double>>
@@ -200,15 +227,15 @@ namespace Mes.Business
             owner.ProductLog.Complete(code, verdict);
             owner.Ledger.OnProductCompleted();
             plc.WriteChecked(PlcAddresses.Mw(PlcAddresses.CheckOutResult(station)), (short)(failed ? 2 : 1));
+            owner.Timing.Add(group, "判定写回", watch.Elapsed.TotalMilliseconds);
             owner.Say("工位 " + station + " " + code + " 过站 " + verdict
                 + (bad.Count == 0 ? string.Empty : "：" + string.Join("、", bad.ToArray()))
                 + (overdue == null ? string.Empty : "：" + overdue));
 
             var at = DateTime.Now;
-            if (lastCheckout[station - 1] != default(DateTime) && station <= 3)
+            if (lastCheckout[station - 1] != default(DateTime))
             {
-                owner.Timing.Add(FlowGroup(station),
-                    (at - lastCheckout[station - 1]).TotalMilliseconds);
+                owner.Timing.Add(group, (at - lastCheckout[station - 1]).TotalMilliseconds);
             }
             lastCheckout[station - 1] = at;
             if (sendAt[station - 1] != default(DateTime) && (station == 2 || station == 3))
@@ -218,10 +245,19 @@ namespace Mes.Business
             }
         }
 
-        private static string FlowGroup(int station)
+        /// <summary>一次 PLC 通讯操作：既进"通讯计时"这组的样本池，也按操作类型记细项。</summary>
+        private void TimedCommunication(string item, double milliseconds)
+        {
+            owner.Timing.Add(TimingBoard.Communication, milliseconds);
+            owner.Timing.Add(TimingBoard.Communication, item, milliseconds);
+        }
+
+        /// <summary>过站节拍归到哪一组：1~3 是流动工位，4 是回流工位。</summary>
+        private static string CycleGroup(int station)
         {
             return station == 1 ? TimingBoard.Flow1
-                : station == 2 ? TimingBoard.Flow2 : TimingBoard.Flow3;
+                : station == 2 ? TimingBoard.Flow2
+                : station == 3 ? TimingBoard.Flow3 : TimingBoard.Return;
         }
 
         private static KeyValuePair<string, double> Pair(string name, double[] values, int at)
@@ -239,14 +275,16 @@ namespace Mes.Business
         {
             var watch = Stopwatch.StartNew();
             owner.MesDisabled = plc.Read(PlcAddresses.Mw(PlcAddresses.MesDisabled), 1)[0];
-            owner.Timing.Add(TimingBoard.Communication, watch.Elapsed.TotalMilliseconds);
+            TimedCommunication("状态位读", watch.Elapsed.TotalMilliseconds);
         }
 
         // ── 报警 ──────────────────────────────────────────────────────────
 
         private void PollAlarm()
         {
+            var watch = Stopwatch.StartNew();
             var status = plc.Read(PlcAddresses.Mw(PlcAddresses.OeeStatus), 1)[0];
+            TimedCommunication("报警位读", watch.Elapsed.TotalMilliseconds);
             if (status == 0) return;
             var index = plc.Read(PlcAddresses.Mw(PlcAddresses.OeeTriggerRegister(status)), 1)[0];
             if (index == 0) return;

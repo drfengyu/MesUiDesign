@@ -47,6 +47,9 @@ namespace Mes.Business
         private const string DualStartLamp2Bit = "Q 1001.3";
         private const string BuzzerBit = "Q 1000.7";
 
+        /// <summary>压持1缸 / 压持2缸 的工作侧阀（IO 表里 Q 2000.5、Q 2001.7）。</summary>
+        private static readonly string[] ClampWorkValves = { "Q 2000.5", "Q 2001.7" };
+
         /// <summary>气缸从一个位置走到另一个位置要多久（ms）。真机看缸径和气压，这里 300ms 够用。</summary>
         private const int CylinderStrokeMs = 300;
 
@@ -220,11 +223,46 @@ namespace Mes.Business
             plc.PokeBit(DualStart2Bit, true);
             plc.PokeBit(DualStartLamp1Bit, true);
             plc.PokeBit(DualStartLamp2Bit, true);
+            ApplyClamps();
+        }
+
+        /// <summary>
+        /// 焊接时两只压持缸压紧（SendToStation 给阀电），焊接时间走完在 HoldWeld 里松开，
+        /// 中间每 100ms 让气缸计数器看一次阀，通断沿才落在采样点上。
+        /// 真机这路由 PLC 输出，仿真里由机台侧代为通断，气缸计时和动作次数才有自动段的样本
+        /// （手动操作页点动走的是同一套阀）。
+        /// </summary>
+        private void ApplyClamps()
+        {
+            foreach (var valve in ClampWorkValves) plc.PokeBit(valve, true);
+        }
+
+        private void ReleaseClamps()
+        {
+            foreach (var valve in ClampWorkValves) plc.PokeBit(valve, false);
+        }
+
+        /// <summary>
+        /// 焊接这段时间按 100ms 一片，每片都让气缸仿真走一步、气缸计数器看一次阀：
+        /// 整段睡死的话，阀得电到失电全落在两次采样之间，动作次数和气缸计时都量不到这一次伸缩。
+        /// </summary>
+        private void HoldWeld(int ms)
+        {
+            var until = Environment.TickCount + ms;
+            while (Environment.TickCount < until)
+            {
+                Thread.Sleep(Math.Min(100, ms));
+                SimulateCylinders();
+                if (cylinderCounter != null) cylinderCounter.Poll();
+            }
+            ReleaseClamps();
+            SimulateCylinders();
+            if (cylinderCounter != null) cylinderCounter.Poll();
         }
 
         private void CheckOut(int station, string sn)
         {
-            Thread.Sleep(Math.Max(300, CycleMs / 3));
+            HoldWeld(Math.Max(300, CycleMs / 3));
             PokeMeasurements(station);
             var trg = PlcAddresses.Mw(PlcAddresses.CheckOutTrigger(station));
             var result = PlcAddresses.Mw(PlcAddresses.CheckOutResult(station));

@@ -37,6 +37,9 @@ namespace Mes.Business
         private readonly object gate = new object();
         private string shift;
 
+        /// <summary>一次完整伸缩结束时的回调：(气缸名, 阀得电到失电的毫秒)。时间明细按这个分细项。</summary>
+        public Action<string, double> Actuated;
+
         public CylinderCounter(CylinderCountTable table, SimulatedPlc plc, IoCatalog io)
         {
             this.table = table;
@@ -97,6 +100,7 @@ namespace Mes.Business
                 var active = homeValve || workValve;
                 if (!active)
                 {
+                    if (on[i]) ReportActuated(i, cylinder);
                     on[i] = false;
                     continue;
                 }
@@ -131,6 +135,15 @@ namespace Mes.Business
             {
                 table.Add(shift, NameOf(io, cylinder), fault);
             }
+        }
+
+        private void ReportActuated(int index, Cylinder cylinder)
+        {
+            var report = Actuated;
+            if (report == null) return;
+            var ms = unchecked(Environment.TickCount - onSince[index]);
+            if (ms <= 0) return;
+            report(NameOf(io, cylinder), ms);
         }
 
         /// <summary>某个班次的全部气缸，按手动操作页的顺序；没有记录的气缸补 0。</summary>

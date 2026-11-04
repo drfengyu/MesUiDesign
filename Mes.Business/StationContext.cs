@@ -147,6 +147,11 @@ namespace Mes.Business
                 new CylinderCountTable(context.RecordFolder), context.Plc, context.Io);
             context.Uptime = new UptimeTracker(new UptimeTable(context.RecordFolder), context.Alarms);
             context.Timing = new TimingBoard(context.DataFolder);
+            context.Cylinders.Actuated = delegate(string name, double ms)
+            {
+                context.Timing.Add(TimingBoard.Cylinder, ms);
+                context.Timing.Add(TimingBoard.Cylinder, name, ms);
+            };
             context.EnergyDaily = new EnergyDailyTable(context.RecordFolder);
             context.Energy = new EnergyMeter(context.Plc, context.EnergyDaily);
             context.Ledger.LoadUsage(context.ProductLog);

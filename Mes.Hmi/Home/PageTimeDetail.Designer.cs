@@ -362,7 +362,7 @@ namespace Mes.Hmi.Home
             this.card7.Padding = new System.Windows.Forms.Padding(1);
             this.card7.Size = new System.Drawing.Size(140, 106);
             this.card7.TabIndex = 6;
-            this.card7.Tag = "气缸耗时";
+            this.card7.Tag = "气缸计时";
             // 
             // cardTitle7
             // 
@@ -374,8 +374,8 @@ namespace Mes.Hmi.Home
             this.cardTitle7.Name = "cardTitle7";
             this.cardTitle7.Size = new System.Drawing.Size(138, 32);
             this.cardTitle7.TabIndex = 0;
-            this.cardTitle7.Tag = "气缸耗时";
-            this.cardTitle7.Text = "气缸耗时";
+            this.cardTitle7.Tag = "气缸计时";
+            this.cardTitle7.Text = "气缸计时";
             this.cardTitle7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cardValue7
@@ -388,7 +388,7 @@ namespace Mes.Hmi.Home
             this.cardValue7.Name = "cardValue7";
             this.cardValue7.Size = new System.Drawing.Size(138, 72);
             this.cardValue7.TabIndex = 1;
-            this.cardValue7.Tag = "气缸耗时";
+            this.cardValue7.Tag = "气缸计时";
             this.cardValue7.Text = "--";
             this.cardValue7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -403,7 +403,7 @@ namespace Mes.Hmi.Home
             this.card8.Padding = new System.Windows.Forms.Padding(1);
             this.card8.Size = new System.Drawing.Size(144, 106);
             this.card8.TabIndex = 7;
-            this.card8.Tag = "通讯耗时";
+            this.card8.Tag = "通讯计时";
             // 
             // cardTitle8
             // 
@@ -415,8 +415,8 @@ namespace Mes.Hmi.Home
             this.cardTitle8.Name = "cardTitle8";
             this.cardTitle8.Size = new System.Drawing.Size(142, 32);
             this.cardTitle8.TabIndex = 0;
-            this.cardTitle8.Tag = "通讯耗时";
-            this.cardTitle8.Text = "通讯耗时";
+            this.cardTitle8.Tag = "通讯计时";
+            this.cardTitle8.Text = "通讯计时";
             this.cardTitle8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cardValue8
@@ -429,7 +429,7 @@ namespace Mes.Hmi.Home
             this.cardValue8.Name = "cardValue8";
             this.cardValue8.Size = new System.Drawing.Size(142, 72);
             this.cardValue8.TabIndex = 1;
-            this.cardValue8.Tag = "通讯耗时";
+            this.cardValue8.Tag = "通讯计时";
             this.cardValue8.Text = "--";
             this.cardValue8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 

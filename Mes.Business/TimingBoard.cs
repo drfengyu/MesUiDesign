@@ -1,4 +1,4 @@
-using Mes.Common;
+﻿using Mes.Common;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,8 +6,9 @@ using System.IO;
 namespace Mes.Business
 {
     /// <summary>
-    /// 时间明细的采样。谁测的谁写进来：过站线程写"流动工位N""过站判定"，状态轮询写"通讯耗时"。
-    /// 每组只留最近 20 个样本，界面看的是均值/最近值，不落盘。
+    /// 时间明细的采样，两层：分组（一个工位/一类动作的节拍）和组内细项（动作单元、一次通讯操作）。
+    /// 谁测的谁写进来：过站线程写工位节拍和该工位的软件步骤，气缸线程写每只气缸的通断时长，
+    /// 轮询线程写各类 PLC 操作。每组每细项只留最近 20 个样本，界面看均值，不落盘。
     /// </summary>
     public class TimingBoard
     {
@@ -17,8 +18,8 @@ namespace Mes.Business
         public const string Return = "回流工位";
         public const string Fit2 = "2#贴合工位";
         public const string Fit3 = "3#贴合工位";
-        public const string Cylinder = "气缸耗时";
-        public const string Communication = "通讯耗时";
+        public const string Cylinder = "气缸计时";
+        public const string Communication = "通讯计时";
 
         public static readonly string[] Groups =
         {
@@ -26,9 +27,16 @@ namespace Mes.Business
         };
 
         private const int Keep = 20;
+        private static readonly char KeySep = '\u0001';
+
         private readonly object gate = new object();
         private readonly Dictionary<string, List<double>> samples = new Dictionary<string, List<double>>(StringComparer.Ordinal);
         private readonly Dictionary<string, double> standards = new Dictionary<string, double>(StringComparer.Ordinal);
+        private readonly Dictionary<string, List<double>> itemSamples = new Dictionary<string, List<double>>(StringComparer.Ordinal);
+        private readonly Dictionary<string, double> itemStandards = new Dictionary<string, double>(StringComparer.Ordinal);
+
+        /// <summary>每组要显示的细项，顺序就是码表里的登记顺序。</summary>
+        private readonly Dictionary<string, List<string>> itemNames = new Dictionary<string, List<string>>(StringComparer.Ordinal);
 
         public TimingBoard(string dataFolder)
         {
@@ -38,16 +46,18 @@ namespace Mes.Business
         public void Add(string group, double milliseconds)
         {
             if (milliseconds < 0) return;
+            lock (gate) Push(samples, group, milliseconds);
+        }
+
+        /// <summary>记一次细项耗时；细项没在码表登记过也会显示出来。</summary>
+        public void Add(string group, string item, double milliseconds)
+        {
+            if (milliseconds < 0 || string.IsNullOrEmpty(item)) return;
             lock (gate)
             {
-                List<double> list;
-                if (!samples.TryGetValue(group, out list))
-                {
-                    list = new List<double>();
-                    samples[group] = list;
-                }
-                list.Add(milliseconds);
-                if (list.Count > Keep) list.RemoveAt(0);
+                Push(itemSamples, Key(group, item), milliseconds);
+                var list = Listed(group);
+                if (!list.Contains(item)) list.Add(item);
             }
         }
 
@@ -55,29 +65,25 @@ namespace Mes.Business
         {
             lock (gate)
             {
-                List<double> list;
-                if (!samples.TryGetValue(group, out list) || list.Count == 0) return double.NaN;
-                var sum = 0D;
-                foreach (var value in list) sum += value;
-                return sum / list.Count;
+                return AverageOf(samples, group);
             }
         }
 
-        public double Last(string group)
+        public double ItemAverage(string group, string item)
         {
             lock (gate)
             {
-                List<double> list;
-                return samples.TryGetValue(group, out list) && list.Count > 0 ? list[list.Count - 1] : double.NaN;
+                return AverageOf(itemSamples, Key(group, item));
             }
         }
 
-        public double[] Snapshot(string group)
+        /// <summary>这一组要列出的细项：码表登记的顺序在前，运行中新出现的追加在后。</summary>
+        public List<string> ItemNames(string group)
         {
             lock (gate)
             {
-                List<double> list;
-                return samples.TryGetValue(group, out list) ? list.ToArray() : new double[0];
+                List<string> list;
+                return itemNames.TryGetValue(group, out list) ? new List<string>(list) : new List<string>();
             }
         }
 
@@ -91,15 +97,70 @@ namespace Mes.Business
             }
         }
 
+        public double ItemStandard(string group, string item)
+        {
+            lock (gate)
+            {
+                double value;
+                return itemStandards.TryGetValue(Key(group, item), out value) ? value : 0D;
+            }
+        }
+
+        private static double AverageOf(Dictionary<string, List<double>> source, string key)
+        {
+            List<double> list;
+            if (!source.TryGetValue(key, out list) || list.Count == 0) return double.NaN;
+            var sum = 0D;
+            foreach (var value in list) sum += value;
+            return sum / list.Count;
+        }
+
+        private static void Push(Dictionary<string, List<double>> source, string key, double milliseconds)
+        {
+            List<double> list;
+            if (!source.TryGetValue(key, out list))
+            {
+                list = new List<double>();
+                source[key] = list;
+            }
+            list.Add(milliseconds);
+            if (list.Count > Keep) list.RemoveAt(0);
+        }
+
+        private List<string> Listed(string group)
+        {
+            List<string> list;
+            if (!itemNames.TryGetValue(group, out list))
+            {
+                list = new List<string>();
+                itemNames[group] = list;
+            }
+            return list;
+        }
+
+        private static string Key(string group, string item)
+        {
+            return group + KeySep + item;
+        }
+
         private void LoadStandards(string file)
         {
             var lines = TextFile.ReadAllLines(file, CodePages.Utf8WithBom());
             for (var i = 1; i < lines.Length; i++)
             {
                 var cols = lines[i].Split(',');
-                if (cols.Length < 2) continue;
+                if (cols.Length < 3) continue;
                 double value;
-                if (double.TryParse(cols[1], out value)) standards[cols[0].Trim()] = value;
+                if (!double.TryParse(cols[2].Trim(), out value)) continue;
+                var group = cols[0].Trim();
+                var item = cols[1].Trim();
+                if (item.Length == 0)
+                {
+                    standards[group] = value;
+                    continue;
+                }
+                itemStandards[Key(group, item)] = value;
+                Listed(group).Add(item);
             }
         }
     }
