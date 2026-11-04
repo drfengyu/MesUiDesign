@@ -26,6 +26,7 @@ namespace Mes.Hmi.Home
         private readonly StationContext station;
         private string gridKey = string.Empty;
         private int tick;
+        private DateTime autoTo;
 
         public PageUptime()
         {
@@ -38,7 +39,7 @@ namespace Mes.Hmi.Home
             ChartKit.StylePlot(plotPie);
             ChartKit.Empty(plotPie, "所选范围内没有已结束的故障");
             fromPicker.Value = DateTime.Today.AddDays(-7);
-            toPicker.Value = DateTime.Now;
+            SyncToTime();
             refresh.Enabled = true;
             RefreshTimers();
             RefreshFault();
@@ -46,11 +47,24 @@ namespace Mes.Hmi.Home
             PaintPie();
         }
 
+        /// <summary>
+        /// 结束时间停在"当天 23:59:59"而不是打开页面那一刻：停在那一刻时，之后新结束的计时
+        /// 开始时间都比它大，点刷新永远查不到新记录。操作员手动改过结束时间就不再自动跟。
+        /// </summary>
+        private void SyncToTime()
+        {
+            var endOfToday = DateTime.Today.AddDays(1).AddMilliseconds(-1);
+            if (autoTo != DateTime.MinValue && toPicker.Value != autoTo) return;
+            autoTo = endOfToday;
+            toPicker.Value = endOfToday;
+        }
+
         // ── 计时 ───────────────────────────────────────────────────────────
 
         private void refresh_Tick(object sender, EventArgs e)
         {
             tick++;
+            SyncToTime();
             RefreshTimers();
             RefreshFault();
             if (tick % 3 == 0) AutoRefreshGrid();
@@ -203,6 +217,7 @@ namespace Mes.Hmi.Home
 
         private void btnQuery_Click(object sender, EventArgs e)
         {
+            SyncToTime();
             if (toPicker.Value < fromPicker.Value)
             {
                 station.Say("结束时间早于开始时间，请重新选择");

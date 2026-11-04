@@ -119,9 +119,9 @@ namespace Mes.Hmi.Home
             // 
             this.faultBody.ColumnCount = 4;
             this.faultBody.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 78F));
-            this.faultBody.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.faultBody.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
-            this.faultBody.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.faultBody.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34F));
+            this.faultBody.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33F));
+            this.faultBody.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33F));
             this.faultBody.Controls.Add(this.infoLabel, 0, 0);
             this.faultBody.Controls.Add(this.faultLabel, 1, 0);
             this.faultBody.Controls.Add(this.codeLabel, 0, 1);
@@ -130,16 +130,16 @@ namespace Mes.Hmi.Home
             this.faultBody.Controls.Add(this.startLabel, 0, 2);
             this.faultBody.Controls.Add(this.faultStartLabel, 1, 2);
             this.faultBody.Controls.Add(this.btnEndFault, 2, 2);
-            this.faultBody.Controls.Add(this.debugLabel, 0, 3);
-            this.faultBody.Controls.Add(this.btnPlannedStart, 0, 4);
-            this.faultBody.Controls.Add(this.btnFirstStart, 1, 4);
-            this.faultBody.Controls.Add(this.btnChangeStart, 2, 4);
-            this.faultBody.Controls.Add(this.btnPlannedEnd, 0, 5);
-            this.faultBody.Controls.Add(this.btnFirstEnd, 1, 5);
-            this.faultBody.Controls.Add(this.btnChangeEnd, 2, 5);
-            this.faultBody.Controls.Add(this.plannedElapsed, 0, 6);
-            this.faultBody.Controls.Add(this.firstElapsed, 1, 6);
-            this.faultBody.Controls.Add(this.changeElapsed, 2, 6);
+            this.faultBody.Controls.Add(this.debugLabel, 1, 3);
+            this.faultBody.Controls.Add(this.btnPlannedStart, 1, 4);
+            this.faultBody.Controls.Add(this.btnFirstStart, 2, 4);
+            this.faultBody.Controls.Add(this.btnChangeStart, 3, 4);
+            this.faultBody.Controls.Add(this.btnPlannedEnd, 1, 5);
+            this.faultBody.Controls.Add(this.btnFirstEnd, 2, 5);
+            this.faultBody.Controls.Add(this.btnChangeEnd, 3, 5);
+            this.faultBody.Controls.Add(this.plannedElapsed, 1, 6);
+            this.faultBody.Controls.Add(this.firstElapsed, 2, 6);
+            this.faultBody.Controls.Add(this.changeElapsed, 3, 6);
             this.faultBody.Dock = System.Windows.Forms.DockStyle.Fill;
             this.faultBody.Location = new System.Drawing.Point(0, 36);
             this.faultBody.Margin = new System.Windows.Forms.Padding(0);
@@ -213,6 +213,7 @@ namespace Mes.Hmi.Home
             this.btnManualFault.TabIndex = 4;
             this.btnManualFault.Text = "手动选择故障代码";
             this.btnManualFault.UseVisualStyleBackColor = true;
+            this.faultBody.SetColumnSpan(this.btnManualFault, 2);
             this.btnManualFault.Click += new System.EventHandler(this.btnManualFault_Click);
             // 
             // startLabel
@@ -249,6 +250,7 @@ namespace Mes.Hmi.Home
             this.btnEndFault.TabIndex = 7;
             this.btnEndFault.Text = "结束当前故障";
             this.btnEndFault.UseVisualStyleBackColor = true;
+            this.faultBody.SetColumnSpan(this.btnEndFault, 2);
             this.btnEndFault.Click += new System.EventHandler(this.btnEndFault_Click);
             // 
             // debugLabel
@@ -262,6 +264,7 @@ namespace Mes.Hmi.Home
             this.debugLabel.TabIndex = 8;
             this.debugLabel.Text = "点位调试(M)[3031001]";
             this.debugLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.faultBody.SetColumnSpan(this.debugLabel, 3);
             // 
             // btnPlannedStart
             // 
@@ -427,7 +430,7 @@ namespace Mes.Hmi.Home
             // 
             // colIndex
             // 
-            this.colIndex.FillWeight = 8F;
+            this.colIndex.FillWeight = 10F;
             this.colIndex.HeaderText = "序号";
             this.colIndex.Name = "colIndex";
             this.colIndex.ReadOnly = true;
@@ -455,7 +458,7 @@ namespace Mes.Hmi.Home
             // 
             // colText
             // 
-            this.colText.FillWeight = 34F;
+            this.colText.FillWeight = 32F;
             this.colText.HeaderText = "故障描述";
             this.colText.Name = "colText";
             this.colText.ReadOnly = true;
@@ -501,6 +504,7 @@ namespace Mes.Hmi.Home
             legend1.Alignment = System.Drawing.StringAlignment.Center;
             legend1.BackColor = System.Drawing.Color.Transparent;
             legend1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(215)))), ((int)(((byte)(222)))));
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
             legend1.Font = new System.Drawing.Font("微软雅黑", 9F);
             legend1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
             legend1.IsTextAutoFit = false;
@@ -510,9 +514,9 @@ namespace Mes.Hmi.Home
             this.plotPie.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
             this.plotPie.Name = "plotPie";
             series1.ChartArea = "main";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(120)))));
-            series1.CustomProperties = "DoughnutRadius=45, PieLabelStyle=Disabled, PieDrawingStyle=SoftEdge";
+            series1.CustomProperties = "PieLabelStyle=Disabled";
             series1.Legend = "legend";
             series1.LegendText = "停机";
             series1.Name = "停机";
